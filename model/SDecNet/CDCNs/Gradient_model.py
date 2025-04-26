@@ -66,10 +66,9 @@ class SDecD(nn.Module):
                          [[1, 0,], [-1, 0]],
                          [[0, 1,], [0, -1]],
                          [[0, 1,], [-1, 0]],
-                         [[0, 0,], [1, -1]],
-                         [[1/2,1/2],[1/2,1/2]]
+                         [[0, 0,], [1, -1]]
                          ])
-        self.num_layer = 7
+        self.num_layer = 6
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.query_conv = nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,groups=self.in_channels,kernel_size=2,stride=2,bias=False)
