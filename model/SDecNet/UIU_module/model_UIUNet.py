@@ -29,35 +29,35 @@ def _upsample_like(src,tar):
 ### RSU-7 ###
 class RSU7(nn.Module):#UNet07DRES(nn.Module):
 
-    def __init__(self, in_ch=3, mid_ch=12, out_ch=3):
+    def __init__(self, in_ch=3, mid_ch=12, out_ch=3,dilation_ratio=1):
         super(RSU7,self).__init__()
 
         self.rebnconvin = REBNCONV(in_ch,out_ch,dirate=1)
 
-        self.rebnconv1 = REBNCONV(out_ch,mid_ch,dirate=1)
+        self.rebnconv1 = REBNCONV(out_ch,mid_ch,dirate=dilation_ratio)
         self.pool1 = nn.MaxPool2d(2,stride=2,ceil_mode=True)
 
-        self.rebnconv2 = REBNCONV(mid_ch,mid_ch,dirate=1)
+        self.rebnconv2 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
         self.pool2 = nn.MaxPool2d(2,stride=2,ceil_mode=True)
 
-        self.rebnconv3 = REBNCONV(mid_ch,mid_ch,dirate=1)
+        self.rebnconv3 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
         self.pool3 = nn.MaxPool2d(2,stride=2,ceil_mode=True)
 
-        self.rebnconv4 = REBNCONV(mid_ch,mid_ch,dirate=1)
+        self.rebnconv4 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
         self.pool4 = nn.MaxPool2d(2,stride=2,ceil_mode=True)
 
-        self.rebnconv5 = REBNCONV(mid_ch,mid_ch,dirate=1)
+        self.rebnconv5 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
         self.pool5 = nn.MaxPool2d(2,stride=2,ceil_mode=True)
 
-        self.rebnconv6 = REBNCONV(mid_ch,mid_ch,dirate=1)
+        self.rebnconv6 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
 
         self.rebnconv7 = REBNCONV(mid_ch,mid_ch,dirate=2)
 
-        self.rebnconv6d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
-        self.rebnconv5d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
-        self.rebnconv4d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
-        self.rebnconv3d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
-        self.rebnconv2d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
+        self.rebnconv6d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
+        self.rebnconv5d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
+        self.rebnconv4d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
+        self.rebnconv3d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
+        self.rebnconv2d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
         self.rebnconv1d = REBNCONV(mid_ch*2,out_ch,dirate=1)
 
     def forward(self,x):

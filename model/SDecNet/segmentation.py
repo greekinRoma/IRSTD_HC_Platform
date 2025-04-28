@@ -1,15 +1,9 @@
 import torch
 import torch.nn as nn
-from torch.nn import Flatten
-import torch.nn.functional as F
-from .Gradient_attention.contrast_and_atrous import AttnContrastLayer
-from .CDCNs.Gradient_model import SDecM,SDecD
+from .FDecM.FDecM import SDecD,SDecM
 from .AttentionModule import *
-from .CSPBlocks.InceptionNext import InceptionDWConv2d
 from torch.nn.functional import normalize
 from .UIU_module.model_UIUNet import *
-# from .SoftPool.SoftPool.idea import SoftPool2d
-# from .....files.SoftPool import soft_pool2d
 def get_activation(activation_type):
     activation_type = activation_type.lower()
     if hasattr(nn, activation_type):
@@ -84,14 +78,14 @@ class down_layer(nn.Module):
         super().__init__()
         self.max_pool = nn.MaxPool2d((2,2))
         self.avg_pool = nn.AvgPool2d((2,2))
-        self.conv = SDecD(in_channels=in_channel//2,out_channels=in_channel//2,shifts=[1],kernel_size=1)
+        self.conv = SDecD(in_channels=in_channel//4,out_channels=in_channel//4,shifts=[1],kernel_size=1)
     def forward(self,inp):
         out1,out2,out3,out4 = torch.chunk(inp,dim=1,chunks=4)
         out1 = self.max_pool(out1)
         out2 = self.avg_pool(out2)
-        outs = torch.concat([out3,out4],dim=1)
-        outs = self.conv(outs)
-        out = torch.concat([out1,out2,outs],dim=1)
+        out3 = -self.max_pool(-out3)
+        out4 = self.conv(out4)
+        out = torch.concat([out1,out2,out3,out4],dim=1)
         return out
 class SDecNet(nn.Module):
     def __init__(self,  n_channels=1, n_classes=1, img_size=256, vis=False, mode='train', deepsuper=True):
@@ -103,7 +97,7 @@ class SDecNet(nn.Module):
         self.n_classes = n_classes
         in_channels = 8
         block = Res_block
-        self.inc = RSU7(n_channels,in_channels,in_channels*2)
+        self.inc = RSU7(n_channels,in_channels,in_channels*2,dilation_ratio=1)
         self.down1 = down_layer(in_channel=in_channels*2,out_channel=in_channels*2)
         self.encoder1 = self._make_layer(block, in_channels * 2, in_channels * 2, 1) 
         self.down2 = down_layer(in_channel=in_channels*2,out_channel=in_channels*2)
@@ -122,7 +116,7 @@ class SDecNet(nn.Module):
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)
         self.decoder2 = UpBlock_attention(in_channels * 4, in_channels*2, nb_Conv=2)
         self.decoder1 = UpBlock_attention(in_channels * 4, in_channels*2, nb_Conv=2)
-        self.outc = nn.Sequential(RSU7(in_channels*2,in_channels,in_channels*2),
+        self.outc = nn.Sequential(RSU7(in_channels*2,in_channels,in_channels*2,dilation_ratio=1),
                                   nn.Conv2d(in_channels*2, n_classes, kernel_size=(1, 1), stride=(1, 1)))
     def _make_layer(self, block, input_channels, output_channels, num_blocks=1):
         layers = []
