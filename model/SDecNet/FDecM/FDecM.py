@@ -71,7 +71,11 @@ class SDecD(nn.Module):
     def Extract_layer(self,cen,b,w,h):
         origins = self.origin_conv(cen)
         origins = origins.view(b,self.hidden_channels,1,-1)
-        Basis = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
+        edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
+        maxs = torch.nn.functional.max_pool2d(input=cen,kernel_size=2,stride=2) 
+        mins = torch.nn.functional.max_pool2d(input=-cen,kernel_size=2,stride=2)
+        maxs = torch.stack([maxs,mins],dim=2).view(b,self.hidden_channels,2,-1)
+        Basis = torch.concat([edge,maxs],dim=2)
         Basis1 = torch.nn.functional.normalize(Basis,dim=-1)
         Basis2 = Basis1.transpose(-2,-1)
         weight_score = torch.matmul(origins,Basis2)
