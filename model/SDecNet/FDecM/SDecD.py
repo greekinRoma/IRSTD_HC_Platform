@@ -1,0 +1,40 @@
+import numpy as np
+import torch
+from torch import nn
+from .SortConv import SortConv
+class SDecD(nn.Module):
+    def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
+        super().__init__()
+        #The hyper parameters settting
+        self.hidden_channels = in_channels//kernel_size
+        self.in_channels = in_channels
+        self.convs_list=nn.ModuleList()
+        self.shifts = shifts
+        self.kernel_size = kernel_size
+        self.num_shift = len(self.shifts)
+        kernel=np.array([[[1, -1], [1, -1]],
+                         [[1, 1],[-1, -1]],
+                         [[1, -1,], [-1, 1]],
+                         [[1,1],[1,1]]
+                         ])/2
+        self.num_layer = 4
+        self.max_pool = nn.MaxPool2d((2,2))
+        self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
+        self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
+        self.origin_conv = nn.Sequential(
+            SortConv(),
+            nn.Conv2d(in_channels=in_channels*4,out_channels=in_channels,kernel_size=1,stride=1)
+        )
+    def Extract_layer(self,cen,b,w,h):
+        basis = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
+        Basis1 = torch.nn.functional.normalize(basis,dim=-1)
+        Basis2 = Basis1.transpose(-2,-1)
+        origins = self.origin_conv(cen)
+        origins = origins.view(b,self.hidden_channels,1,-1)
+        weight_score = torch.matmul(origins,Basis2)
+        out = torch.matmul(weight_score,Basis1).view(b,self.hidden_channels,w//2,h//2)
+        return out
+    def forward(self,cen):
+        b,_,w,h= cen.shape
+        out = self.Extract_layer(cen,b,w,h)
+        return out

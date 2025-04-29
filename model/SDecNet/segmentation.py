@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
-from .FDecM.FDecM import SDecD,SDecM
+from .FDecM.SDecM import SDecM
 from .AttentionModule import *
-from torch.nn.functional import normalize
 from .UIU_module.model_UIUNet import *
+from .Pool.InceptionPool import InceptionPool as down_layer
 def get_activation(activation_type):
     activation_type = activation_type.lower()
     if hasattr(nn, activation_type):
@@ -72,20 +72,6 @@ class Res_block(nn.Module):
 
         out += residual
         out = self.relu(out)
-        return out
-class down_layer(nn.Module):
-    def __init__(self,in_channel,out_channel,kernel=2,stride=2):
-        super().__init__()
-        self.max_pool = nn.MaxPool2d((2,2))
-        self.avg_pool = nn.AvgPool2d((2,2))
-        self.conv = SDecD(in_channels=in_channel//4,out_channels=in_channel//4,shifts=[1],kernel_size=1)
-    def forward(self,inp):
-        out1,out2,out3,out4 = torch.chunk(inp,dim=1,chunks=4)
-        out1 = self.max_pool(out1)
-        out2 = self.avg_pool(out2)
-        out3 = -self.max_pool(-out3)
-        out4 = self.conv(out4)
-        out = torch.concat([out1,out2,out3,out4],dim=1)
         return out
 class SDecNet(nn.Module):
     def __init__(self,  n_channels=1, n_classes=1, img_size=256, vis=False, mode='train', deepsuper=True):

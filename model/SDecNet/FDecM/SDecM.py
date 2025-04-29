@@ -1,11 +1,7 @@
 import torch
 from torch import nn
 import numpy as np
-import torch.nn.functional as F
 from torch import nn
-import math
-from ..AttentionModule.nonlocal_module import _NonLocalBlockND
-from .contrast_and_atrous import AttnContrastLayer
 class SDecM(nn.Module):
     def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
         super().__init__()
@@ -43,43 +39,6 @@ class SDecM(nn.Module):
         basis1 = basis2.transpose(-2,-1)
         weight_score = torch.matmul(origin,basis1)
         out = torch.matmul(weight_score,basis2).view(b,self.hidden_channels,w,h)
-        return out
-    def forward(self,cen):
-        b,_,w,h= cen.shape
-        out = self.Extract_layer(cen,b,w,h)
-        return out
-class SDecD(nn.Module):
-    def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
-        super().__init__()
-        #The hyper parameters settting
-        self.hidden_channels = in_channels//kernel_size
-        self.in_channels = in_channels
-        self.convs_list=nn.ModuleList()
-        self.shifts = shifts
-        self.kernel_size = kernel_size
-        self.num_shift = len(self.shifts)
-        kernel=np.array([[[1, -1], [-1, 1]],
-                         [[1, -1,], [1, -1]],
-                         [[1, 1,], [-1, -1]]])/2
-        self.num_layer = 3
-        self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
-        self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
-        self.origin_conv = nn.Sequential(
-            nn.AvgPool2d((2,2)),
-            nn.Conv2d(in_channels=in_channels,out_channels=in_channels,kernel_size=1,stride=1)
-        )
-    def Extract_layer(self,cen,b,w,h):
-        origins = self.origin_conv(cen)
-        origins = origins.view(b,self.hidden_channels,1,-1)
-        edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
-        maxs = torch.nn.functional.max_pool2d(input=cen,kernel_size=2,stride=2) 
-        mins = torch.nn.functional.max_pool2d(input=-cen,kernel_size=2,stride=2)
-        maxs = torch.stack([maxs,mins],dim=2).view(b,self.hidden_channels,2,-1)
-        Basis = torch.concat([edge,maxs],dim=2)
-        Basis1 = torch.nn.functional.normalize(Basis,dim=-1)
-        Basis2 = Basis1.transpose(-2,-1)
-        weight_score = torch.matmul(origins,Basis2)
-        out = torch.matmul(weight_score,Basis1).view(b,self.hidden_channels,w//2,h//2)
         return out
     def forward(self,cen):
         b,_,w,h= cen.shape
