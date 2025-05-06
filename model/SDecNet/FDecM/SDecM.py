@@ -21,12 +21,12 @@ class SDecM(nn.Module):
         kernel=np.concatenate([delta1,delta2],axis=0)
         self.kernel = torch.from_numpy(kernel).float().cuda()
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
-        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.in_channels,kernel_size=1,stride=1))
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.in_channels,kernel_size=1,stride=1),
+                                      nn.BatchNorm2d(self.in_channels))
         self.basis_convs = nn.ModuleList()
         self.origin_convs = nn.ModuleList()
         self.num_layer = 8
         self.origin_conv = nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False)
-        self.out_conv = nn.Conv2d(in_channels=self.in_channels,out_channels=self.in_channels,kernel_size=1,stride=1,bias=False)
     def Extract_layer(self,cen,b,w,h):
         basises = []
         origin = self.origin_conv(cen)
@@ -43,4 +43,5 @@ class SDecM(nn.Module):
     def forward(self,cen):
         b,_,w,h= cen.shape
         out = self.Extract_layer(cen,b,w,h)
+        out = self.out_conv(out)
         return out
