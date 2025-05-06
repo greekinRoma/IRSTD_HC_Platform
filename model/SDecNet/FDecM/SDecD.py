@@ -3,27 +3,24 @@ import torch
 from torch import nn
 from .SortConv import SortConv
 class SDecD(nn.Module):
-    def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
+    def __init__(self,dim,ratio=1):
         super().__init__()
         #The hyper parameters settting
-        self.hidden_channels = in_channels//kernel_size
-        self.in_channels = in_channels
+        self.hidden_channels = dim//ratio
+        self.in_channels = dim
         self.convs_list=nn.ModuleList()
-        self.shifts = shifts
-        self.kernel_size = kernel_size
-        self.num_shift = len(self.shifts)
+        self.kernel_size = ratio
         kernel=np.array([[[1, -1], [1, -1]],
                          [[1, 1],[-1, -1]],
                          [[1, -1,], [-1, 1]],
-                         [[1,1],[1,1]]
                          ])/2
-        self.num_layer = 4
+        self.num_layer = 3
         self.max_pool = nn.MaxPool2d((2,2))
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
             SortConv(),
-            nn.Conv2d(in_channels=in_channels*4,out_channels=in_channels,kernel_size=1,stride=1)
+            nn.Conv2d(in_channels=dim*4,out_channels=dim,kernel_size=1,stride=1)
         )
     def Extract_layer(self,cen,b,w,h):
         basis = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
