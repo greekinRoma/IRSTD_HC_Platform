@@ -19,7 +19,7 @@ class SDecD(nn.Module):
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
-            SortConv(),
+            nn.AvgPool2d((2,2)),
             nn.Conv2d(in_channels=dim*4,out_channels=dim,kernel_size=1,stride=1)
         )
     def Extract_layer(self,cen,b,w,h):
