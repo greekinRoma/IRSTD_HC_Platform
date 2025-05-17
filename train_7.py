@@ -12,7 +12,6 @@ from utils.datasets import NUDTSIRSTSetLoader
 from utils.datasets import IRSTD1KSetLoader
 from utils.datasets import SIRSTAugSetLoader
 from utils.datasets import SIRSTSetLoader
-# from utils.datasets import NUAASIRSTSetLoader
 
 from evaluation.mIoU import mIoU
 from evaluation.pd_fa import PD_FA
@@ -30,7 +29,7 @@ parser = argparse.ArgumentParser(description="PyTorch ISTD")
 parser.add_argument("--model_names", default=['SDecNet',], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['IRSTD-1K'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")
@@ -108,8 +107,6 @@ def train():
         opt.optimizer_settings = {'lr': 5e-4}
         opt.scheduler_name = 'MultiStepLR'
         opt.scheduler_settings = {'epochs': 400, 'step': [200, 300], 'gamma': 0.1}
-        # opt.scheduler_settings = {'epochs':100, 'step': [50, 75], 'gamma': 0.1}
-        # opt.scheduler_settings = {'epochs':200, 'step': [100, 150], 'gamma': 0.1}
 
     if opt.optimizer_name == 'Adagrad':
         opt.optimizer_settings['lr'] = 0.05

@@ -26,9 +26,12 @@ class SDecM(nn.Module):
         self.basis_convs = nn.ModuleList()
         self.origin_convs = nn.ModuleList()
         self.num_layer = 8
-        self.origin_conv = nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False)
+        self.down_layer = nn.Sequential(nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
+                                        nn.BatchNorm2d(self.hidden_channels))
+        self.origin_conv = nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False)
     def Extract_layer(self,cen,b,w,h):
         basises = []
+        cen = self.down_layer(cen)
         origin = self.origin_conv(cen)
         for i in range(len(self.shifts)):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i])
