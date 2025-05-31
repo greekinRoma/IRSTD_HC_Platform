@@ -93,10 +93,10 @@ class SDecNet(nn.Module):
         self.down4 = down_layer(in_channel=in_channels*8,out_channel=in_channels*8)
         self.encoder4 = self._make_layer(block, in_channels * 8,  in_channels * 8, 1)  
 
-        self.contras1 = SDecM(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=1,shifts=[1,3])
-        self.contras2 = SDecM(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3])
-        self.contras3 = SDecM(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1,3])
-        self.contras4 = SDecM(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1,3])
+        self.contras1 = SDecM(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3])
+        self.contras2 = SDecM(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=4,shifts=[1,3])
+        self.contras3 = SDecM(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=8,shifts=[1,3])
+        self.contras4 = SDecM(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=16,shifts=[1,3])
         
         self.decoder4 = UpBlock_attention(in_channels * 16, in_channels * 4, nb_Conv=2)
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)
