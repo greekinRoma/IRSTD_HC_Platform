@@ -11,7 +11,7 @@ class InceptionPool(nn.Module):
     def forward(self,inp):
         out1,out2,out3,out4 = torch.chunk(inp,dim=1,chunks=4)
         out1 = self.max_pool(out1)
-        out2 = self.max_pool(-out2)
+        out2 = -self.max_pool(-out2)
         out3 = self.avg_pool(out3)
         out4 = self.sdecd(out4)
         out = torch.concat([out1,out2,out3,out4],dim=1)

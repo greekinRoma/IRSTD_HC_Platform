@@ -16,6 +16,7 @@ class SDecP(nn.Module):
                          ])
         self.num_layer = 3
         self.max_pool = nn.MaxPool2d((2,2))
+        self.avg_pool = nn.AvgPool2d((2,2))
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
@@ -24,7 +25,7 @@ class SDecP(nn.Module):
         )
     def Extract_layer(self,cen,b,w,h):
         edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
-        max1 = self.max_pool(cen)
+        max1 = self.max_pool(cen) - self.avg_pool(cen)
         max = max1.view(b,self.hidden_channels,1,-1)
         basis = torch.concat([max,edge],dim=2)
         Basis1 = torch.nn.functional.normalize(basis,dim=-1)

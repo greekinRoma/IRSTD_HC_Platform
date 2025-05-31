@@ -51,9 +51,9 @@ class RSU7(nn.Module):#UNet07DRES(nn.Module):
 
         self.rebnconv6 = REBNCONV(mid_ch,mid_ch,dirate=2)
 
-        self.rebnconv7 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
+        self.rebnconv7 = REBNCONV(mid_ch,mid_ch,dirate=2)
 
-        self.rebnconv6d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
+        self.rebnconv6d = REBNCONV(mid_ch*2,mid_ch,dirate=2)
         self.rebnconv5d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
         self.rebnconv4d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
         self.rebnconv3d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
