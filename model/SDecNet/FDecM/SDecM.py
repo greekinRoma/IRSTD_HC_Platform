@@ -31,7 +31,7 @@ class SDecM(nn.Module):
         self.origin_conv = nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1)
         self.max_pool = nn.MaxPool2d(kernel_size=3,stride=1,padding=1)
     def Extract_layer(self,cen,b,w,h):
-        basises = [self.max_pool(cen)]
+        basises = [self.max_pool(cen).view(b,self.hidden_channels,1,-1)]
         origin = self.origin_conv(cen).view(b,self.hidden_channels,1,-1)
         for i in range(len(self.shifts)):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i])
