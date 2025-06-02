@@ -49,15 +49,15 @@ class RSU7(nn.Module):#UNet07DRES(nn.Module):
         self.rebnconv5 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
         self.pool5 = nn.MaxPool2d(2,stride=2,ceil_mode=True)
 
-        self.rebnconv6 = REBNCONV(mid_ch,mid_ch,dirate=2)
+        self.rebnconv6 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
 
-        self.rebnconv7 = REBNCONV(mid_ch,mid_ch,dirate=2)
+        self.rebnconv7 = REBNCONV(mid_ch,mid_ch,dirate=dilation_ratio)
 
-        self.rebnconv6d = REBNCONV(mid_ch*2,mid_ch,dirate=2)
-        self.rebnconv5d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
-        self.rebnconv4d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
-        self.rebnconv3d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
-        self.rebnconv2d = REBNCONV(mid_ch*2,mid_ch,dirate=dilation_ratio)
+        self.rebnconv6d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
+        self.rebnconv5d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
+        self.rebnconv4d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
+        self.rebnconv3d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
+        self.rebnconv2d = REBNCONV(mid_ch*2,mid_ch,dirate=1)
         self.rebnconv1d = REBNCONV(mid_ch*2,out_ch,dirate=1)
 
     def forward(self,x):
