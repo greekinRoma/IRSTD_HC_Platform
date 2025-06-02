@@ -21,7 +21,7 @@ class SDecM(nn.Module):
         kernel=np.concatenate([delta1,delta2],axis=0)
         self.kernel = torch.from_numpy(kernel).float().cuda()
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
-        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.in_channels,kernel_size=1,stride=1),
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
                                       nn.BatchNorm2d(self.in_channels),
                                       nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.in_channels,kernel_size=1,stride=1))
         self.basis_convs = nn.ModuleList()
