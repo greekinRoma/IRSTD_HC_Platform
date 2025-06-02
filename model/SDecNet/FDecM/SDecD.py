@@ -25,7 +25,7 @@ class SDecP(nn.Module):
         )
     def Extract_layer(self,cen,b,w,h):
         edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
-        max1 = self.max_pool(cen) - self.avg_pool(cen)
+        max1 = self.max_pool(cen)
         max = max1.view(b,self.hidden_channels,1,-1)
         basis = torch.concat([max,edge],dim=2)
         Basis1 = torch.nn.functional.normalize(basis,dim=-1)
