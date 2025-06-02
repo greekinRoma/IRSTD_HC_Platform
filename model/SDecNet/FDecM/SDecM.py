@@ -31,7 +31,6 @@ class SDecM(nn.Module):
         self.origin_conv = nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1)
     def Extract_layer(self,cen,b,w,h):
         basises = []
-        cen = self.down_layer(cen)
         origin = self.origin_conv(cen)
         for i in range(len(self.shifts)):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i])
@@ -45,6 +44,7 @@ class SDecM(nn.Module):
         return out
     def forward(self,cen):
         b,_,w,h= cen.shape
+        cen = self.down_layer(cen)
         out = self.Extract_layer(cen,b,w,h)
         out = self.out_conv(out)
         return out
