@@ -66,7 +66,7 @@ class SDecD(nn.Module):
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
             nn.AvgPool2d((2,2)),
-            nn.Conv2d(in_channels=in_channels,out_channels=in_channels,kernel_size=1,stride=1)
+            nn.Conv2d(in_channels=in_channels,out_channels=in_channels,kernel_size=1,stride=1,bias=False)
         )
     def Extract_layer(self,cen,b,w,h):
         origins = self.origin_conv(cen)
