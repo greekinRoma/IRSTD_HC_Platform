@@ -29,7 +29,7 @@ class SDecM(nn.Module):
         self.num_layer = 8
         self.down_layer = nn.Sequential(nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
                                         nn.BatchNorm2d(self.hidden_channels))
-        self.origin_conv = nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1)
+        self.origin_conv = nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False)
         self.max_pool = nn.MaxPool2d(kernel_size=3,stride=1,padding=1)
         self.avg_pool = nn.AvgPool2d(kernel_size=3,stride=1,padding=1)
     def Extract_layer(self,cen,b,w,h):
