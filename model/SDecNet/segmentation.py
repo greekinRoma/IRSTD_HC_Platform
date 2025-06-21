@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from .FDecM.SDecM import SDecM
 from .AttentionModule import *
-from .UIU_module.model_UIUNet import *
+from .UNet_module.model_UIUNet import *
 from .Pool.InceptionPool import InceptionPool as down_layer
 def get_activation(activation_type):
     activation_type = activation_type.lower()
