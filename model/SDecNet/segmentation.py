@@ -81,9 +81,9 @@ class Head(nn.Module):
         super(Head, self).__init__()
         interChannel = inpChannel//4
         self.head = nn.Sequential(
-            nn.Conv2d(inpChannel, interChannel,kernel_size=7, padding=3,bias=False,groups=interChannel),
+            nn.Conv2d(inpChannel, interChannel,kernel_size=7, padding=3,groups=interChannel,bias=False),
         )
-        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=interChannel+inpChannel,out_channels=oupChannel,kernel_size=1,stride=1))
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=interChannel+inpChannel,out_channels=oupChannel,kernel_size=1,stride=1,bias=False))
     def forward(self, x):
         return self.out_conv(torch.concat([self.head(x),x],dim=1))
 class SDecNet(nn.Module):
@@ -115,8 +115,8 @@ class SDecNet(nn.Module):
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)
         self.decoder2 = UpBlock_attention(in_channels * 4, in_channels*2, nb_Conv=2)
         self.decoder1 = UpBlock_attention(in_channels * 4, in_channels*2, nb_Conv=2)
-        self.outc = nn.Sequential(RSU7(in_channels*2,in_channels,in_channels*2,dilation_ratio=1),
-                                  Head(inpChannel=in_channels*2,oupChannel=n_classes))
+        self.outc = nn.Sequential(RSU7(in_channels*2,in_channels,in_channels,dilation_ratio=1),
+                                  Head(inpChannel=in_channels,oupChannel=n_classes))
     def _make_layer(self, block, input_channels, output_channels, num_blocks=1):
         layers = []
         layers.append(block(input_channels, output_channels))
