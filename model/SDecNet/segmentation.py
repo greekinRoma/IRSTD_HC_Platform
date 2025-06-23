@@ -79,21 +79,13 @@ class Head(nn.Module):
                  activate=nn.ReLU
                  ):
         super(Head, self).__init__()
-        interChannel = inpChannel // 4
+        interChannel = inpChannel//4
         self.head = nn.Sequential(
-            nn.Conv2d(inpChannel, interChannel,
-                      kernel_size=3, padding=1,
-                      bias=False),
-            normLayer(interChannel),
-            activate(),
-            # nn.Dropout(),
-            nn.Conv2d(interChannel, oupChannel,
-                      kernel_size=1, padding=0,
-                      bias=True)
+            nn.Conv2d(inpChannel, interChannel,kernel_size=7, padding=3,bias=False,groups=interChannel),
         )
-
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=interChannel+inpChannel,out_channels=oupChannel,kernel_size=1,stride=1))
     def forward(self, x):
-        return self.head(x)
+        return self.out_conv(torch.concat([self.head(x),x],dim=1))
 class SDecNet(nn.Module):
     def __init__(self,  n_channels=1, n_classes=1, img_size=512, vis=False, mode='train', deepsuper=True):
         super().__init__()
