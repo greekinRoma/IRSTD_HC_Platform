@@ -2,6 +2,7 @@ import torch
 from torch import nn
 import numpy as np
 from torch import nn
+import math
 class SDecM(nn.Module):
     def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
         super().__init__()
@@ -36,8 +37,8 @@ class SDecM(nn.Module):
         basises = [(self.max_pool(cen)-self.avg_pool(cen)).view(b,self.hidden_channels,1,-1)]
         origin = self.origin_conv(cen).view(b,self.hidden_channels,1,-1)
         for i in range(len(self.shifts)):
-            basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i])
-            basises.append(basis.view(b,self.hidden_channels,self.num_layer,-1))
+            basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i]).view(b,self.hidden_channels,self.num_layer,-1)
+            basises.append(basis)
         origin=origin.view(b,self.hidden_channels,1,-1)
         basis1 = torch.concat(basises,dim=2)
         basis2 = torch.nn.functional.normalize(basis1,dim=-1)

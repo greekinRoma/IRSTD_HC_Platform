@@ -39,7 +39,7 @@ class UpBlock_attention(nn.Module):
             nn.Conv2d(in_channels//2,in_channels//2,kernel_size=1),
             nn.Sigmoid())
     def forward(self,d,c,xin):
-        d = self.up(d)
+        d = self.up(d)+xin
         d = self.sattn(c)*d
         x = torch.cat([c, d], dim=1)
         x = self.nConvs(x)
