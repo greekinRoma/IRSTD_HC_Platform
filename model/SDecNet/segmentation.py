@@ -74,10 +74,7 @@ class Res_block(nn.Module):
         out = self.relu(out)
         return out
 class Head(nn.Module):
-    def __init__(self, inpChannel, oupChannel,
-                 normLayer=nn.BatchNorm2d,
-                 activate=nn.ReLU
-                 ):
+    def __init__(self, inpChannel, oupChannel):
         super(Head, self).__init__()
         interChannel = inpChannel//4
         self.head = nn.Sequential(
