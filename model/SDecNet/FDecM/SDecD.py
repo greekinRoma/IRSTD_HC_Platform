@@ -21,8 +21,9 @@ class SDecP(nn.Module):
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
             nn.AvgPool2d((2,2)),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1)
+            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1,bias=False)
         )
+        self.trans_conv = nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1)
         self.params = nn.Parameter(torch.ones(1,1,1,1),requires_grad=True).cuda()
     def Extract_layer(self,cen,b,w,h):
         edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
@@ -33,6 +34,7 @@ class SDecP(nn.Module):
         Basis2 = Basis1.transpose(-2,-1)
         origins = self.origin_conv(cen)
         origins = origins + torch.rand_like(origins)
+        origins = self.trans_conv(origins)
         origins = origins.view(b,self.hidden_channels,1,-1)
         weight_score = torch.matmul(origins,Basis2)
         out = torch.matmul(weight_score,Basis1).view(b,self.hidden_channels,w//2,h//2)
