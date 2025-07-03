@@ -41,7 +41,7 @@ class SDecM(nn.Module):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i]).view(b,self.hidden_channels,self.num_layer,-1)
             basises.append(basis)
         origin = self.origin_conv(cen)
-        origin = origin + torch.rand_like(origin)
+        # origin = origin + torch.rand_like(origin)
         origin = self.trans_conv(origin)
         origin=origin.view(b,self.hidden_channels,1,-1)
         basis1 = torch.concat(basises,dim=2)
