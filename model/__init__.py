@@ -3,6 +3,7 @@ from model.ALCNet.model_ALCNet import MPCMResNetFPN as ALCNet
 from model.AGPCNet.network import AGPCNet
 from model.ACM.model_ACM import ASKCResUNet as ACM
 from model.DNANet.model_DNANet import DNANet as DNANet
+from model.RPCANet.RPCANet import RPCANet 
 # from model.ISNet.model_ISNet import ISNet as ISNet
 # from model.RISTDnet.model_RISTDnet import RISTDnet as RISTDnet
 from model.UIUNet.model_UIUNet import UIUNET as UIUNet
@@ -15,3 +16,4 @@ from model.Algorithm import Algorithms
 from model.L2SKNet.L2SKNet import L2SKNet_UNet
 from model.MSHNet.MSHNet import MSHNet
 from model.SDecNet.segmentation import SDecNet
+from model.SCtransNet.SCTransNet import SCTransNet
