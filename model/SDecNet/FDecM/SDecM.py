@@ -4,7 +4,7 @@ import numpy as np
 from torch import nn
 import math
 from .NSLayer import NSLayer
-class SDecM(nn.Module):
+class SD2M(nn.Module):
     def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
         super().__init__()
         #The hyper parameters settting
@@ -43,9 +43,7 @@ class SDecM(nn.Module):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i]).view(b,self.hidden_channels,self.num_layer,-1)
             basises.append(basis)
         basis1 = torch.concat(basises,dim=2)
-        basis1 = torch.nn.functional.normalize(basis1,dim=-1)/4
-        basis2 = self.NSs(basis1)*2
-        basis2 = torch.nn.functional.normalize(basis2,dim=-1)
+        basis2 = torch.nn.functional.normalize(basis1,dim=-1)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)

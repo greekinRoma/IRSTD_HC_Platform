@@ -19,7 +19,7 @@ class SD2D(nn.Module):
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
             nn.AvgPool2d((2,2)),
-            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False),
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
         self.NSs = nn.Sequential(NSLayer(channel=self.hidden_channels,kernel=4),
@@ -30,9 +30,9 @@ class SD2D(nn.Module):
         max1 = self.max_pool(cen)
         max1 = max1.view(b,self.hidden_channels,1,-1)
         basis = torch.concat([max1,edge],dim=2)
-        basis = torch.nn.functional.normalize(basis,dim=-1)/2
-        basis1 = self.NSs(basis)*2
-        basis1 = torch.nn.functional.normalize(basis1,dim=-1)
+        # basis = torch.nn.functional.normalize(basis,dim=-1)/2
+        # basis1 = self.NSs(basis)
+        basis1 = torch.nn.functional.normalize(basis,dim=-1)
         basis2 = basis1.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)
