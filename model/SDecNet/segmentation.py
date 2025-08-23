@@ -129,13 +129,13 @@ class SDecNet(nn.Module):
         x4 = self.encoder3(self.down3(x3))  
         d5 = self.encoder4(self.down4(x4))  
         # Transfor_layer
-        c1,l1 = self.contras1(x1)
-        c2,l2 = self.contras2(x2)
-        c3,l3 = self.contras3(x3)
-        c4,l4 = self.contras4(x4)
+        c1 = self.contras1(x1)
+        c2 = self.contras2(x2)
+        c3 = self.contras3(x3)
+        c4 = self.contras4(x4)
         # decoder
         d4 = self.decoder4(d5, c4, x4)
         d3 = self.decoder3(d4, c3, x3)
         d2 = self.decoder2(d3, c2, x2)
         out = self.outc(self.decoder1(d2, c1, x1))
-        return out.sigmoid(),(l1+l2+l3+l4)/4
+        return out.sigmoid()
