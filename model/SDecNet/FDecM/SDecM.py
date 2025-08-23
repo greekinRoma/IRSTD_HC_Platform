@@ -44,7 +44,7 @@ class SDecM(nn.Module):
             basises.append(basis)
         basis1 = torch.concat(basises,dim=2)
         basis1 = torch.nn.functional.normalize(basis1,dim=-1)/4
-        basis2 = self.NSs(basis1)
+        basis2 = self.NSs(basis1)*2
         basis2 = torch.nn.functional.normalize(basis2,dim=-1)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)
