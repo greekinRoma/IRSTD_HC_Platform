@@ -30,9 +30,9 @@ class SD2D(nn.Module):
         max1 = self.max_pool(cen)
         max1 = max1.view(b,self.hidden_channels,1,-1)
         basis = torch.concat([max1,edge],dim=2)
-        # basis = torch.nn.functional.normalize(basis,dim=-1)/2
-        # basis1 = self.NSs(basis)
-        basis1 = torch.nn.functional.normalize(basis,dim=-1)
+        basis = torch.nn.functional.normalize(basis,dim=-1)/2
+        basis1 = self.NSs(basis)*2
+        # basis1 = torch.nn.functional.normalize(basis,dim=-1)
         basis2 = basis1.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)
