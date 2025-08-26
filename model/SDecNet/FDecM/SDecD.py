@@ -22,17 +22,17 @@ class SD2D(nn.Module):
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
-        self.NSs = nn.Sequential(NSLayer(channel=self.hidden_channels,kernel=4),
-                                 NSLayer(channel=self.hidden_channels,kernel=4),)
+        self.NSs = NSLayer(kernel=4,channel=self.hidden_channels)
         self.max_pool = nn.MaxPool2d(kernel_size=2)
+        self.scale = nn.Parameter(torch.zeros(1,1,1,1)+0.5,requires_grad=True)
     def Extract_layer(self,cen,b,w,h):
         edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
         max1 = self.max_pool(cen)
         max1 = max1.view(b,self.hidden_channels,1,-1)
         basis = torch.concat([max1,edge],dim=2)
         basis = torch.nn.functional.normalize(basis,dim=-1)/2
-        basis1 = self.NSs(basis)*2
-        # basis1 = torch.nn.functional.normalize(basis,dim=-1)
+        basis1 = self.NSs(basis)
+        basis1 = torch.nn.functional.normalize(basis1,dim=-1)
         basis2 = basis1.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)

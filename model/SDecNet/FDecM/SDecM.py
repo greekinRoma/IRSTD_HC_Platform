@@ -35,16 +35,17 @@ class SD2M(nn.Module):
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
-        self.NSs = nn.Sequential(NSLayer(channel=self.hidden_channels,kernel=16),
-                                 NSLayer(channel=self.hidden_channels,kernel=16),)
+        self.NSs = NSLayer(kernel=16,channel=self.hidden_channels)
+        self.scale = nn.Parameter(torch.zeros(1,1,1,1)+0.5,requires_grad=True)
     def Extract_layer(self,cen,b,w,h):
         basises = []
         for i in range(len(self.shifts)):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i]).view(b,self.hidden_channels,self.num_layer,-1)
             basises.append(basis)
         basis = torch.concat(basises,dim=2)
-        basis = torch.nn.functional.normalize(basis,dim=-1)*0.25
-        basis2 = self.NSs(basis)*2
+        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/4
+        basis2 = self.NSs(basis)
+        basis2 = torch.nn.functional.normalize(basis2,dim=-1,p=2)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)
