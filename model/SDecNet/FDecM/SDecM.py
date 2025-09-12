@@ -23,29 +23,28 @@ class SD2M(nn.Module):
         kernel=np.concatenate([delta1,delta2],axis=0)
         self.kernel = torch.from_numpy(kernel).float().cuda()
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
-        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
-                                      nn.BatchNorm2d(self.hidden_channels),
-                                      nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.in_channels,kernel_size=1,stride=1))
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.in_channels,kernel_size=1,stride=1))
         self.basis_convs = nn.ModuleList()
         self.origin_convs = nn.ModuleList()
         self.num_layer = 8
-        self.down_layer = nn.Sequential(nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
-                                        nn.BatchNorm2d(self.hidden_channels))
+        self.down_layer = nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1)
         self.origin_conv = nn.Sequential(
-            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1,bias=False),
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
-        self.NSs = NSLayer(kernel=16,channel=self.hidden_channels)
-        self.scale = nn.Parameter(torch.zeros(1,1,1,1)+0.5,requires_grad=True)
+        self.kernel = 16
+        self.NSs = NSLayer(kernel=self.kernel,channel=self.hidden_channels)
+        self.trans_layer = nn.Sequential(
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.num_layer*2,1),bias=False),)
     def Extract_layer(self,cen,b,w,h):
         basises = []
         for i in range(len(self.shifts)):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i]).view(b,self.hidden_channels,self.num_layer,-1)
             basises.append(basis)
         basis = torch.concat(basises,dim=2)
+        basis = self.trans_layer(basis).view(b,self.hidden_channels,self.kernel,-1)
         basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/4
         basis2 = self.NSs(basis)
-        basis2 = torch.nn.functional.normalize(basis2,dim=-1,p=2)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)

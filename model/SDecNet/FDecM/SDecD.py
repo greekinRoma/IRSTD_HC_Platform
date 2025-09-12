@@ -2,6 +2,7 @@ import numpy as np
 import torch
 from torch import nn
 from .NSLayer import NSLayer
+import math
 class SD2D(nn.Module):
     def __init__(self,dim,ratio=1):
         super().__init__()
@@ -12,27 +13,32 @@ class SD2D(nn.Module):
         self.kernel_size = ratio
         kernel=np.array([[[1, -1], [1, -1]],
                          [[1, 1],[-1, -1]],
-                         [[1, -1,], [-1, 1]],
+                        [[1/4,1/4],[1/4,1/4]]
                          ])
         self.num_layer = 3
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
-            nn.AvgPool2d((2,2)),
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=2,stride=2),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
-        self.NSs = NSLayer(kernel=4,channel=self.hidden_channels)
+        self.NSs = NSLayer(kernel=self.num_layer+1,channel=self.hidden_channels)
+        self.out_conv = nn.Sequential(
+            nn.Conv2d(in_channels=self.in_channels,out_channels=self.in_channels,kernel_size=1)
+        )
         self.max_pool = nn.MaxPool2d(kernel_size=2)
-        self.scale = nn.Parameter(torch.zeros(1,1,1,1)+0.5,requires_grad=True)
+        self.params = nn.Parameter(torch.ones(1,1,1,1)/2,requires_grad=True)
+        self.kernel = 4
+        self.trans_layer = nn.Sequential(
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.kernel,1)))
     def Extract_layer(self,cen,b,w,h):
-        edge = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
-        max1 = self.max_pool(cen)
-        max1 = max1.view(b,self.hidden_channels,1,-1)
-        basis = torch.concat([max1,edge],dim=2)
-        basis = torch.nn.functional.normalize(basis,dim=-1)/2
-        basis1 = self.NSs(basis)
-        basis1 = torch.nn.functional.normalize(basis1,dim=-1)
+        basis = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
+        max_value = self.max_pool(cen).view(b,self.hidden_channels,1,-1)
+        basis = torch.concat([basis,max_value],dim=2)
+        basis = self.trans_layer(basis).view(b,self.hidden_channels,self.kernel,-1)
+        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/2
+        basis1 = self.NSs(basis) 
         basis2 = basis1.transpose(-2,-1)
         origin = self.origin_conv(cen)
         origin = origin.view(b,self.hidden_channels,1,-1)
