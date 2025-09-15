@@ -32,10 +32,13 @@ class SD2M(nn.Module):
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
-        self.kernel = 16
+        self.kernel = 8
         self.NSs = NSLayer(kernel=self.kernel,channel=self.hidden_channels)
         self.trans_layer = nn.Sequential(
-            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.num_layer*2,1)),)
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.num_layer*2,1)),
+            nn.ReLU(),
+            nn.Conv2d(in_channels=self.hidden_channels*self.kernel,out_channels=self.hidden_channels*self.kernel,kernel_size=1),
+            )
     def Extract_layer(self,cen,b,w,h):
         basises = []
         for i in range(len(self.shifts)):

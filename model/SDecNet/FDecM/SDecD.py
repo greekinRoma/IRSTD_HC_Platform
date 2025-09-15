@@ -23,15 +23,19 @@ class SD2D(nn.Module):
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
         )
-        self.NSs = NSLayer(kernel=self.num_layer+1,channel=self.hidden_channels)
+        
         self.out_conv = nn.Sequential(
             nn.Conv2d(in_channels=self.in_channels,out_channels=self.in_channels,kernel_size=1)
         )
         self.max_pool = nn.MaxPool2d(kernel_size=2)
         self.params = nn.Parameter(torch.ones(1,1,1,1)/2,requires_grad=True)
         self.kernel = 4
+        self.NSs = NSLayer(kernel=self.kernel,channel=self.hidden_channels)
         self.trans_layer = nn.Sequential(
-            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.kernel,1)))
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(4,1)),
+            nn.ReLU(),
+            nn.Conv2d(in_channels=self.hidden_channels*self.kernel,out_channels=self.hidden_channels*self.kernel,kernel_size=1),
+        )
     def Extract_layer(self,cen,b,w,h):
         basis = torch.nn.functional.conv2d(weight=self.kernels,stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
         max_value = self.max_pool(cen).view(b,self.hidden_channels,1,-1)
