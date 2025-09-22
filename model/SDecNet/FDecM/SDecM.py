@@ -39,6 +39,8 @@ class SD2M(nn.Module):
             nn.ReLU(),
             nn.Conv2d(in_channels=self.hidden_channels*self.kernel,out_channels=self.hidden_channels*self.kernel,kernel_size=1),
             )
+        self.max_pooling = nn.MaxPool2d(kernel_size=3,stride=1,padding=1)
+        self.avg_pooling = nn.AvgPool2d(kernel_size=3,stride=1,padding=1)
     def Extract_layer(self,cen,b,w,h):
         basises = []
         for i in range(len(self.shifts)):
@@ -46,7 +48,7 @@ class SD2M(nn.Module):
             basises.append(basis)
         basis = torch.concat(basises,dim=2)
         basis = self.trans_layer(basis).view(b,self.hidden_channels,self.kernel,-1)
-        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/4
+        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/math.sqrt(8)
         basis2 = self.NSs(basis)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)

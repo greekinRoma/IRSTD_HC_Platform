@@ -3,10 +3,10 @@ import torch
 class NSLayer(nn.Module):
     def __init__(self,channel,kernel=16):
         super(NSLayer, self).__init__()
-        self.basis_scale = torch.tensor([ 4.9234e-01,  4.5757e-01,  7.8983e-01, -1.0768e+00, -1.5491e+00,
-        -2.1980e+00, -3.2622e+00, -3.6207e+00, -9.4038e+00, -1.1254e-03,
-        -2.6745e+01,  1.7235e+01, -5.1393e-03, -7.1784e-03, -2.8206e-01]).view(15,1,1,1,1)
-        self.weight = nn.Parameter(torch.rand(14,1,channel,1,1), requires_grad=False)
+        self.basis_scale = torch.tensor([ 4.9244e-01, -4.5771e-01,  7.8755e-01, -1.0884e+00,  1.5067e+00,
+         2.3369e+00, -2.8291e+00, -4.9147e+00, -5.9610e+00, -6.6265e+00,
+         2.3180e+01, -3.2626e-03,  9.7737e-03,  1.5757e+02]).view(14,1,1,1,1)
+        self.weight = nn.Parameter(self.basis_scale, requires_grad=False)
         # self.weight = nn.Parameter(torch.rand(14,1,channel,1,1), requires_grad=True)
         self.mask = nn.Parameter(torch.eye(kernel).reshape(1,1,kernel,kernel),requires_grad=False)
     def forward(self, input):
