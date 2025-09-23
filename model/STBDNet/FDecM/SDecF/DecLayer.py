@@ -7,6 +7,7 @@ class DecLayer(nn.Module):
         self.num_sample = num_sample
         self.ns_layer = NSLayer(channel=channel,kernel=num_sample)
     def forward(self,origin,basis):
+        basis = self.ns_layer(basis)
         basisT = torch.transpose(basis,dim0=2,dim1=3)
         weight = torch.matmul(origin,basisT)
         output = torch.matmul(weight,basis)

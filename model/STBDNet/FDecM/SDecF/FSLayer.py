@@ -5,9 +5,10 @@ from torch import nn
 import math
 from .. import NSLayer
 class FSLayer(nn.Module):
-    def __init__(self,channel,kernel_size,shifts):
+    def __init__(self,channel,kernel_size,sample_num,shifts=[1]):
         super().__init__()
         #The hyper parameters settting
+        self.num_layer = 8
         self.hidden_channels = channel
         self.convs_list=nn.ModuleList()
         self.shifts = shifts
@@ -21,15 +22,14 @@ class FSLayer(nn.Module):
         kernel=np.concatenate([delta1,delta2],axis=0)
         self.kernel = torch.from_numpy(kernel).float().cuda()
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
-        self.num_layer = 8
-        self.kernel = kernel_size
+        self.sample_num = sample_num
         self.trans_layer = nn.Sequential(
-            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=kernel, stride=kernel),
+            *[
+            nn.Conv2d(in_channels=self.hidden_channels*self.num_layer*len(shifts),out_channels=self.hidden_channels*sample_num,kernel_size=kernel_size, stride=kernel_size),
             nn.ReLU(),
-            nn.Conv2d(in_channels=self.hidden_channels*self.kernel,out_channels=self.hidden_channels*self.kernel,kernel_size=1),
-            )
+            nn.Conv2d(in_channels=self.hidden_channels*sample_num,out_channels=self.hidden_channels*sample_num,kernel_size=1),
+            ])
     def forward(self,cen):
-        b,c,h,w = cen.shape
         basises = []
         for i in range(len(self.shifts)):
             basis = torch.nn.functional.conv2d(weight=self.kernels,stride=1,padding="same",input=cen,groups=self.hidden_channels,dilation=self.shifts[i])
