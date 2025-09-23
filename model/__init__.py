@@ -17,3 +17,4 @@ from model.L2SKNet.L2SKNet import L2SKNet_UNet
 from model.MSHNet.MSHNet import MSHNet
 from model.SDecNet.segmentation import SDecNet
 from model.SCtransNet.SCTransNet import SCTransNet
+from model.STBDNet.segmentation import STBDNet
