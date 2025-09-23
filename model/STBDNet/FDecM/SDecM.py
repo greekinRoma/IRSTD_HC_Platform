@@ -48,7 +48,7 @@ class SD2M(nn.Module):
             basises.append(basis)
         basis = torch.concat(basises,dim=2)
         basis = self.trans_layer(basis).view(b,self.hidden_channels,self.kernel,-1)
-        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/math.sqrt(8)
+        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/2.
         basis2 = self.NSs(basis)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)
