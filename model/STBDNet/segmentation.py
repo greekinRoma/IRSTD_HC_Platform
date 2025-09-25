@@ -105,8 +105,7 @@ class STBDNet(nn.Module):
 
         self.Contrast_Layer = SDecF(n_channels=[in_channels*2,in_channels*2,in_channels*4,in_channels*8],
                                     channel_ratios=[2,4,8,16],
-                                    down_ratios=[8,4,2,1],
-                                    kernel_size=8)
+                                    down_ratios=[8,4,2,1])
 
         self.decoder4 = UpBlock_attention(in_channels * 16, in_channels * 4, nb_Conv=2)
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)

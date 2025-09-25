@@ -35,7 +35,7 @@ class SD2M(nn.Module):
         self.kernel = 4
         self.NSs = NSLayer(kernel=self.kernel,channel=self.hidden_channels)
         self.trans_layer = nn.Sequential(
-            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.num_layer*2,1)),
+            nn.Conv2d(in_channels=self.hidden_channels,out_channels=self.hidden_channels*self.kernel,kernel_size=(self.num_layer*len(self.shifts),1)),
             nn.ReLU(),
             nn.Conv2d(in_channels=self.hidden_channels*self.kernel,out_channels=self.hidden_channels*self.kernel,kernel_size=1),
             )
@@ -48,7 +48,7 @@ class SD2M(nn.Module):
             basises.append(basis)
         basis = torch.concat(basises,dim=2)
         basis = self.trans_layer(basis).view(b,self.hidden_channels,self.kernel,-1)
-        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/math.sqrt(8)
+        basis = torch.nn.functional.normalize(basis,dim=-1,p=2)/math.sqrt(self.kernel)
         basis2 = self.NSs(basis)
         basis1 = basis2.transpose(-2,-1)
         origin = self.origin_conv(cen)
