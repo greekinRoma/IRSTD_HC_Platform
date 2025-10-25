@@ -28,11 +28,11 @@ def calculate_fps(model, num_frames=100, input_size=(1, 1, 256, 256)):
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 model_name = 'DRPCANet'
 input_img = torch.rand(1,1,256,256).cuda()
-net = Net(model_name, mode='test').cuda()
+net = Net(model_name).cuda()
 
 
 net.eval()
-output = net(input_img)
+output = net(input_img,mode='test')
 # 获取输出图像大小
 output_size = output.size()
 print('Output Image Size:', output_size)

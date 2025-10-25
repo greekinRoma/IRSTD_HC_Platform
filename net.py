@@ -60,7 +60,7 @@ class Net(nn.Module):
             self.model = HDNet(input_channels=1)
         elif model_name == "RPCANet":
             self.model = RPCANet()
-        elif model_name == "RPCANet":
+        elif model_name == "DRPCANet":
             self.model = DRPCANet()
     def forward(self, img, mode='train'):
         if self.model_name == "RPCANet" or self.model_name == "DRPCANet":

@@ -9,7 +9,7 @@ import numpy as np
 __all__ = ['DRPCANet']
 
 class DRPCANet(nn.Module):
-    def __init__(self, stage_num=6, slayers=6, llayers=3, mlayers=5, channel=32, mode='train'):
+    def __init__(self, stage_num=6, slayers=6, llayers=3, mlayers=5, channel=32, mode='test'):
         super(DRPCANet, self).__init__()
         self.stage_num = stage_num
         self.decos = nn.ModuleList()
@@ -27,13 +27,13 @@ class DRPCANet(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
-    def forward(self, D, mode):
+    def forward(self, D, mode=None):
         self.mode = mode
         T = torch.zeros(D.shape).to(D.device)
         for i in range(self.stage_num):
             D, T = self.decos[i](D, T)
         if self.mode == 'train':
-            return D,F.sigmoid(T)
+            return D, F.sigmoid(T)
         else:
             return F.sigmoid(T)
 
