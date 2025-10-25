@@ -9,7 +9,7 @@ import numpy as np
 __all__ = ['RPCANet']
 
 class RPCANet(nn.Module):
-    def __init__(self, stage_num=6, slayers=6, llayers=3, mlayers=3, channel=32, mode='train'):
+    def __init__(self, stage_num=6, slayers=6, llayers=3, mlayers=3, channel=32, mode='test'):
         super(RPCANet, self).__init__()
         self.stage_num = stage_num
         self.decos = nn.ModuleList()
@@ -27,11 +27,15 @@ class RPCANet(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
-    def forward(self, D):
+    def forward(self, D, mode):
+        self.mode = mode
         T = torch.zeros(D.shape).to(D.device)
         for i in range(self.stage_num):
             D, T = self.decos[i](D, T)
-        return T
+        if self.mode == 'train':
+            return D,T
+        else:
+            return T
 
 class DecompositionModule(object):
     pass

@@ -18,3 +18,4 @@ from model.MSHNet.MSHNet import MSHNet
 from model.SDecNet.segmentation import SDecNet
 from model.SCtransNet.SCTransNet import SCTransNet
 from model.STBDNet.segmentation import STBDNet
+from model.HDNet.HDNet import HDNet
