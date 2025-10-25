@@ -1,5 +1,5 @@
 from torch import nn
-
+import torch
 import os
 from loss import SoftIoULoss, ISNetLoss
 from model import *
@@ -12,9 +12,11 @@ class Net(nn.Module):
         super(Net, self).__init__()
 
         self.model_name = model_name
-        self.cal_loss = SoftIoULoss()
+        self.softiou_loss = SoftIoULoss()
+        self.mse_loss = torch.nn.MSELoss()
         self.model = Algorithms()
         self.is_alg =False
+        self.model_name = model_name
         if self.model.detect(model_name):
             self.model.set_algorithm(model_name)
             self.is_alg = True
@@ -52,9 +54,22 @@ class Net(nn.Module):
             self.model = MSHNet(input_channels=1)
         elif model_name == 'SDecNet':
             self.model = SDecNet()
-    def forward(self, img):
-        return self.model(img)
+        elif model_name == 'SCTransNet':
+            self.model = SCTransNet()
+        elif model_name == "HDNet":
+            self.model = HDNet(input_channels=1)
+        elif model_name == "RPCANet":
+            self.model = RPCANet()
+    def forward(self, img, mode='train'):
+        if hasattr(self.model,'mode'):
+            return self.model(img, mode=mode)
+        else:
+            return self.model(img)
 
-    def loss(self, pred, gt_mask):
-        loss = self.cal_loss(pred, gt_mask)
+    def loss(self, pred, gt_mask, image):
+        if "RPCANet" == self.model_name:
+            D, T = pred
+            loss =  self.mse(D, image) + self.softiou_loss(T,gt_mask)
+        else:
+            loss = self.softiou_loss(pred, gt_mask)
         return loss
