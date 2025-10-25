@@ -14,7 +14,7 @@ class SoftIoULoss(nn.Module):
                 smooth = 1
                 intersection = pred * gt_masks
                 loss = (intersection.sum() + smooth) / (pred.sum() + gt_masks.sum() -intersection.sum() + smooth)
-                loss = 1 - loss.mean()
+                loss = 1. - loss.mean()
                 loss_total = loss_total + loss
             return loss_total / len(preds)
         else:

@@ -129,7 +129,13 @@ def get_img_norm_cfg(dataset_name, dataset_dir):
     return img_norm_cfg
 
 
-def get_optimizer(net, optimizer_name, scheduler_name, optimizer_settings, scheduler_settings):
+def get_optimizer(net, optimizer_name, scheduler_name, optimizer_settings, scheduler_settings,train_data_loader=None):
+    if net.model_name == "RPCANet":
+        optimizer = torch.optim.Adam(net.parameters(), lr=1e-4)
+        scheduler = torch.optim.lr_scheduler.PolynomialLR(total_iters=len(train_data_loader)*400,optimizer=optimizer)
+        return optimizer, scheduler
+    
+    
     if optimizer_name == 'Adam':
         optimizer = torch.optim.Adam(net.parameters(), lr=optimizer_settings['lr'])
     elif optimizer_name == 'Adagrad':

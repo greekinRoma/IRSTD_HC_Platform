@@ -125,8 +125,8 @@ def train():
             img, gt_mask = Variable(img).cuda(), Variable(gt_mask).cuda()
             if img.shape[0] == 1:
                 continue
-            pred = net.forward(img)
-            loss = net.loss(pred, gt_mask)
+            pred = net.forward(img,mode='train')
+            loss = net.loss(pred, gt_mask,img)
             total_loss_epoch.append(loss.detach().cpu())
 
             optimizer.zero_grad()
@@ -181,7 +181,7 @@ def test_with_save(save_pth, idx_epoch, total_loss_list, net_state_dict):
         with torch.no_grad():
             img = Variable(img).cuda()
             # pred = net(img)
-            pred = net.forward(img)
+            pred = net.forward(img,mode='test')
             pred = pred[:, :, :size[0], :size[1]]
 
         gt_mask = gt_mask[:, :, :size[0], :size[1]]

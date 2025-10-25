@@ -33,9 +33,9 @@ class RPCANet(nn.Module):
         for i in range(self.stage_num):
             D, T = self.decos[i](D, T)
         if self.mode == 'train':
-            return D,T
+            return D, F.sigmoid(T)
         else:
-            return T
+            return F.sigmoid(T)
 
 class DecompositionModule(object):
     pass

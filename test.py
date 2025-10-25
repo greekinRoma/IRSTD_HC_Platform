@@ -16,15 +16,15 @@ from torch.utils.data import DataLoader
 # LS的参数
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
 
-parser.add_argument("--model_names", default=['SDecNet'], type=str, nargs='+',
+parser.add_argument("--model_names", default=['HDNet'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['NUDT-SIRST','IRSTD-1K'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")
 parser.add_argument("--save", default='./log5', type=str, help="Save path of checkpoints")
 parser.add_argument("--seed", type=int, default=42, help="Threshold for test")
-parser.add_argument("--test_epos", type=str, default=['210','73','68','87'], help="Number of epoch for test")
+parser.add_argument("--test_epos", type=str, default=['282','102','68','87'], help="Number of epoch for test")
 
 global opt
 opt = parser.parse_args()
@@ -79,7 +79,7 @@ def test():
         with torch.no_grad():
             img = Variable(img).cuda(device=0)
             # pred = net(img)
-            pred = net.forward(img)
+            pred = net.forward(img,mode='test')
             pred = pred[:, :, :size[0], :size[1]]
             pred_out = pred.data.cpu().detach().numpy().squeeze()
             pred_out_png = pred_out * 255

@@ -26,10 +26,10 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
 
-parser.add_argument("--model_names", default=['SDecNet',], type=str, nargs='+',
+parser.add_argument("--model_names", default=['RPCANet',], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['IRSTD-1K'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['IRSTD-1K','NUDT-SIRST'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")
@@ -117,15 +117,16 @@ def train():
     opt.nEpochs = opt.scheduler_settings['epochs']
 
     optimizer, scheduler = get_optimizer(net, opt.optimizer_name, opt.scheduler_name, opt.optimizer_settings,
-                                         opt.scheduler_settings)
+                                         opt.scheduler_settings,
+                                         train_data_loader=train_loader)
 
     for idx_epoch in range(epoch_state, opt.nEpochs):
         for idx_iter, (img, gt_mask) in enumerate(train_loader):
             img, gt_mask = Variable(img).cuda(), Variable(gt_mask).cuda()
             if img.shape[0] == 1:
                 continue
-            pred = net.forward(img)
-            loss = net.loss(pred, gt_mask)
+            pred = net.forward(img,mode='train')
+            loss = net.loss(pred, gt_mask,img)
             total_loss_epoch.append(loss.detach().cpu())
 
             optimizer.zero_grad()
@@ -182,7 +183,7 @@ def test_with_save(save_pth, idx_epoch, total_loss_list, net_state_dict):
         with torch.no_grad():
             img = Variable(img).cuda()
             # pred = net(img)
-            pred = net.forward(img)
+            pred = net.forward(img,mode='test')
             pred = pred[:, :, :size[0], :size[1]]
 
         gt_mask = gt_mask[:, :, :size[0], :size[1]]

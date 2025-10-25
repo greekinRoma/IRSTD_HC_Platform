@@ -60,14 +60,16 @@ class Net(nn.Module):
             self.model = HDNet(input_channels=1)
         elif model_name == "RPCANet":
             self.model = RPCANet()
+        elif model_name == "RPCANet":
+            self.model = DRPCANet()
     def forward(self, img, mode='train'):
-        if hasattr(self.model,'mode'):
+        if self.model_name == "RPCANet" or self.model_name == "DRPCANet":
             return self.model(img, mode=mode)
         else:
             return self.model(img)
 
     def loss(self, pred, gt_mask, image):
-        if "RPCANet" == self.model_name:
+        if "RPCANet" == self.model_name or self.model_name == "DRPCANet":
             D, T = pred
             loss =  self.mse_loss(D, image) + self.softiou_loss(T,gt_mask)
         else:
