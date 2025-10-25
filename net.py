@@ -69,7 +69,7 @@ class Net(nn.Module):
     def loss(self, pred, gt_mask, image):
         if "RPCANet" == self.model_name:
             D, T = pred
-            loss =  self.mse(D, image) + self.softiou_loss(T,gt_mask)
+            loss =  self.mse_loss(D, image) + self.softiou_loss(T,gt_mask)
         else:
             loss = self.softiou_loss(pred, gt_mask)
         return loss
