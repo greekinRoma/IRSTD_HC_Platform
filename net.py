@@ -66,6 +66,8 @@ class Net(nn.Module):
             self.model = RPCANet_LSTM()
         elif model_name == "LRPCANet":
             self.model = LRPCANet()
+        elif model_name == "SDecNet_DHPF":
+            self.model = SDecNet_DHPF()
     def forward(self, img, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(img, mode=mode)
