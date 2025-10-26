@@ -130,11 +130,10 @@ def get_img_norm_cfg(dataset_name, dataset_dir):
 
 
 def get_optimizer(net, optimizer_name, scheduler_name, optimizer_settings, scheduler_settings,train_data_loader=None):
-    if net.model_name == "RPCANet":
+    if net.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
         optimizer = torch.optim.Adam(net.parameters(), lr=1e-4)
-        scheduler = torch.optim.lr_scheduler.PolynomialLR(total_iters=len(train_data_loader)*400,optimizer=optimizer)
+        scheduler = torch.optim.lr_scheduler.PolynomialLR(total_iters=len(train_data_loader)*400,power=0.9,optimizer=optimizer)
         return optimizer, scheduler
-    
     
     if optimizer_name == 'Adam':
         optimizer = torch.optim.Adam(net.parameters(), lr=optimizer_settings['lr'])

@@ -67,15 +67,24 @@ class Net(nn.Module):
         elif model_name == "LRPCANet":
             self.model = LRPCANet()
     def forward(self, img, mode='train'):
-        if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus"]:
+        if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(img, mode=mode)
         else:
             return self.model(img)
 
     def loss(self, pred, gt_mask, image):
-        if "RPCANet" == self.model_name or self.model_name == "DRPCANet":
+        if "RPCANet" == self.model_name:
             D, T = pred
-            loss =  self.mse_loss(D, image) + self.softiou_loss(T,gt_mask)
+            loss =  self.mse_loss(D, image) * 0.01 + self.softiou_loss(T,gt_mask)
+        elif self.model_name == "DRPCANet":
+            D, T = pred
+            loss =  self.mse_loss(D, image) * 0.1 + self.softiou_loss(T,gt_mask)
+        elif self.model_name == "RPCANet_plus":
+            D, T = pred
+            loss =  self.mse_loss(D, image) * 0.1 + self.softiou_loss(T,gt_mask)
+        elif self.model_name == "LRPCANet":
+            D, T = pred
+            loss =  self.mse_loss(D, image) * 0.1 + self.softiou_loss(T,gt_mask)
         else:
             loss = self.softiou_loss(pred, gt_mask)
         return loss
