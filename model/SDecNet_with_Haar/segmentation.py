@@ -83,7 +83,7 @@ class Head(nn.Module):
         self.out_conv = nn.Sequential(nn.Conv2d(in_channels=interChannel+inpChannel,out_channels=oupChannel,kernel_size=1,stride=1,bias=False))
     def forward(self, x):
         return self.out_conv(torch.concat([self.head(x),x],dim=1))
-class SDecNet_Harr(nn.Module):
+class SDecNet_Haar(nn.Module):
     def __init__(self,  n_channels=1, n_classes=1, img_size=512, vis=False, mode='train', deepsuper=True):
         super().__init__()
         self.vis = vis

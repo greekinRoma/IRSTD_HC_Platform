@@ -23,5 +23,5 @@ from model.DRPCANet.DRPCANet import DRPCANet
 from model.RPCANet_plus.deepunfolding import RPCANet9
 from model.RPCANet_plus.deepunfolding import RPCANet_LSTM
 from model.LRPCANet.LRPCANet import LRPCANet
-from model.SDecNet_with_Harr.segmentation import 
+from model.SDecNet_with_Haar.segmentation import SDecNet_Haar
 from model.SDecNet_with_DHPF.segmentation import SDecNet_DHPF
