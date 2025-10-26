@@ -46,7 +46,7 @@ class DHPF(nn.Module):
         ideal_high_pass = torch.abs(torch.fft.ifft2(ishift))
         return ideal_high_pass 
 class SD2M(nn.Module):
-    def __init__(self,in_channels,out_channels,shifts,kernel_size,use_norm=True):
+    def __init__(self,in_channels,out_channels,shifts,kernel_size,energy):
         super().__init__()
         #The hyper parameters settting
         self.hidden_channels = in_channels//kernel_size
@@ -80,7 +80,7 @@ class SD2M(nn.Module):
         self.max_pool = nn.MaxPool2d(kernel_size=3,stride=1,padding=1)
         self.avg_pool = nn.AvgPool2d(kernel_size=3,stride=1,padding=1)
         self.params = nn.Parameter(torch.ones(1,1,1,1),requires_grad=True).cuda()
-        self.dhpf = DHPF()
+        self.dhpf = DHPF(energy=energy)
     def Extract_layer(self,cen,b,w,h):
         basises = []
         for i in range(len(self.shifts)):

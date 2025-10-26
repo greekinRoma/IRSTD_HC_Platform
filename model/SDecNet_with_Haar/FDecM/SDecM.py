@@ -80,7 +80,6 @@ class SD2M(nn.Module):
         self.max_pool = nn.MaxPool2d(kernel_size=3,stride=1,padding=1)
         self.avg_pool = nn.AvgPool2d(kernel_size=3,stride=1,padding=1)
         self.params = nn.Parameter(torch.ones(1,1,1,1),requires_grad=True).cuda()
-        self.dhpf = DHPF()
     def Extract_layer(self,cen,b,w,h):
         basises = []
         for i in range(len(self.shifts)):

@@ -103,10 +103,10 @@ class SDecNet_DHPF(nn.Module):
         self.down4 = SD2D(dim=in_channels*8)
         self.encoder4 = self._make_layer(block, in_channels * 8,  in_channels * 8, 1)  
 
-        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,2,3])
-        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=4,shifts=[1,2,3])
-        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=8,shifts=[1,2,3])
-        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=16,shifts=[1,2,3])
+        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,2,3],energy=0.8)
+        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=4,shifts=[1,2,3],energy=0.4)
+        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=8,shifts=[1,2,3],energy=0.2)
+        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=16,shifts=[1,2,3],energy=0.1)
         
         self.decoder4 = UpBlock_attention(in_channels * 16, in_channels * 4, nb_Conv=2)
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)
