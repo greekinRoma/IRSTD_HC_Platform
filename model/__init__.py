@@ -20,3 +20,6 @@ from model.SCtransNet.SCTransNet import SCTransNet
 from model.STBDNet.segmentation import STBDNet
 from model.HDNet.HDNet import HDNet
 from model.DRPCANet.DRPCANet import DRPCANet
+from model.RPCANet_plus.deepunfolding import RPCANet9
+from model.RPCANet_plus.deepunfolding import RPCANet_LSTM
+from model.LRPCANet.LRPCANet import LRPCANet
