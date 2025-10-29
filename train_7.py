@@ -26,10 +26,10 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
 
-parser.add_argument("--model_names", default=['SDecNet','SDecNet_DHPF','SDecNet_Haar'], type=str, nargs='+',
+parser.add_argument("--model_names", default=['SDecNet'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST','IRSTD-1K'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['IRSTD-1K'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")

@@ -20,7 +20,7 @@ import argparse
 import time
 
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
-parser.add_argument("--model_names", default=['HDNet'], type=str, nargs='+',
+parser.add_argument("--model_names", default=['LRPCANet','RPCANet','RPCANet_plus'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
 parser.add_argument("--dataset_names", default=['NUDT-SIRST','IRSTD-1K'], type=str, nargs='+',

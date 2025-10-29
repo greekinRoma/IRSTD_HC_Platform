@@ -16,15 +16,15 @@ from torch.utils.data import DataLoader
 # LS的参数
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
 
-parser.add_argument("--model_names", default=['HDNet'], type=str, nargs='+',
+parser.add_argument("--model_names", default=['RPCANet_plus'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST','IRSTD-1K'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['IRSTD-1K'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")
 parser.add_argument("--save", default='./log5', type=str, help="Save path of checkpoints")
 parser.add_argument("--seed", type=int, default=42, help="Threshold for test")
-parser.add_argument("--test_epos", type=str, default=['282','102','68','87'], help="Number of epoch for test")
+parser.add_argument("--test_epos", type=str, default=['301'], help="Number of epoch for test")
 
 global opt
 opt = parser.parse_args()
@@ -91,9 +91,11 @@ def test():
 if __name__ == '__main__':
     for dataset_name in opt.dataset_names:
         opt.dataset_name = dataset_name
-        for model_name,test_epo in zip(opt.model_names,opt.test_epos):
+        index = 0 
+        for model_name in opt.model_names:
             opt.model_name = model_name
-            opt.test_epo = test_epo
+            opt.test_epo = opt.test_epos[index]
+            index = index + 1
             if not os.path.exists(opt.save):
                 os.makedirs(opt.save)
             test()
