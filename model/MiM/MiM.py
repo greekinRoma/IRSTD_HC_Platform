@@ -824,7 +824,7 @@ class MiM(nn.Module):
                                          in_channels=channels[1], out_channels=channels[1], stride=1)
         self.head = _FCNHead(channels[1], 1)
         #####################
-        self.mim_backbone = PyramidMiM_enc()
+        self.mim_backbone = PyramidMiM_enc(in_chans=1)
 
     def forward(self, x): # the input is of size (b,3,512,512), the output is of size (b,1,512,512), where the num_class=1 in ISTD.
         _, _, hei, wid = x.shape
