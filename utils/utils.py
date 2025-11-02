@@ -134,7 +134,10 @@ def get_optimizer(net, optimizer_name, scheduler_name, optimizer_settings, sched
         optimizer = torch.optim.Adam(net.parameters(), lr=1e-4)
         scheduler = torch.optim.lr_scheduler.PolynomialLR(total_iters=len(train_data_loader)*400,power=0.9,optimizer=optimizer)
         return optimizer, scheduler
-    
+    elif net.model_name == "MiM":
+        optimizer = torch.optim.Adagrad(net.parameters(), lr=0.06, weight_decay=0.0004)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=scheduler_settings['epochs'])
+        return optimizer, scheduler
     if optimizer_name == 'Adam':
         optimizer = torch.optim.Adam(net.parameters(), lr=optimizer_settings['lr'])
     elif optimizer_name == 'Adagrad':

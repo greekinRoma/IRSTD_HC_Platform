@@ -650,12 +650,11 @@ class UpsampleBlock(nn.Module):
 class PyramidMiM_enc(nn.Module):
     """ Pyramid MiM-ISTD encoder including conv stem for computer vision
     """
-    def __init__(self, configs=None, img_size=512, in_chans=3, num_classes=1, mlp_ratio=4., qkv_bias=False,
+    def __init__(self, configs=None, outer_dims=[32, 32*2, 32*4, 32*8], img_size=512, in_chans=3, num_classes=1, mlp_ratio=4., qkv_bias=False,
                 qk_scale=None, drop_rate=0., attn_drop_rate=0., drop_path_rate=0., norm_layer=nn.LayerNorm, se=0):
         super().__init__()
         self.num_classes = num_classes
         depths = [2, 2, 2, 2]
-        outer_dims = [32, 32*2, 32*4, 32*8]
         inner_dims = [4, 4*2, 4*4, 4*8]#  original mim-istd
         outer_heads = [2, 2*2, 2*4, 2*8]
         inner_heads = [1, 1*2, 1*4, 1*8]
@@ -824,13 +823,14 @@ class MiM(nn.Module):
                                          in_channels=channels[1], out_channels=channels[1], stride=1)
         self.head = _FCNHead(channels[1], 1)
         #####################
-        self.mim_backbone = PyramidMiM_enc(in_chans=1)
+        self.mim_backbone = PyramidMiM_enc(in_chans=1,outer_dims=channels[-4:])
 
     def forward(self, x): # the input is of size (b,3,512,512), the output is of size (b,1,512,512), where the num_class=1 in ISTD.
         _, _, hei, wid = x.shape
         
         outputs=self.mim_backbone(x)
         t1,t2,t3,t4=outputs[0],outputs[1],outputs[2],outputs[3]
+
 
         deconc3 = self.deconv3(t4)
         fusec3 = deconc3+t3

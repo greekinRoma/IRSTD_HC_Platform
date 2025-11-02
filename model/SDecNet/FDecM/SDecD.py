@@ -31,9 +31,8 @@ class SD2D(nn.Module):
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
             nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
+            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1,padding=0),
+            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1,padding=0),
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1),
         )
         self.trans_conv = nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1)
@@ -41,8 +40,7 @@ class SD2D(nn.Module):
     def Extract_layer(self,cen,b,w,h):
         edge = torch.nn.functional.conv2d(weight=self.kernels.to(cen.device),stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
         max = self.max_pool(cen)
-        min = -self.max_pool(-cen)
-        basis = torch.concat([max.view(b,self.hidden_channels,1,-1),min.view(b,self.hidden_channels,1,-1),edge],dim=2)
+        basis = torch.concat([max.view(b,self.hidden_channels,1,-1),edge],dim=2)
         Basis1 = torch.nn.functional.normalize(basis,dim=-1)
         Basis2 = Basis1.transpose(-2,-1)
         origins = self.origin_conv(cen)
