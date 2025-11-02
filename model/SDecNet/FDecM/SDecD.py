@@ -33,7 +33,6 @@ class SD2D(nn.Module):
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=4,stride=2,padding=1,groups=dim),
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1),
         )
         self.trans_conv = nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1)
         self.params = nn.Parameter(torch.zeros(1,1,1,1),requires_grad=True).cuda()

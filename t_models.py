@@ -27,7 +27,7 @@ def calculate_fps(model, num_frames=100, input_size=(1, 1, 256, 256)):
     return fps
 # ['LRPCANet','RPCANet','RPCANet_plus']
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
-model_name = 'VMamba'
+model_name = 'LocalMamba'
 input_img = torch.rand(1,1,256,256).cuda()
 net = Net(model_name).cuda()
 

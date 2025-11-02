@@ -74,6 +74,8 @@ class Net(nn.Module):
             self.model = MiM([2]*3,[8, 16, 32, 64, 128])
         elif model_name == "VMamba":
             self.model = VMambaSeg()
+        elif model_name == "LocalMamba":
+            self.model = build_seg_model()
     def forward(self, img, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(img, mode=mode)

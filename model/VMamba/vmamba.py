@@ -847,10 +847,7 @@ class SelectiveScanCuda(torch.autograd.Function):
         # backend = "core" if WITH_SELECTIVESCAN_CORE and (backend is None) else backend
         backend = "mamba" if WITH_SELECTIVESCAN_MAMBA and (backend is None) else backend
         ctx.backend = backend
-        if backend == "oflex":
-            out, x, *rest = selective_scan_cuda_oflex.fwd(u, delta, A, B, C, D, delta_bias, delta_softplus, 1, oflex)
-        elif backend == "mamba":
-            out, x, *rest = selective_scan_cuda.fwd(u, delta, A, B, C, D, None, delta_bias, delta_softplus)
+        out, x, *rest = selective_scan_cuda.fwd(u, delta, A, B, C, D, None, delta_bias, delta_softplus)
         ctx.save_for_backward(u, delta, A, B, C, D, delta_bias, x)
         return out
     
@@ -861,15 +858,11 @@ class SelectiveScanCuda(torch.autograd.Function):
         backend = ctx.backend
         if dout.stride(-1) != 1:
             dout = dout.contiguous()
-        if backend == "oflex":
-            du, ddelta, dA, dB, dC, dD, ddelta_bias, *rest = selective_scan_cuda_oflex.bwd(
-                u, delta, A, B, C, D, delta_bias, dout, x, ctx.delta_softplus, 1
-            )
-        elif backend == "mamba":
-            du, ddelta, dA, dB, dC, dD, ddelta_bias, *rest = selective_scan_cuda.bwd(
+        du, ddelta, dA, dB, dC, dD, ddelta_bias, *rest = selective_scan_cuda.bwd(
                 u, delta, A, B, C, D, None, delta_bias, dout, x, None, None, ctx.delta_softplus,
                 False
             )
+            
         return du, ddelta, dA, dB, dC, dD, ddelta_bias, None, None, None
 
 
