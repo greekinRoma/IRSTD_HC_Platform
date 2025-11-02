@@ -72,6 +72,8 @@ class Net(nn.Module):
             self.model  = SDecNet_Haar()
         elif model_name == "MiM":
             self.model = MiM([2]*3,[8, 16, 32, 64, 128])
+        elif model_name == "VMamba":
+            self.model = VMambaSeg()
     def forward(self, img, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(img, mode=mode)

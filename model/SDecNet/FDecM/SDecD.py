@@ -30,9 +30,9 @@ class SD2D(nn.Module):
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.origin_conv = nn.Sequential(
-            nn.MaxPool2d(kernel_size=2),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1,padding=0),
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1,padding=0),
+            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=4,stride=2,padding=1,groups=dim),
+            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
+            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=3,stride=1,padding=1),
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1),
         )
         self.trans_conv = nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1)
