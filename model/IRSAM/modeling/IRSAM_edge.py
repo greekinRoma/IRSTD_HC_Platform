@@ -172,7 +172,8 @@ class Sam(nn.Module):
         # plt.subplot(1, 2, 2)
         # plt.imshow(masks[0].permute(1, 2, 0).detach().cpu().numpy())
         # plt.show()
-        masks = F.interpolate(masks, (512, 512), mode="bilinear")
+        size = original_size[0]
+        masks = F.interpolate(masks, (size, size), mode="bilinear")
 
         return masks
 

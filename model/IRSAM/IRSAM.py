@@ -9,11 +9,11 @@ from .modeling.IRSAM_edge import Sam as EdgeIRSAM
 
 def build_sam_IRSAM(checkpoint=None):
     prompt_embed_dim = 256
-    image_size = 1024
+    image_size = 512
     vit_patch_size = 16
     image_embedding_size = image_size // vit_patch_size
     mobile_sam = EdgeIRSAM(
-            image_encoder=EdgeEncoder(img_size=1024, in_chans=3, num_classes=1,
+            image_encoder=EdgeEncoder(img_size=image_size, in_chans=3, num_classes=1,
                 embed_dims=[64, 128, 160, 320],
                 depths=[2, 2, 6, 2],
                 num_heads=[2, 4, 5, 10],
