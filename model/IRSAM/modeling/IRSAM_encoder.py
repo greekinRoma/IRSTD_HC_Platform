@@ -65,6 +65,7 @@ class PatchEmbed(nn.Module):
         self.in_chans = in_chans
         self.embed_dim = embed_dim
         n = embed_dim
+        print(in_chans)
         self.seq = nn.Sequential(
             Conv2d_BN(in_chans, n // 2, 3, 2, 1),
             activation(),

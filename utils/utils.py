@@ -9,6 +9,8 @@ import os
 import math
 import torch.nn as nn
 from skimage import measure
+from torch.optim import AdamW
+from torch.optim.lr_scheduler import CosineAnnealingLR
 import torch.nn.functional as F
 import os
 from torch.nn import init
@@ -138,6 +140,9 @@ def get_optimizer(net, optimizer_name, scheduler_name, optimizer_settings, sched
         optimizer = torch.optim.Adagrad(net.parameters(), lr=0.06, weight_decay=0.0004)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=scheduler_settings['epochs'])
         return optimizer, scheduler
+    elif net.model_name == "IRSAM":
+        optimizer = AdamW(net.parameters(),lr=0.0001,betas=(0.9, 0.999),weight_decay=0.01)
+        scheduler = CosineAnnealingLR(optimizer,T_max=400,eta_min=1e-7)
     if optimizer_name == 'Adam':
         optimizer = torch.optim.Adam(net.parameters(), lr=optimizer_settings['lr'])
     elif optimizer_name == 'Adagrad':

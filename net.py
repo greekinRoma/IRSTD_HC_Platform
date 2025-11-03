@@ -1,9 +1,9 @@
 from torch import nn
 import torch
 import os
-from loss import SoftIoULoss, ISNetLoss
+from loss import SoftIoULoss, ISNetLoss, DiceLoss
 from model import *
-
+from utils.loss.IRSAM_loss import SigmoidMetric, SamplewiseSigmoidMetric
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 
@@ -13,6 +13,7 @@ class Net(nn.Module):
 
         self.model_name = model_name
         self.softiou_loss = SoftIoULoss()
+        self.dice_loss = DiceLoss()
         self.mse_loss = torch.nn.MSELoss()
         self.model = Algorithms()
         self.is_alg =False
@@ -76,11 +77,27 @@ class Net(nn.Module):
             self.model = VMambaSeg()
         elif model_name == "LocalMamba":
             self.model = build_seg_model()
-    def forward(self, img, mode='train'):
+        elif model_name == "IRSAM":
+            self.model = build_sam_IRSAM()
+    def forward(self, imgs, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
-            return self.model(img, mode=mode)
+            return self.model(imgs, mode=mode)
+        elif self.model_name == "IRSAM":
+            batched_input = []
+            for b_i in range(len(imgs)):
+                dict_input = dict()
+                input_image = imgs[b_i].to(self.model.device)
+                dict_input['image'] = input_image
+                dict_input['original_size'] = imgs[b_i].shape[2:]
+                batched_input.append(dict_input)
+            if mode == "train":
+                masks, edges = self.model(batched_input)
+                return edges.sigmoid(), masks.sigmoid()
+            else:
+                masks, edges = self.model(batched_input)
+                return masks.sigmoid()
         else:
-            return self.model(img)
+            return self.model(imgs)
 
     def loss(self, pred, gt_mask, image):
         if "RPCANet" == self.model_name:
@@ -95,6 +112,9 @@ class Net(nn.Module):
         elif self.model_name == "LRPCANet":
             D, T = pred
             loss =  self.mse_loss(D, image) * 0.1 + self.softiou_loss(T,gt_mask)
+        elif self.model_name == "IRSAM":
+            edges, masks = pred
+            loss = self.mse_loss(edges, gt_mask) * 10. + self.dice_loss(inputs=masks, targets=gt_mask) 
         else:
             loss = self.softiou_loss(pred, gt_mask)
         return loss

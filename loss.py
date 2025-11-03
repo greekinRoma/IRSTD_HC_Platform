@@ -43,3 +43,18 @@ class ISNetLoss(nn.Module):
         loss_edge = 10 * self.bce(preds[1], edge_gt) + self.softiou(preds[1].sigmoid(), edge_gt)
 
         return loss_img + loss_edge
+
+class DiceLoss(nn.Module):
+    def __init__(self, smooth=1.0):
+        super(DiceLoss, self).__init__()
+        self.smooth = smooth
+
+    def forward(self, inputs, targets):
+        # 假设inputs是经过sigmoid或softmax的预测概率图，targets是二值化的真实标签
+        inputs = inputs.view(-1)
+        targets = targets.view(-1)
+
+        intersection = (inputs * targets).sum()
+        dice = (2. * intersection + self.smooth) / (inputs.sum() + targets.sum() + self.smooth)
+        
+        return 1 - dice
