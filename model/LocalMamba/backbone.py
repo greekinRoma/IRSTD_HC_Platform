@@ -28,8 +28,10 @@ except Exception as e:
     warnings.warn(f"{e}\n\"selective_scan_cuda_core\" not found, use default \"selective_scan_cuda\" instead.")
     # print(e, flush=True)
     SSMODE = "mamba_ssm"
-    import selective_scan_cuda
-
+    try:
+        import selective_scan_cuda
+    except Exception as e:
+        print(e)
 
 # fvcore flops =======================================
 
