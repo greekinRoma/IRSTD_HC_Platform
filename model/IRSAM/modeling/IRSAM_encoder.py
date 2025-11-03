@@ -651,9 +651,9 @@ class TinyViT(nn.Module):
             layer = self.layers[i]
             x = layer(x)
             if i == 1:
-                interm_embedding = x.view(x.shape[0], 64, 64, -1)
+                interm_embedding = x.view(x.shape[0], 32, 32, -1)
         B, _, C = x.size()
-        x = x.view(B, 64, 64, C)
+        x = x.view(B, 32, 32, C)
         x = x.permute(0, 3, 1, 2)
         x = self.neck(x)
         return x, interm_embedding
