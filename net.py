@@ -78,7 +78,7 @@ class Net(nn.Module):
         elif model_name == "LocalMamba":
             self.model = build_seg_model()
         elif model_name == "IRSAM":
-            self.model = build_sam_IRSAM()
+            self.model = build_sam_IRSAM(image_size=size)
     def forward(self, imgs, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(imgs, mode=mode)

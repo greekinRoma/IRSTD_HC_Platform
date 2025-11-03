@@ -48,8 +48,8 @@ class Sam(nn.Module):
         self.prompt_encoder = prompt_encoder
         self.mask_decoder = mask_decoder
 
-        self.register_buffer("pixel_mean", torch.Tensor(pixel_mean).view(-1, 1, 1), False)
-        self.register_buffer("pixel_std", torch.Tensor(pixel_std).view(-1, 1, 1), False)
+        self.register_buffer("pixel_mean", torch.zeros_like(torch.Tensor(pixel_mean)).view(-1, 1, 1), False)
+        self.register_buffer("pixel_std", torch.zeros_like(torch.Tensor(pixel_std)).view(-1, 1, 1), False)
 
     @property
     def device(self) -> Any:

@@ -7,9 +7,8 @@ from .modeling.IRSAM_encoder import TinyViT as EdgeEncoder
 from .modeling.IRSAM_edge import Sam as EdgeIRSAM
 
 
-def build_sam_IRSAM(checkpoint=None):
+def build_sam_IRSAM(image_size,checkpoint=None):
     prompt_embed_dim = 256
-    image_size = 512
     vit_patch_size = 16
     image_embedding_size = image_size // vit_patch_size
     mobile_sam = EdgeIRSAM(

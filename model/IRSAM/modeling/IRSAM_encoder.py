@@ -65,7 +65,7 @@ class PatchEmbed(nn.Module):
         self.in_chans = in_chans
         self.embed_dim = embed_dim
         n = embed_dim
-        print(in_chans)
+        # print(in_chans)
         self.seq = nn.Sequential(
             Conv2d_BN(in_chans, n // 2, 3, 2, 1),
             activation(),
@@ -641,6 +641,8 @@ class TinyViT(nn.Module):
         return {'attention_biases'}
 
     def forward_features(self, x):
+        # print(x.shape)
+        N, C, H, W = x.shape
         # x: (N, C, H, W)
         x = self.patch_embed(x)
 
@@ -650,10 +652,11 @@ class TinyViT(nn.Module):
         for i in range(start_i, len(self.layers)):
             layer = self.layers[i]
             x = layer(x)
+            # print(x.shape)
             if i == 1:
-                interm_embedding = x.view(x.shape[0], 32, 32, -1)
+                interm_embedding = x.reshape(x.shape[0], H//16, W//16, -1)
         B, _, C = x.size()
-        x = x.view(B, 32, 32, C)
+        x = x.reshape(B,H//16, W//16, C)
         x = x.permute(0, 3, 1, 2)
         x = self.neck(x)
         return x, interm_embedding
