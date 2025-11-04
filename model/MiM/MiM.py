@@ -731,7 +731,6 @@ class PyramidMiM_enc(nn.Module):
             b,l,m=outer_tokens.shape
             mid_out=outer_tokens.reshape(b,int(math.sqrt(l)),int(math.sqrt(l)),m).permute(0,3,1,2)
             mid_out=self.up_blocks[i](mid_out)
-
             outputs.append(mid_out)
 
         return outputs
@@ -806,7 +805,7 @@ class PatchExpand2D(nn.Module):
 
 
 class MiM(nn.Module): 
-    def __init__(self, layer_blocks, channels):
+    def __init__(self, layer_blocks, channels, img_size):
         super(MiM, self).__init__()
 
         self.deconv3 = PatchExpand2D(channels[4]//2)
@@ -823,14 +822,13 @@ class MiM(nn.Module):
                                          in_channels=channels[1], out_channels=channels[1], stride=1)
         self.head = _FCNHead(channels[1], 1)
         #####################
-        self.mim_backbone = PyramidMiM_enc(in_chans=1,outer_dims=channels[-4:])
+        self.mim_backbone = PyramidMiM_enc(in_chans=1,outer_dims=channels[-4:],img_size=img_size)
 
     def forward(self, x): # the input is of size (b,3,512,512), the output is of size (b,1,512,512), where the num_class=1 in ISTD.
         _, _, hei, wid = x.shape
         
         outputs=self.mim_backbone(x)
         t1,t2,t3,t4=outputs[0],outputs[1],outputs[2],outputs[3]
-
 
         deconc3 = self.deconv3(t4)
         fusec3 = deconc3+t3

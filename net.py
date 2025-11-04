@@ -73,7 +73,7 @@ class Net(nn.Module):
         elif model_name == "SDecNet_Haar":
             self.model  = SDecNet_Haar()
         elif model_name == "MiM":
-            self.model = MiM([2]*3,[8, 16, 32, 64, 128])
+            self.model = MiM([2]*3,[8, 16, 32, 64, 128],img_size=size)
         elif model_name == "VMamba":
             self.model = VMambaSeg()
         elif model_name == "LocalMamba":
@@ -113,11 +113,11 @@ class Net(nn.Module):
         elif self.model_name == "LRPCANet":
             D, T = pred
             loss =  self.mse_loss(D, image) * 0.1 + self.softiou_loss(T,gt_mask)
+        elif self.model_name == "MiM":
+            loss = self.dice_loss(pred, gt_mask)
         elif self.model_name == "IRSAM":
             edges, masks = pred
-            # print( self.bce_loss(edges, gt_mask))
-            # print( self.dice_loss(preds=masks, gt_masks=gt_mask))
-            loss = self.dice_loss(preds=masks, gt_masks=gt_mask)
+            loss = self.bce_loss(edges, gt_mask) * 10. + self.dice_loss(preds=masks, gt_masks=gt_mask)
         else:
             loss = self.softiou_loss(pred, gt_mask)
         return loss
