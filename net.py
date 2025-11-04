@@ -14,7 +14,8 @@ class Net(nn.Module):
         self.model_name = model_name
         self.softiou_loss = SoftIoULoss()
         self.dice_loss = DiceLoss()
-        self.mse_loss = torch.nn.MSELoss()
+        self.mse_loss = torch.nn.MSELoss(reduction='mean')
+        self.bce_loss = torch.nn.BCELoss(reduction='mean')
         self.model = Algorithms()
         self.is_alg =False
         self.model_name = model_name
@@ -114,7 +115,9 @@ class Net(nn.Module):
             loss =  self.mse_loss(D, image) * 0.1 + self.softiou_loss(T,gt_mask)
         elif self.model_name == "IRSAM":
             edges, masks = pred
-            loss = self.mse_loss(edges, gt_mask) * 10. + self.dice_loss(inputs=masks, targets=gt_mask) 
+            # print( self.bce_loss(edges, gt_mask))
+            # print( self.dice_loss(preds=masks, gt_masks=gt_mask))
+            loss = self.dice_loss(preds=masks, gt_masks=gt_mask)
         else:
             loss = self.softiou_loss(pred, gt_mask)
         return loss
