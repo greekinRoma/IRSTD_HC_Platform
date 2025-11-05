@@ -848,7 +848,7 @@ class MiM(nn.Module):
         pred = self.head(upc1)
         out = F.interpolate(pred, size=[hei, wid], mode='bilinear')
 
-        return out.sigmoid()
+        return F.sigmoid(out)
 
     def _make_layer(self, block, block_num, in_channels, out_channels, stride):
         layer = []
