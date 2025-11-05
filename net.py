@@ -73,7 +73,7 @@ class Net(nn.Module):
         elif model_name == "SDecNet_Haar":
             self.model  = SDecNet_Haar()
         elif model_name == "MiM":
-            self.model = MiM([2]*3,[8, 16, 32, 64, 128])
+            self.model = MiM([2]*3,[8, 16, 32, 64, 128],img_size=size)
         elif model_name == "VMamba":
             self.model = VMambaSeg()
         elif model_name == "LocalMamba":
