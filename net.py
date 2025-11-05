@@ -116,6 +116,8 @@ class Net(nn.Module):
         elif self.model_name == "IRSAM":
             edges, masks = pred
             loss = self.mce_loss(edges, gt_mask)*10. + self.dice_loss(inputs=masks, targets=gt_mask) 
+        elif self.model_name == "MiM":
+            loss = self.dice_loss(pred,gt_mask)
         else:
             loss = self.softiou_loss(pred, gt_mask)
         return loss
