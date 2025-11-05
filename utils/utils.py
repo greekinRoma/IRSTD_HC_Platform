@@ -141,8 +141,9 @@ def get_optimizer(net, optimizer_name, scheduler_name, optimizer_settings, sched
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=scheduler_settings['epochs'])
         return optimizer, scheduler
     elif net.model_name == "IRSAM":
-        optimizer = AdamW(net.parameters(),lr=0.0001,betas=(0.9, 0.999),weight_decay=0.01)
-        scheduler = CosineAnnealingLR(optimizer,T_max=400,eta_min=1e-7)
+        optimizer = AdamW(net.parameters(),lr=0.0001)
+        scheduler = CosineAnnealingLR(optimizer,T_max=400)
+        return optimizer, scheduler
     if optimizer_name == 'Adam':
         optimizer = torch.optim.Adam(net.parameters(), lr=optimizer_settings['lr'])
     elif optimizer_name == 'Adagrad':
