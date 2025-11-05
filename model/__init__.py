@@ -28,4 +28,8 @@ from model.SDecNet_with_DHPF.segmentation import SDecNet_DHPF
 from model.MiM.MiM import MiM
 from model.VMamba.main import VMambaSeg
 from model.LocalMamba.LocalMamba import build_seg_model
-from model.IRSAM.IRSAM import build_sam_IRSAM
+try:
+    from model.IRSAM.IRSAM import build_sam_IRSAM
+except Exception as e:
+    print(e)
+from model.SDecNet_orho.segmentation import SDecNet_orho
