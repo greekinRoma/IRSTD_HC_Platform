@@ -20,10 +20,10 @@ import argparse
 import time
 
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
-parser.add_argument("--model_names", default=['LRPCANet','RPCANet','RPCANet_plus'], type=str, nargs='+',
+parser.add_argument("--model_names", default=['SDecNet'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST','IRSTD-1K'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['NUDT-SIRST'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 parser.add_argument("--save", default='./result', type=str, help="Save path of results")
 global opt

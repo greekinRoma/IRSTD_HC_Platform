@@ -16,15 +16,15 @@ from torch.utils.data import DataLoader
 # LS的参数
 parser = argparse.ArgumentParser(description="PyTorch ISTD")
 
-parser.add_argument("--model_names", default=['LRPCANet','RPCANet','RPCANet_plus'], type=str, nargs='+',
+parser.add_argument("--model_names", default=['SDecNet'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST', 'IRSTD-1K'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['NUDT-SIRST'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")
 parser.add_argument("--save", default='./log5', type=str, help="Save path of checkpoints")
 parser.add_argument("--seed", type=int, default=42, help="Threshold for test")
-parser.add_argument("--test_epos", type=str, default=['377','392', '345','250', '382', '301'], help="Number of epoch for test")
+parser.add_argument("--test_epos", type=str, default=['217','392', '345','250', '382', '301'], help="Number of epoch for test")
 
 global opt
 opt = parser.parse_args()
