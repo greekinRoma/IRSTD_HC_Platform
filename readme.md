@@ -14,6 +14,7 @@ Based on the Basis Decomposition, we propose the Difference Basis Decomposition 
 ![Difference Basis Decomposition](Decomposition.svg)
 ### 2.2 Spatial Difference Basis Decomposition
 For the infrared targets' spatial features, we utilize the Spatial Difference Decomposition Module (SD2M) and Spatial Difference Decomposition Downsamplinng (SD2D).
+
 ![SD2M](SDecM.svg)
 ![SD2D](SDecD.svg)
 ### 2.3 Temporal Difference Basis Decomposition
