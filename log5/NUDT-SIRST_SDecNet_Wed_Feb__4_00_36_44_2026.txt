@@ -1,0 +1,11 @@
+*********Feb  4 00:36:51 Epoch---1, total_loss---0.998604,,*********
+pixAcc 0.043687, mIoU: 0.000054
+Pd: 0.024339, Fa: 0.33630860, fscore: 0.000060
+Best mIoU: 0.000054,when Epoch=1, Best fscore: 0.000060,when Epoch=1
+Best Pd: 0.024339,when Epoch=1, Best Fa: 0.33630860,when Epoch=1
+*********Feb  4 00:37:12 Epoch---2, total_loss---1.004358,,*********
+pixAcc 0.083772, mIoU: 0.000098
+Pd: 0.069841, Fa: 0.31871423, fscore: 0.000101
+Best mIoU: 0.000098,when Epoch=2, Best fscore: 0.000101,when Epoch=2
+Best Pd: 0.069841,when Epoch=2, Best Fa: 0.31871423,when Epoch=2
+*********Feb  4 00:37:34 Epoch---3, total_loss---1.001861,,*********

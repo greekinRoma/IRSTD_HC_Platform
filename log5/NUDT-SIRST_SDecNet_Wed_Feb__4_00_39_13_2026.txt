@@ -1,0 +1,1546 @@
+*********Feb  4 00:39:19 Epoch---1, total_loss---0.710968,,*********
+pixAcc 0.755465, mIoU: 0.530294
+Pd: 0.920635, Fa: 0.00010543, fscore: 0.693520
+Best mIoU: 0.530294,when Epoch=1, Best fscore: 0.693520,when Epoch=1
+Best Pd: 0.920635,when Epoch=1, Best Fa: 0.00010543,when Epoch=1
+*********Feb  4 00:39:38 Epoch---2, total_loss---0.399754,,*********
+pixAcc 0.786156, mIoU: 0.635165
+Pd: 0.950265, Fa: 0.00010644, fscore: 0.777173
+Best mIoU: 0.635165,when Epoch=2, Best fscore: 0.777173,when Epoch=2
+Best Pd: 0.950265,when Epoch=2, Best Fa: 0.00010543,when Epoch=1
+*********Feb  4 00:39:57 Epoch---3, total_loss---0.325253,,*********
+pixAcc 0.799011, mIoU: 0.685161
+Pd: 0.955556, Fa: 0.00006752, fscore: 0.813198
+Best mIoU: 0.685161,when Epoch=3, Best fscore: 0.813198,when Epoch=3
+Best Pd: 0.955556,when Epoch=3, Best Fa: 0.00006752,when Epoch=3
+*********Feb  4 00:40:15 Epoch---4, total_loss---0.285064,,*********
+pixAcc 0.799647, mIoU: 0.723086
+Pd: 0.951323, Fa: 0.00004058, fscore: 0.838958
+Best mIoU: 0.723086,when Epoch=4, Best fscore: 0.838958,when Epoch=4
+Best Pd: 0.955556,when Epoch=3, Best Fa: 0.00004058,when Epoch=4
+*********Feb  4 00:40:33 Epoch---5, total_loss---0.256397,,*********
+pixAcc 0.852799, mIoU: 0.767912
+Pd: 0.961905, Fa: 0.00002486, fscore: 0.868044
+Best mIoU: 0.767912,when Epoch=5, Best fscore: 0.868044,when Epoch=5
+Best Pd: 0.961905,when Epoch=5, Best Fa: 0.00002486,when Epoch=5
+*********Feb  4 00:40:51 Epoch---6, total_loss---0.242255,,*********
+pixAcc 0.831467, mIoU: 0.764880
+Pd: 0.966138, Fa: 0.00003353, fscore: 0.866154
+Best mIoU: 0.767912,when Epoch=5, Best fscore: 0.868044,when Epoch=5
+Best Pd: 0.966138,when Epoch=6, Best Fa: 0.00002486,when Epoch=5
+*********Feb  4 00:41:10 Epoch---7, total_loss---0.210865,,*********
+pixAcc 0.886950, mIoU: 0.784053
+Pd: 0.964021, Fa: 0.00004403, fscore: 0.879123
+Best mIoU: 0.784053,when Epoch=7, Best fscore: 0.879123,when Epoch=7
+Best Pd: 0.966138,when Epoch=6, Best Fa: 0.00002486,when Epoch=5
+*********Feb  4 00:41:29 Epoch---8, total_loss---0.192000,,*********
+pixAcc 0.887798, mIoU: 0.806041
+Pd: 0.968254, Fa: 0.00002401, fscore: 0.892365
+Best mIoU: 0.806041,when Epoch=8, Best fscore: 0.892365,when Epoch=8
+Best Pd: 0.968254,when Epoch=8, Best Fa: 0.00002401,when Epoch=8
+*********Feb  4 00:41:48 Epoch---9, total_loss---0.185887,,*********
+pixAcc 0.904220, mIoU: 0.796088
+Pd: 0.960847, Fa: 0.00002709, fscore: 0.886594
+Best mIoU: 0.806041,when Epoch=8, Best fscore: 0.892365,when Epoch=8
+Best Pd: 0.968254,when Epoch=8, Best Fa: 0.00002401,when Epoch=8
+*********Feb  4 00:42:08 Epoch---10, total_loss---0.178481,,*********
+pixAcc 0.906728, mIoU: 0.783771
+Pd: 0.977778, Fa: 0.00005524, fscore: 0.878652
+Best mIoU: 0.806041,when Epoch=8, Best fscore: 0.892365,when Epoch=8
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00002401,when Epoch=8
+*********Feb  4 00:42:26 Epoch---11, total_loss---0.154901,,*********
+pixAcc 0.881300, mIoU: 0.827058
+Pd: 0.962963, Fa: 0.00001786, fscore: 0.905413
+Best mIoU: 0.827058,when Epoch=11, Best fscore: 0.905413,when Epoch=11
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001786,when Epoch=11
+*********Feb  4 00:42:47 Epoch---12, total_loss---0.152087,,*********
+pixAcc 0.851033, mIoU: 0.812222
+Pd: 0.955556, Fa: 0.00001057, fscore: 0.896112
+Best mIoU: 0.827058,when Epoch=11, Best fscore: 0.905413,when Epoch=11
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:43:06 Epoch---13, total_loss---0.156918,,*********
+pixAcc 0.872435, mIoU: 0.805550
+Pd: 0.948148, Fa: 0.00001301, fscore: 0.890903
+Best mIoU: 0.827058,when Epoch=11, Best fscore: 0.905413,when Epoch=11
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:43:24 Epoch---14, total_loss---0.152960,,*********
+pixAcc 0.872223, mIoU: 0.812990
+Pd: 0.943915, Fa: 0.00001526, fscore: 0.895072
+Best mIoU: 0.827058,when Epoch=11, Best fscore: 0.905413,when Epoch=11
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:43:42 Epoch---15, total_loss---0.159217,,*********
+pixAcc 0.837895, mIoU: 0.796355
+Pd: 0.968254, Fa: 0.00002431, fscore: 0.885713
+Best mIoU: 0.827058,when Epoch=11, Best fscore: 0.905413,when Epoch=11
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:44:00 Epoch---16, total_loss---0.132594,,*********
+pixAcc 0.889352, mIoU: 0.831199
+Pd: 0.973545, Fa: 0.00002827, fscore: 0.907205
+Best mIoU: 0.831199,when Epoch=16, Best fscore: 0.907205,when Epoch=16
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:44:20 Epoch---17, total_loss---0.130991,,*********
+pixAcc 0.816776, mIoU: 0.786713
+Pd: 0.905820, Fa: 0.00001418, fscore: 0.879022
+Best mIoU: 0.831199,when Epoch=16, Best fscore: 0.907205,when Epoch=16
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:44:39 Epoch---18, total_loss---0.153381,,*********
+pixAcc 0.866714, mIoU: 0.819536
+Pd: 0.951323, Fa: 0.00001333, fscore: 0.899577
+Best mIoU: 0.831199,when Epoch=16, Best fscore: 0.907205,when Epoch=16
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:44:58 Epoch---19, total_loss---0.169179,,*********
+pixAcc 0.898393, mIoU: 0.746486
+Pd: 0.954497, Fa: 0.00009135, fscore: 0.854605
+Best mIoU: 0.831199,when Epoch=16, Best fscore: 0.907205,when Epoch=16
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:45:16 Epoch---20, total_loss---0.154536,,*********
+pixAcc 0.871729, mIoU: 0.809279
+Pd: 0.938624, Fa: 0.00002397, fscore: 0.890259
+Best mIoU: 0.831199,when Epoch=16, Best fscore: 0.907205,when Epoch=16
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001057,when Epoch=12
+*********Feb  4 00:45:34 Epoch---21, total_loss---0.132428,,*********
+pixAcc 0.886880, mIoU: 0.838688
+Pd: 0.959788, Fa: 0.00001016, fscore: 0.911337
+Best mIoU: 0.838688,when Epoch=21, Best fscore: 0.911337,when Epoch=21
+Best Pd: 0.977778,when Epoch=10, Best Fa: 0.00001016,when Epoch=21
+*********Feb  4 00:45:54 Epoch---22, total_loss---0.113435,,*********
+pixAcc 0.927459, mIoU: 0.835991
+Pd: 0.978836, Fa: 0.00003178, fscore: 0.910632
+Best mIoU: 0.838688,when Epoch=21, Best fscore: 0.911337,when Epoch=21
+Best Pd: 0.978836,when Epoch=22, Best Fa: 0.00001016,when Epoch=21
+*********Feb  4 00:46:13 Epoch---23, total_loss---0.122304,,*********
+pixAcc 0.864418, mIoU: 0.833708
+Pd: 0.926984, Fa: 0.00001301, fscore: 0.906954
+Best mIoU: 0.838688,when Epoch=21, Best fscore: 0.911337,when Epoch=21
+Best Pd: 0.978836,when Epoch=22, Best Fa: 0.00001016,when Epoch=21
+*********Feb  4 00:46:32 Epoch---24, total_loss---0.108595,,*********
+pixAcc 0.931167, mIoU: 0.859695
+Pd: 0.980952, Fa: 0.00002036, fscore: 0.924360
+Best mIoU: 0.859695,when Epoch=24, Best fscore: 0.924360,when Epoch=24
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00001016,when Epoch=21
+*********Feb  4 00:46:50 Epoch---25, total_loss---0.129929,,*********
+pixAcc 0.890694, mIoU: 0.786675
+Pd: 0.946032, Fa: 0.00003631, fscore: 0.880140
+Best mIoU: 0.859695,when Epoch=24, Best fscore: 0.924360,when Epoch=24
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00001016,when Epoch=21
+*********Feb  4 00:47:10 Epoch---26, total_loss---0.131837,,*********
+pixAcc 0.926188, mIoU: 0.848815
+Pd: 0.972487, Fa: 0.00001958, fscore: 0.918249
+Best mIoU: 0.859695,when Epoch=24, Best fscore: 0.924360,when Epoch=24
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00001016,when Epoch=21
+*********Feb  4 00:47:29 Epoch---27, total_loss---0.107748,,*********
+pixAcc 0.908352, mIoU: 0.866986
+Pd: 0.966138, Fa: 0.00000935, fscore: 0.927693
+Best mIoU: 0.866986,when Epoch=27, Best fscore: 0.927693,when Epoch=27
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000935,when Epoch=27
+*********Feb  4 00:47:47 Epoch---28, total_loss---0.100384,,*********
+pixAcc 0.909341, mIoU: 0.867257
+Pd: 0.967196, Fa: 0.00001491, fscore: 0.925953
+Best mIoU: 0.867257,when Epoch=28, Best fscore: 0.927693,when Epoch=27
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000935,when Epoch=27
+*********Feb  4 00:48:08 Epoch---29, total_loss---0.090317,,*********
+pixAcc 0.919583, mIoU: 0.876671
+Pd: 0.974603, Fa: 0.00001512, fscore: 0.933326
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000935,when Epoch=27
+*********Feb  4 00:48:27 Epoch---30, total_loss---0.106607,,*********
+pixAcc 0.909094, mIoU: 0.869012
+Pd: 0.960847, Fa: 0.00000919, fscore: 0.928368
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000919,when Epoch=30
+*********Feb  4 00:48:47 Epoch---31, total_loss---0.126431,,*********
+pixAcc 0.908812, mIoU: 0.858883
+Pd: 0.965079, Fa: 0.00001305, fscore: 0.924068
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000919,when Epoch=30
+*********Feb  4 00:49:06 Epoch---32, total_loss---0.112957,,*********
+pixAcc 0.907364, mIoU: 0.860156
+Pd: 0.960847, Fa: 0.00000763, fscore: 0.924364
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:49:25 Epoch---33, total_loss---0.101652,,*********
+pixAcc 0.931980, mIoU: 0.869031
+Pd: 0.969312, Fa: 0.00000887, fscore: 0.928976
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:49:44 Epoch---34, total_loss---0.112950,,*********
+pixAcc 0.877839, mIoU: 0.826852
+Pd: 0.967196, Fa: 0.00002997, fscore: 0.905208
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:50:03 Epoch---35, total_loss---0.102414,,*********
+pixAcc 0.924457, mIoU: 0.857780
+Pd: 0.964021, Fa: 0.00000903, fscore: 0.923191
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:50:21 Epoch---36, total_loss---0.086999,,*********
+pixAcc 0.914427, mIoU: 0.869443
+Pd: 0.966138, Fa: 0.00000859, fscore: 0.929576
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:50:40 Epoch---37, total_loss---0.128747,,*********
+pixAcc 0.902243, mIoU: 0.842690
+Pd: 0.976720, Fa: 0.00002613, fscore: 0.914509
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:50:59 Epoch---38, total_loss---0.118695,,*********
+pixAcc 0.880275, mIoU: 0.851904
+Pd: 0.961905, Fa: 0.00001133, fscore: 0.918974
+Best mIoU: 0.876671,when Epoch=29, Best fscore: 0.933326,when Epoch=29
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000763,when Epoch=32
+*********Feb  4 00:51:18 Epoch---39, total_loss---0.091455,,*********
+pixAcc 0.908529, mIoU: 0.878106
+Pd: 0.958730, Fa: 0.00000478, fscore: 0.934287
+Best mIoU: 0.878106,when Epoch=39, Best fscore: 0.934287,when Epoch=39
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:51:38 Epoch---40, total_loss---0.089814,,*********
+pixAcc 0.936500, mIoU: 0.881022
+Pd: 0.977778, Fa: 0.00001774, fscore: 0.936453
+Best mIoU: 0.881022,when Epoch=40, Best fscore: 0.936453,when Epoch=40
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:51:57 Epoch---41, total_loss---0.081907,,*********
+pixAcc 0.914392, mIoU: 0.878495
+Pd: 0.968254, Fa: 0.00001721, fscore: 0.935262
+Best mIoU: 0.881022,when Epoch=40, Best fscore: 0.936453,when Epoch=40
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:52:17 Epoch---42, total_loss---0.080306,,*********
+pixAcc 0.910825, mIoU: 0.879604
+Pd: 0.968254, Fa: 0.00000963, fscore: 0.935703
+Best mIoU: 0.881022,when Epoch=40, Best fscore: 0.936453,when Epoch=40
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:52:35 Epoch---43, total_loss---0.073265,,*********
+pixAcc 0.945541, mIoU: 0.894580
+Pd: 0.974603, Fa: 0.00000958, fscore: 0.944195
+Best mIoU: 0.894580,when Epoch=43, Best fscore: 0.944195,when Epoch=43
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:52:52 Epoch---44, total_loss---0.073375,,*********
+pixAcc 0.940456, mIoU: 0.896932
+Pd: 0.967196, Fa: 0.00000915, fscore: 0.945344
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:53:10 Epoch---45, total_loss---0.087133,,*********
+pixAcc 0.923963, mIoU: 0.883195
+Pd: 0.962963, Fa: 0.00000728, fscore: 0.936999
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:53:28 Epoch---46, total_loss---0.075620,,*********
+pixAcc 0.930814, mIoU: 0.885916
+Pd: 0.973545, Fa: 0.00000853, fscore: 0.939403
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:53:45 Epoch---47, total_loss---0.069132,,*********
+pixAcc 0.922055, mIoU: 0.890329
+Pd: 0.970370, Fa: 0.00001174, fscore: 0.941652
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:54:04 Epoch---48, total_loss---0.070649,,*********
+pixAcc 0.941444, mIoU: 0.896064
+Pd: 0.968254, Fa: 0.00000956, fscore: 0.944705
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:54:23 Epoch---49, total_loss---0.069828,,*********
+pixAcc 0.933039, mIoU: 0.888482
+Pd: 0.957672, Fa: 0.00000735, fscore: 0.940607
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:54:41 Epoch---50, total_loss---0.100282,,*********
+pixAcc 0.925375, mIoU: 0.880059
+Pd: 0.960847, Fa: 0.00001156, fscore: 0.935255
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:55:00 Epoch---51, total_loss---0.082050,,*********
+pixAcc 0.931167, mIoU: 0.895706
+Pd: 0.960847, Fa: 0.00000728, fscore: 0.944541
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:55:18 Epoch---52, total_loss---0.085874,,*********
+pixAcc 0.927070, mIoU: 0.892008
+Pd: 0.965079, Fa: 0.00000864, fscore: 0.941879
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:55:37 Epoch---53, total_loss---0.079702,,*********
+pixAcc 0.900971, mIoU: 0.880145
+Pd: 0.968254, Fa: 0.00000685, fscore: 0.936337
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:55:56 Epoch---54, total_loss---0.067936,,*********
+pixAcc 0.950168, mIoU: 0.887891
+Pd: 0.979894, Fa: 0.00002139, fscore: 0.940605
+Best mIoU: 0.896932,when Epoch=44, Best fscore: 0.945344,when Epoch=44
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:56:16 Epoch---55, total_loss---0.076528,,*********
+pixAcc 0.934240, mIoU: 0.897929
+Pd: 0.971429, Fa: 0.00001055, fscore: 0.945953
+Best mIoU: 0.897929,when Epoch=55, Best fscore: 0.945953,when Epoch=55
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:56:34 Epoch---56, total_loss---0.113670,,*********
+pixAcc 0.912061, mIoU: 0.870496
+Pd: 0.958730, Fa: 0.00001252, fscore: 0.930322
+Best mIoU: 0.897929,when Epoch=55, Best fscore: 0.945953,when Epoch=55
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:56:52 Epoch---57, total_loss---0.082147,,*********
+pixAcc 0.924951, mIoU: 0.897071
+Pd: 0.967196, Fa: 0.00000770, fscore: 0.945389
+Best mIoU: 0.897929,when Epoch=55, Best fscore: 0.945953,when Epoch=55
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:57:11 Epoch---58, total_loss---0.094977,,*********
+pixAcc 0.925622, mIoU: 0.887388
+Pd: 0.964021, Fa: 0.00000924, fscore: 0.939517
+Best mIoU: 0.897929,when Epoch=55, Best fscore: 0.945953,when Epoch=55
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000478,when Epoch=39
+*********Feb  4 00:57:30 Epoch---59, total_loss---0.068456,,*********
+pixAcc 0.913050, mIoU: 0.883139
+Pd: 0.957672, Fa: 0.00000466, fscore: 0.937638
+Best mIoU: 0.897929,when Epoch=55, Best fscore: 0.945953,when Epoch=55
+Best Pd: 0.980952,when Epoch=24, Best Fa: 0.00000466,when Epoch=59
+*********Feb  4 00:57:48 Epoch---60, total_loss---0.075302,,*********
+pixAcc 0.941656, mIoU: 0.869691
+Pd: 0.982011, Fa: 0.00003495, fscore: 0.930048
+Best mIoU: 0.897929,when Epoch=55, Best fscore: 0.945953,when Epoch=55
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000466,when Epoch=59
+*********Feb  4 00:58:08 Epoch---61, total_loss---0.067017,,*********
+pixAcc 0.941374, mIoU: 0.902794
+Pd: 0.969312, Fa: 0.00000416, fscore: 0.948355
+Best mIoU: 0.902794,when Epoch=61, Best fscore: 0.948355,when Epoch=61
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 00:58:27 Epoch---62, total_loss---0.061590,,*********
+pixAcc 0.939996, mIoU: 0.907807
+Pd: 0.975661, Fa: 0.00000896, fscore: 0.951508
+Best mIoU: 0.907807,when Epoch=62, Best fscore: 0.951508,when Epoch=62
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 00:58:47 Epoch---63, total_loss---0.057358,,*********
+pixAcc 0.949214, mIoU: 0.902700
+Pd: 0.972487, Fa: 0.00000871, fscore: 0.948568
+Best mIoU: 0.907807,when Epoch=62, Best fscore: 0.951508,when Epoch=62
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 00:59:06 Epoch---64, total_loss---0.068339,,*********
+pixAcc 0.929860, mIoU: 0.894449
+Pd: 0.959788, Fa: 0.00000572, fscore: 0.943803
+Best mIoU: 0.907807,when Epoch=62, Best fscore: 0.951508,when Epoch=62
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 00:59:25 Epoch---65, total_loss---0.069224,,*********
+pixAcc 0.934805, mIoU: 0.898046
+Pd: 0.976720, Fa: 0.00001239, fscore: 0.945714
+Best mIoU: 0.907807,when Epoch=62, Best fscore: 0.951508,when Epoch=62
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 00:59:45 Epoch---66, total_loss---0.067940,,*********
+pixAcc 0.917111, mIoU: 0.897212
+Pd: 0.966138, Fa: 0.00000609, fscore: 0.945380
+Best mIoU: 0.907807,when Epoch=62, Best fscore: 0.951508,when Epoch=62
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:00:03 Epoch---67, total_loss---0.059020,,*********
+pixAcc 0.939961, mIoU: 0.910413
+Pd: 0.976720, Fa: 0.00000871, fscore: 0.952901
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:00:22 Epoch---68, total_loss---0.057047,,*********
+pixAcc 0.942398, mIoU: 0.908175
+Pd: 0.969312, Fa: 0.00000830, fscore: 0.951661
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:00:39 Epoch---69, total_loss---0.051423,,*********
+pixAcc 0.945965, mIoU: 0.906583
+Pd: 0.973545, Fa: 0.00001225, fscore: 0.950890
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:00:57 Epoch---70, total_loss---0.069764,,*********
+pixAcc 0.924669, mIoU: 0.895877
+Pd: 0.953439, Fa: 0.00000687, fscore: 0.944375
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:01:16 Epoch---71, total_loss---0.063798,,*********
+pixAcc 0.947696, mIoU: 0.895063
+Pd: 0.967196, Fa: 0.00001064, fscore: 0.944165
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:01:36 Epoch---72, total_loss---0.073022,,*********
+pixAcc 0.947554, mIoU: 0.894512
+Pd: 0.974603, Fa: 0.00001799, fscore: 0.944072
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:01:55 Epoch---73, total_loss---0.063855,,*********
+pixAcc 0.938160, mIoU: 0.903537
+Pd: 0.972487, Fa: 0.00001059, fscore: 0.948818
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:02:15 Epoch---74, total_loss---0.053363,,*********
+pixAcc 0.931344, mIoU: 0.909910
+Pd: 0.972487, Fa: 0.00000616, fscore: 0.952649
+Best mIoU: 0.910413,when Epoch=67, Best fscore: 0.952901,when Epoch=67
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:02:34 Epoch---75, total_loss---0.052200,,*********
+pixAcc 0.936006, mIoU: 0.912826
+Pd: 0.970370, Fa: 0.00000685, fscore: 0.954454
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:02:53 Epoch---76, total_loss---0.052885,,*********
+pixAcc 0.926435, mIoU: 0.905457
+Pd: 0.973545, Fa: 0.00000427, fscore: 0.950222
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:03:12 Epoch---77, total_loss---0.056406,,*********
+pixAcc 0.942327, mIoU: 0.912080
+Pd: 0.977778, Fa: 0.00000853, fscore: 0.953732
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000416,when Epoch=61
+*********Feb  4 01:03:30 Epoch---78, total_loss---0.050031,,*********
+pixAcc 0.940915, mIoU: 0.909221
+Pd: 0.969312, Fa: 0.00000377, fscore: 0.952121
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:03:50 Epoch---79, total_loss---0.064984,,*********
+pixAcc 0.945577, mIoU: 0.900178
+Pd: 0.970370, Fa: 0.00001634, fscore: 0.946035
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:04:09 Epoch---80, total_loss---0.056084,,*********
+pixAcc 0.929896, mIoU: 0.907087
+Pd: 0.974603, Fa: 0.00000830, fscore: 0.950799
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:04:29 Epoch---81, total_loss---0.055884,,*********
+pixAcc 0.929790, mIoU: 0.906171
+Pd: 0.972487, Fa: 0.00000641, fscore: 0.950471
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:04:47 Epoch---82, total_loss---0.049514,,*********
+pixAcc 0.927706, mIoU: 0.908739
+Pd: 0.962963, Fa: 0.00000423, fscore: 0.951865
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:05:05 Epoch---83, total_loss---0.058481,,*********
+pixAcc 0.933251, mIoU: 0.902709
+Pd: 0.970370, Fa: 0.00001032, fscore: 0.948003
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:05:23 Epoch---84, total_loss---0.060563,,*********
+pixAcc 0.937348, mIoU: 0.897474
+Pd: 0.971429, Fa: 0.00001347, fscore: 0.945806
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:05:43 Epoch---85, total_loss---0.058006,,*********
+pixAcc 0.925799, mIoU: 0.905180
+Pd: 0.971429, Fa: 0.00000832, fscore: 0.949976
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:06:01 Epoch---86, total_loss---0.079474,,*********
+pixAcc 0.877591, mIoU: 0.807809
+Pd: 0.939683, Fa: 0.00003711, fscore: 0.892243
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:06:20 Epoch---87, total_loss---0.100437,,*********
+pixAcc 0.925764, mIoU: 0.898228
+Pd: 0.965079, Fa: 0.00000935, fscore: 0.945986
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:06:37 Epoch---88, total_loss---0.060680,,*********
+pixAcc 0.942751, mIoU: 0.907404
+Pd: 0.968254, Fa: 0.00000561, fscore: 0.950719
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:06:55 Epoch---89, total_loss---0.053116,,*********
+pixAcc 0.951934, mIoU: 0.905165
+Pd: 0.969312, Fa: 0.00000742, fscore: 0.949486
+Best mIoU: 0.912826,when Epoch=75, Best fscore: 0.954454,when Epoch=75
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:07:14 Epoch---90, total_loss---0.051141,,*********
+pixAcc 0.944552, mIoU: 0.915360
+Pd: 0.969312, Fa: 0.00000685, fscore: 0.955115
+Best mIoU: 0.915360,when Epoch=90, Best fscore: 0.955115,when Epoch=90
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:07:31 Epoch---91, total_loss---0.054835,,*********
+pixAcc 0.922903, mIoU: 0.907109
+Pd: 0.966138, Fa: 0.00000710, fscore: 0.950516
+Best mIoU: 0.915360,when Epoch=90, Best fscore: 0.955115,when Epoch=90
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:07:51 Epoch---92, total_loss---0.046332,,*********
+pixAcc 0.939996, mIoU: 0.906262
+Pd: 0.974603, Fa: 0.00001181, fscore: 0.950607
+Best mIoU: 0.915360,when Epoch=90, Best fscore: 0.955115,when Epoch=90
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:08:08 Epoch---93, total_loss---0.046040,,*********
+pixAcc 0.937242, mIoU: 0.911990
+Pd: 0.972487, Fa: 0.00000885, fscore: 0.953699
+Best mIoU: 0.915360,when Epoch=90, Best fscore: 0.955115,when Epoch=90
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:08:26 Epoch---94, total_loss---0.044914,,*********
+pixAcc 0.961610, mIoU: 0.909632
+Pd: 0.976720, Fa: 0.00001087, fscore: 0.952671
+Best mIoU: 0.915360,when Epoch=90, Best fscore: 0.955115,when Epoch=90
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:08:44 Epoch---95, total_loss---0.044696,,*********
+pixAcc 0.947272, mIoU: 0.920864
+Pd: 0.969312, Fa: 0.00000749, fscore: 0.958000
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:09:02 Epoch---96, total_loss---0.079979,,*********
+pixAcc 0.920396, mIoU: 0.830921
+Pd: 0.966138, Fa: 0.00003760, fscore: 0.906498
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:09:22 Epoch---97, total_loss---0.075896,,*********
+pixAcc 0.942363, mIoU: 0.909906
+Pd: 0.969312, Fa: 0.00000680, fscore: 0.952255
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:09:41 Epoch---98, total_loss---0.050569,,*********
+pixAcc 0.945365, mIoU: 0.914052
+Pd: 0.972487, Fa: 0.00000701, fscore: 0.954672
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.982011,when Epoch=60, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:09:59 Epoch---99, total_loss---0.046549,,*********
+pixAcc 0.949673, mIoU: 0.908784
+Pd: 0.983069, Fa: 0.00001684, fscore: 0.952153
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:10:18 Epoch---100, total_loss---0.048555,,*********
+pixAcc 0.937418, mIoU: 0.902485
+Pd: 0.966138, Fa: 0.00000876, fscore: 0.947818
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:10:36 Epoch---101, total_loss---0.051707,,*********
+pixAcc 0.903161, mIoU: 0.887428
+Pd: 0.949206, Fa: 0.00000809, fscore: 0.938424
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:10:55 Epoch---102, total_loss---0.049928,,*********
+pixAcc 0.932509, mIoU: 0.912118
+Pd: 0.969312, Fa: 0.00000692, fscore: 0.953096
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:11:13 Epoch---103, total_loss---0.044539,,*********
+pixAcc 0.952216, mIoU: 0.904310
+Pd: 0.982011, Fa: 0.00002165, fscore: 0.949533
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:11:32 Epoch---104, total_loss---0.042124,,*********
+pixAcc 0.933993, mIoU: 0.909641
+Pd: 0.975661, Fa: 0.00000956, fscore: 0.951954
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:11:50 Epoch---105, total_loss---0.087520,,*********
+pixAcc 0.928483, mIoU: 0.888446
+Pd: 0.979894, Fa: 0.00001719, fscore: 0.940594
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:12:09 Epoch---106, total_loss---0.065758,,*********
+pixAcc 0.922974, mIoU: 0.892829
+Pd: 0.960847, Fa: 0.00000843, fscore: 0.942557
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:12:27 Epoch---107, total_loss---0.065176,,*********
+pixAcc 0.946530, mIoU: 0.915960
+Pd: 0.965079, Fa: 0.00000496, fscore: 0.955644
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:12:43 Epoch---108, total_loss---0.048776,,*********
+pixAcc 0.950733, mIoU: 0.914495
+Pd: 0.971429, Fa: 0.00000600, fscore: 0.954679
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:13:02 Epoch---109, total_loss---0.050484,,*********
+pixAcc 0.944764, mIoU: 0.914783
+Pd: 0.976720, Fa: 0.00001069, fscore: 0.955018
+Best mIoU: 0.920864,when Epoch=95, Best fscore: 0.958000,when Epoch=95
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:13:21 Epoch---110, total_loss---0.044913,,*********
+pixAcc 0.950097, mIoU: 0.925135
+Pd: 0.973545, Fa: 0.00000588, fscore: 0.960447
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:13:38 Epoch---111, total_loss---0.040693,,*********
+pixAcc 0.942010, mIoU: 0.922080
+Pd: 0.975661, Fa: 0.00000473, fscore: 0.959327
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:13:58 Epoch---112, total_loss---0.050911,,*********
+pixAcc 0.951157, mIoU: 0.917834
+Pd: 0.980952, Fa: 0.00000866, fscore: 0.956988
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:14:17 Epoch---113, total_loss---0.063070,,*********
+pixAcc 0.921278, mIoU: 0.899269
+Pd: 0.973545, Fa: 0.00000892, fscore: 0.946570
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:14:37 Epoch---114, total_loss---0.052012,,*********
+pixAcc 0.956172, mIoU: 0.917234
+Pd: 0.976720, Fa: 0.00000761, fscore: 0.956783
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:14:56 Epoch---115, total_loss---0.050872,,*********
+pixAcc 0.929684, mIoU: 0.914345
+Pd: 0.969312, Fa: 0.00000480, fscore: 0.954880
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:15:15 Epoch---116, total_loss---0.047009,,*********
+pixAcc 0.955395, mIoU: 0.913672
+Pd: 0.973545, Fa: 0.00000715, fscore: 0.954574
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:15:34 Epoch---117, total_loss---0.049765,,*********
+pixAcc 0.946071, mIoU: 0.911870
+Pd: 0.979894, Fa: 0.00000669, fscore: 0.953089
+Best mIoU: 0.925135,when Epoch=110, Best fscore: 0.960447,when Epoch=110
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:15:52 Epoch---118, total_loss---0.048969,,*********
+pixAcc 0.957231, mIoU: 0.930003
+Pd: 0.980952, Fa: 0.00000572, fscore: 0.963458
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000377,when Epoch=78
+*********Feb  4 01:16:10 Epoch---119, total_loss---0.041148,,*********
+pixAcc 0.954300, mIoU: 0.925408
+Pd: 0.976720, Fa: 0.00000299, fscore: 0.960905
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:16:30 Epoch---120, total_loss---0.073458,,*********
+pixAcc 0.937807, mIoU: 0.872740
+Pd: 0.966138, Fa: 0.00002149, fscore: 0.931920
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:16:48 Epoch---121, total_loss---0.070958,,*********
+pixAcc 0.947484, mIoU: 0.916820
+Pd: 0.971429, Fa: 0.00000446, fscore: 0.956230
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:17:06 Epoch---122, total_loss---0.047110,,*********
+pixAcc 0.956984, mIoU: 0.915315
+Pd: 0.976720, Fa: 0.00000591, fscore: 0.955364
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:17:25 Epoch---123, total_loss---0.042473,,*********
+pixAcc 0.955748, mIoU: 0.921605
+Pd: 0.978836, Fa: 0.00000742, fscore: 0.958933
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:17:43 Epoch---124, total_loss---0.039725,,*********
+pixAcc 0.949850, mIoU: 0.926583
+Pd: 0.979894, Fa: 0.00000386, fscore: 0.961533
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:18:01 Epoch---125, total_loss---0.036997,,*********
+pixAcc 0.945683, mIoU: 0.920520
+Pd: 0.977778, Fa: 0.00000466, fscore: 0.958428
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:18:19 Epoch---126, total_loss---0.037787,,*********
+pixAcc 0.953982, mIoU: 0.925195
+Pd: 0.978836, Fa: 0.00000634, fscore: 0.960428
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:18:37 Epoch---127, total_loss---0.039495,,*********
+pixAcc 0.948367, mIoU: 0.883526
+Pd: 0.978836, Fa: 0.00003578, fscore: 0.938051
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:18:56 Epoch---128, total_loss---0.062618,,*********
+pixAcc 0.945930, mIoU: 0.902882
+Pd: 0.974603, Fa: 0.00001432, fscore: 0.948677
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:19:14 Epoch---129, total_loss---0.061891,,*********
+pixAcc 0.947625, mIoU: 0.903860
+Pd: 0.967196, Fa: 0.00000473, fscore: 0.948852
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:19:33 Epoch---130, total_loss---0.052360,,*********
+pixAcc 0.952675, mIoU: 0.915617
+Pd: 0.972487, Fa: 0.00000797, fscore: 0.955722
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:19:52 Epoch---131, total_loss---0.041691,,*********
+pixAcc 0.950486, mIoU: 0.927459
+Pd: 0.973545, Fa: 0.00000342, fscore: 0.962318
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:20:10 Epoch---132, total_loss---0.038192,,*********
+pixAcc 0.952640, mIoU: 0.924844
+Pd: 0.972487, Fa: 0.00000607, fscore: 0.960772
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:20:29 Epoch---133, total_loss---0.037804,,*********
+pixAcc 0.952463, mIoU: 0.926165
+Pd: 0.979894, Fa: 0.00000531, fscore: 0.961656
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:20:47 Epoch---134, total_loss---0.034492,,*********
+pixAcc 0.953770, mIoU: 0.926895
+Pd: 0.977778, Fa: 0.00000627, fscore: 0.961839
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:21:06 Epoch---135, total_loss---0.032872,,*********
+pixAcc 0.949250, mIoU: 0.928974
+Pd: 0.976720, Fa: 0.00000421, fscore: 0.963077
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:21:25 Epoch---136, total_loss---0.034480,,*********
+pixAcc 0.948896, mIoU: 0.927666
+Pd: 0.975661, Fa: 0.00000381, fscore: 0.962375
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963458,when Epoch=118
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:21:44 Epoch---137, total_loss---0.034579,,*********
+pixAcc 0.953735, mIoU: 0.929860
+Pd: 0.975661, Fa: 0.00000345, fscore: 0.963575
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:22:04 Epoch---138, total_loss---0.033198,,*********
+pixAcc 0.958573, mIoU: 0.926285
+Pd: 0.975661, Fa: 0.00000437, fscore: 0.961634
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:22:22 Epoch---139, total_loss---0.034319,,*********
+pixAcc 0.936535, mIoU: 0.921276
+Pd: 0.975661, Fa: 0.00000581, fscore: 0.958717
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:22:40 Epoch---140, total_loss---0.032819,,*********
+pixAcc 0.958361, mIoU: 0.924282
+Pd: 0.983069, Fa: 0.00001036, fscore: 0.960566
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:22:58 Epoch---141, total_loss---0.036111,,*********
+pixAcc 0.887939, mIoU: 0.873866
+Pd: 0.951323, Fa: 0.00000547, fscore: 0.931952
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:23:15 Epoch---142, total_loss---0.065384,,*********
+pixAcc 0.938619, mIoU: 0.914053
+Pd: 0.974603, Fa: 0.00000432, fscore: 0.954879
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:23:33 Epoch---143, total_loss---0.042685,,*********
+pixAcc 0.935087, mIoU: 0.905320
+Pd: 0.976720, Fa: 0.00001117, fscore: 0.950173
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000299,when Epoch=119
+*********Feb  4 01:23:53 Epoch---144, total_loss---0.052926,,*********
+pixAcc 0.941621, mIoU: 0.911241
+Pd: 0.972487, Fa: 0.00000269, fscore: 0.953384
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:24:12 Epoch---145, total_loss---0.040336,,*********
+pixAcc 0.950980, mIoU: 0.918665
+Pd: 0.980952, Fa: 0.00000958, fscore: 0.957615
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:24:31 Epoch---146, total_loss---0.034586,,*********
+pixAcc 0.946671, mIoU: 0.921672
+Pd: 0.972487, Fa: 0.00000457, fscore: 0.959027
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:24:50 Epoch---147, total_loss---0.032842,,*********
+pixAcc 0.940915, mIoU: 0.921837
+Pd: 0.967196, Fa: 0.00000294, fscore: 0.958919
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:25:08 Epoch---148, total_loss---0.033695,,*********
+pixAcc 0.951722, mIoU: 0.927068
+Pd: 0.975661, Fa: 0.00000602, fscore: 0.962002
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:25:26 Epoch---149, total_loss---0.034653,,*********
+pixAcc 0.949921, mIoU: 0.924709
+Pd: 0.966138, Fa: 0.00000306, fscore: 0.960647
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:25:43 Epoch---150, total_loss---0.048494,,*********
+pixAcc 0.945965, mIoU: 0.917295
+Pd: 0.969312, Fa: 0.00000581, fscore: 0.956525
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:26:00 Epoch---151, total_loss---0.043600,,*********
+pixAcc 0.945471, mIoU: 0.909403
+Pd: 0.968254, Fa: 0.00000549, fscore: 0.952064
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000269,when Epoch=144
+*********Feb  4 01:26:20 Epoch---152, total_loss---0.040936,,*********
+pixAcc 0.945471, mIoU: 0.915717
+Pd: 0.965079, Fa: 0.00000267, fscore: 0.955612
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:26:39 Epoch---153, total_loss---0.034879,,*********
+pixAcc 0.934310, mIoU: 0.918544
+Pd: 0.972487, Fa: 0.00000398, fscore: 0.956940
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963575,when Epoch=137
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:26:55 Epoch---154, total_loss---0.030547,,*********
+pixAcc 0.953488, mIoU: 0.929971
+Pd: 0.977778, Fa: 0.00000563, fscore: 0.963653
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963653,when Epoch=154
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:27:14 Epoch---155, total_loss---0.030050,,*********
+pixAcc 0.949038, mIoU: 0.926653
+Pd: 0.977778, Fa: 0.00000595, fscore: 0.961725
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963653,when Epoch=154
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:27:31 Epoch---156, total_loss---0.029850,,*********
+pixAcc 0.948296, mIoU: 0.929712
+Pd: 0.977778, Fa: 0.00000549, fscore: 0.963491
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963653,when Epoch=154
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:27:50 Epoch---157, total_loss---0.032461,,*********
+pixAcc 0.941162, mIoU: 0.924446
+Pd: 0.974603, Fa: 0.00000549, fscore: 0.960539
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963653,when Epoch=154
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:28:09 Epoch---158, total_loss---0.029899,,*********
+pixAcc 0.950415, mIoU: 0.927614
+Pd: 0.976720, Fa: 0.00000584, fscore: 0.962347
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963653,when Epoch=154
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:28:26 Epoch---159, total_loss---0.029069,,*********
+pixAcc 0.949461, mIoU: 0.929085
+Pd: 0.976720, Fa: 0.00000395, fscore: 0.963086
+Best mIoU: 0.930003,when Epoch=118, Best fscore: 0.963653,when Epoch=154
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:28:44 Epoch---160, total_loss---0.027229,,*********
+pixAcc 0.953911, mIoU: 0.933020
+Pd: 0.982011, Fa: 0.00000494, fscore: 0.965194
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:29:02 Epoch---161, total_loss---0.027153,,*********
+pixAcc 0.956666, mIoU: 0.927449
+Pd: 0.971429, Fa: 0.00000453, fscore: 0.962104
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:29:20 Epoch---162, total_loss---0.029063,,*********
+pixAcc 0.944729, mIoU: 0.927081
+Pd: 0.973545, Fa: 0.00000519, fscore: 0.961887
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:29:37 Epoch---163, total_loss---0.040136,,*********
+pixAcc 0.862617, mIoU: 0.809311
+Pd: 0.972487, Fa: 0.00003672, fscore: 0.894512
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:29:56 Epoch---164, total_loss---0.069170,,*********
+pixAcc 0.936324, mIoU: 0.897343
+Pd: 0.973545, Fa: 0.00001225, fscore: 0.945490
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:30:15 Epoch---165, total_loss---0.048756,,*********
+pixAcc 0.939396, mIoU: 0.918664
+Pd: 0.965079, Fa: 0.00000361, fscore: 0.957374
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:30:34 Epoch---166, total_loss---0.049652,,*********
+pixAcc 0.946530, mIoU: 0.912219
+Pd: 0.970370, Fa: 0.00000738, fscore: 0.953811
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:30:52 Epoch---167, total_loss---0.075264,,*********
+pixAcc 0.937489, mIoU: 0.915061
+Pd: 0.973545, Fa: 0.00000671, fscore: 0.955308
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:31:11 Epoch---168, total_loss---0.052429,,*********
+pixAcc 0.943881, mIoU: 0.921110
+Pd: 0.980952, Fa: 0.00000944, fscore: 0.958746
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:31:31 Epoch---169, total_loss---0.041172,,*********
+pixAcc 0.936783, mIoU: 0.920176
+Pd: 0.968254, Fa: 0.00000322, fscore: 0.957929
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:31:48 Epoch---170, total_loss---0.035669,,*********
+pixAcc 0.955783, mIoU: 0.925896
+Pd: 0.971429, Fa: 0.00000280, fscore: 0.961050
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.983069,when Epoch=99, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:32:06 Epoch---171, total_loss---0.032581,,*********
+pixAcc 0.965707, mIoU: 0.930005
+Pd: 0.985185, Fa: 0.00000620, fscore: 0.963682
+Best mIoU: 0.933020,when Epoch=160, Best fscore: 0.965194,when Epoch=160
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:32:24 Epoch---172, total_loss---0.033288,,*********
+pixAcc 0.955607, mIoU: 0.933292
+Pd: 0.980952, Fa: 0.00000549, fscore: 0.965307
+Best mIoU: 0.933292,when Epoch=172, Best fscore: 0.965307,when Epoch=172
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:32:42 Epoch---173, total_loss---0.030126,,*********
+pixAcc 0.960516, mIoU: 0.913019
+Pd: 0.982011, Fa: 0.00001599, fscore: 0.954433
+Best mIoU: 0.933292,when Epoch=172, Best fscore: 0.965307,when Epoch=172
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:33:00 Epoch---174, total_loss---0.030369,,*********
+pixAcc 0.953099, mIoU: 0.929112
+Pd: 0.984127, Fa: 0.00000616, fscore: 0.963151
+Best mIoU: 0.933292,when Epoch=172, Best fscore: 0.965307,when Epoch=172
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:33:18 Epoch---175, total_loss---0.029332,,*********
+pixAcc 0.959951, mIoU: 0.932133
+Pd: 0.980952, Fa: 0.00000333, fscore: 0.964722
+Best mIoU: 0.933292,when Epoch=172, Best fscore: 0.965307,when Epoch=172
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:33:37 Epoch---176, total_loss---0.028321,,*********
+pixAcc 0.957372, mIoU: 0.935146
+Pd: 0.983069, Fa: 0.00000554, fscore: 0.966452
+Best mIoU: 0.935146,when Epoch=176, Best fscore: 0.966452,when Epoch=176
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:33:56 Epoch---177, total_loss---0.027933,,*********
+pixAcc 0.963730, mIoU: 0.934809
+Pd: 0.982011, Fa: 0.00000425, fscore: 0.966067
+Best mIoU: 0.935146,when Epoch=176, Best fscore: 0.966452,when Epoch=176
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:34:14 Epoch---178, total_loss---0.024356,,*********
+pixAcc 0.956701, mIoU: 0.936234
+Pd: 0.982011, Fa: 0.00000489, fscore: 0.966965
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:34:32 Epoch---179, total_loss---0.026171,,*********
+pixAcc 0.963765, mIoU: 0.927535
+Pd: 0.984127, Fa: 0.00001257, fscore: 0.962354
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:34:52 Epoch---180, total_loss---0.035335,,*********
+pixAcc 0.956136, mIoU: 0.928812
+Pd: 0.978836, Fa: 0.00000524, fscore: 0.963026
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:35:12 Epoch---181, total_loss---0.031280,,*********
+pixAcc 0.933074, mIoU: 0.917648
+Pd: 0.972487, Fa: 0.00000363, fscore: 0.956920
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:35:30 Epoch---182, total_loss---0.030975,,*********
+pixAcc 0.952004, mIoU: 0.927694
+Pd: 0.982011, Fa: 0.00000917, fscore: 0.962336
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:35:48 Epoch---183, total_loss---0.044628,,*********
+pixAcc 0.926505, mIoU: 0.903842
+Pd: 0.966138, Fa: 0.00000427, fscore: 0.949015
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:36:08 Epoch---184, total_loss---0.036098,,*********
+pixAcc 0.947943, mIoU: 0.919842
+Pd: 0.973545, Fa: 0.00000646, fscore: 0.958098
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:36:26 Epoch---185, total_loss---0.040326,,*********
+pixAcc 0.953982, mIoU: 0.925195
+Pd: 0.975661, Fa: 0.00000666, fscore: 0.960855
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:36:44 Epoch---186, total_loss---0.034221,,*********
+pixAcc 0.949426, mIoU: 0.930626
+Pd: 0.975661, Fa: 0.00000448, fscore: 0.963829
+Best mIoU: 0.936234,when Epoch=178, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:37:03 Epoch---187, total_loss---0.028963,,*********
+pixAcc 0.959633, mIoU: 0.936288
+Pd: 0.975661, Fa: 0.00000349, fscore: 0.966839
+Best mIoU: 0.936288,when Epoch=187, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:37:22 Epoch---188, total_loss---0.025230,,*********
+pixAcc 0.959032, mIoU: 0.935444
+Pd: 0.979894, Fa: 0.00000542, fscore: 0.966526
+Best mIoU: 0.936288,when Epoch=187, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:37:39 Epoch---189, total_loss---0.027905,,*********
+pixAcc 0.954794, mIoU: 0.931695
+Pd: 0.971429, Fa: 0.00000400, fscore: 0.964348
+Best mIoU: 0.936288,when Epoch=187, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:37:58 Epoch---190, total_loss---0.024657,,*********
+pixAcc 0.964577, mIoU: 0.934894
+Pd: 0.979894, Fa: 0.00000625, fscore: 0.966062
+Best mIoU: 0.936288,when Epoch=187, Best fscore: 0.966965,when Epoch=178
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:38:17 Epoch---191, total_loss---0.023015,,*********
+pixAcc 0.957549, mIoU: 0.937128
+Pd: 0.978836, Fa: 0.00000356, fscore: 0.967390
+Best mIoU: 0.937128,when Epoch=191, Best fscore: 0.967390,when Epoch=191
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:38:35 Epoch---192, total_loss---0.029005,,*********
+pixAcc 0.953947, mIoU: 0.935057
+Pd: 0.976720, Fa: 0.00000329, fscore: 0.966129
+Best mIoU: 0.937128,when Epoch=191, Best fscore: 0.967390,when Epoch=191
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:38:52 Epoch---193, total_loss---0.025590,,*********
+pixAcc 0.962423, mIoU: 0.922887
+Pd: 0.973545, Fa: 0.00000650, fscore: 0.959627
+Best mIoU: 0.937128,when Epoch=191, Best fscore: 0.967390,when Epoch=191
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:39:11 Epoch---194, total_loss---0.023533,,*********
+pixAcc 0.954512, mIoU: 0.934027
+Pd: 0.973545, Fa: 0.00000423, fscore: 0.965560
+Best mIoU: 0.937128,when Epoch=191, Best fscore: 0.967390,when Epoch=191
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:39:31 Epoch---195, total_loss---0.026006,,*********
+pixAcc 0.959951, mIoU: 0.939381
+Pd: 0.980952, Fa: 0.00000437, fscore: 0.968450
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:39:49 Epoch---196, total_loss---0.023292,,*********
+pixAcc 0.954618, mIoU: 0.931748
+Pd: 0.974603, Fa: 0.00000421, fscore: 0.964188
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:40:08 Epoch---197, total_loss---0.025447,,*********
+pixAcc 0.958926, mIoU: 0.937051
+Pd: 0.974603, Fa: 0.00000384, fscore: 0.967159
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:40:26 Epoch---198, total_loss---0.065911,,*********
+pixAcc 0.933745, mIoU: 0.905631
+Pd: 0.967196, Fa: 0.00000850, fscore: 0.950018
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:40:44 Epoch---199, total_loss---0.037392,,*********
+pixAcc 0.939573, mIoU: 0.925517
+Pd: 0.974603, Fa: 0.00000294, fscore: 0.960815
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:41:03 Epoch---200, total_loss---0.051184,,*********
+pixAcc 0.941868, mIoU: 0.886868
+Pd: 0.966138, Fa: 0.00001884, fscore: 0.939869
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:41:22 Epoch---201, total_loss---0.047536,,*********
+pixAcc 0.948331, mIoU: 0.913551
+Pd: 0.976720, Fa: 0.00001147, fscore: 0.954585
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:41:39 Epoch---202, total_loss---0.035498,,*********
+pixAcc 0.950662, mIoU: 0.917732
+Pd: 0.983069, Fa: 0.00001156, fscore: 0.956897
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:41:58 Epoch---203, total_loss---0.032598,,*********
+pixAcc 0.953947, mIoU: 0.923295
+Pd: 0.983069, Fa: 0.00000894, fscore: 0.959879
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:42:17 Epoch---204, total_loss---0.031124,,*********
+pixAcc 0.954618, mIoU: 0.925717
+Pd: 0.980952, Fa: 0.00000768, fscore: 0.961084
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:42:36 Epoch---205, total_loss---0.028232,,*********
+pixAcc 0.956807, mIoU: 0.926286
+Pd: 0.985185, Fa: 0.00000984, fscore: 0.961600
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:42:54 Epoch---206, total_loss---0.026819,,*********
+pixAcc 0.954441, mIoU: 0.929621
+Pd: 0.982011, Fa: 0.00000742, fscore: 0.963271
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:43:13 Epoch---207, total_loss---0.024970,,*********
+pixAcc 0.957549, mIoU: 0.930791
+Pd: 0.984127, Fa: 0.00000784, fscore: 0.963916
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:43:32 Epoch---208, total_loss---0.025175,,*********
+pixAcc 0.956066, mIoU: 0.934869
+Pd: 0.980952, Fa: 0.00000462, fscore: 0.966099
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:43:50 Epoch---209, total_loss---0.023327,,*********
+pixAcc 0.954335, mIoU: 0.934403
+Pd: 0.978836, Fa: 0.00000342, fscore: 0.965850
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:44:08 Epoch---210, total_loss---0.022084,,*********
+pixAcc 0.961893, mIoU: 0.932868
+Pd: 0.985185, Fa: 0.00000928, fscore: 0.965047
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:44:26 Epoch---211, total_loss---0.021557,,*********
+pixAcc 0.956913, mIoU: 0.936183
+Pd: 0.983069, Fa: 0.00000577, fscore: 0.966817
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:44:45 Epoch---212, total_loss---0.022989,,*********
+pixAcc 0.954123, mIoU: 0.935587
+Pd: 0.983069, Fa: 0.00000457, fscore: 0.966535
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:45:03 Epoch---213, total_loss---0.021153,,*********
+pixAcc 0.956313, mIoU: 0.937117
+Pd: 0.980952, Fa: 0.00000310, fscore: 0.967440
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:45:23 Epoch---214, total_loss---0.021844,,*********
+pixAcc 0.958255, mIoU: 0.937301
+Pd: 0.979894, Fa: 0.00000340, fscore: 0.967327
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000267,when Epoch=152
+*********Feb  4 01:45:42 Epoch---215, total_loss---0.020924,,*********
+pixAcc 0.954794, mIoU: 0.936407
+Pd: 0.979894, Fa: 0.00000257, fscore: 0.966937
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:46:01 Epoch---216, total_loss---0.019905,,*********
+pixAcc 0.958220, mIoU: 0.936490
+Pd: 0.984127, Fa: 0.00000508, fscore: 0.967020
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968450,when Epoch=195
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:46:20 Epoch---217, total_loss---0.020338,,*********
+pixAcc 0.957266, mIoU: 0.939287
+Pd: 0.983069, Fa: 0.00000358, fscore: 0.968627
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.985185,when Epoch=171, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:46:40 Epoch---218, total_loss---0.019627,,*********
+pixAcc 0.957408, mIoU: 0.937444
+Pd: 0.986243, Fa: 0.00000466, fscore: 0.967511
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:46:58 Epoch---219, total_loss---0.020064,,*********
+pixAcc 0.955677, mIoU: 0.936851
+Pd: 0.980952, Fa: 0.00000393, fscore: 0.967121
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:47:17 Epoch---220, total_loss---0.020220,,*********
+pixAcc 0.956878, mIoU: 0.938125
+Pd: 0.983069, Fa: 0.00000441, fscore: 0.967854
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:47:34 Epoch---221, total_loss---0.019427,,*********
+pixAcc 0.955854, mIoU: 0.936473
+Pd: 0.982011, Fa: 0.00000398, fscore: 0.967058
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:47:53 Epoch---222, total_loss---0.018712,,*********
+pixAcc 0.953805, mIoU: 0.936930
+Pd: 0.977778, Fa: 0.00000368, fscore: 0.967198
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:48:12 Epoch---223, total_loss---0.017806,,*********
+pixAcc 0.954582, mIoU: 0.937010
+Pd: 0.977778, Fa: 0.00000377, fscore: 0.967259
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:48:31 Epoch---224, total_loss---0.019221,,*********
+pixAcc 0.949038, mIoU: 0.933250
+Pd: 0.972487, Fa: 0.00000285, fscore: 0.965162
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:48:50 Epoch---225, total_loss---0.018571,,*********
+pixAcc 0.955324, mIoU: 0.936278
+Pd: 0.977778, Fa: 0.00000354, fscore: 0.966938
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:49:10 Epoch---226, total_loss---0.017462,,*********
+pixAcc 0.952463, mIoU: 0.935806
+Pd: 0.978836, Fa: 0.00000287, fscore: 0.966706
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:49:28 Epoch---227, total_loss---0.018700,,*********
+pixAcc 0.956419, mIoU: 0.937805
+Pd: 0.978836, Fa: 0.00000524, fscore: 0.967525
+Best mIoU: 0.939381,when Epoch=195, Best fscore: 0.968627,when Epoch=217
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:49:48 Epoch---228, total_loss---0.018066,,*********
+pixAcc 0.958114, mIoU: 0.940444
+Pd: 0.986243, Fa: 0.00000342, fscore: 0.969205
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:50:08 Epoch---229, total_loss---0.016350,,*********
+pixAcc 0.955465, mIoU: 0.936805
+Pd: 0.977778, Fa: 0.00000345, fscore: 0.967189
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:50:26 Epoch---230, total_loss---0.017575,,*********
+pixAcc 0.955395, mIoU: 0.937158
+Pd: 0.979894, Fa: 0.00000262, fscore: 0.967460
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:50:44 Epoch---231, total_loss---0.018201,,*********
+pixAcc 0.956278, mIoU: 0.939065
+Pd: 0.980952, Fa: 0.00000264, fscore: 0.968438
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:51:03 Epoch---232, total_loss---0.017680,,*********
+pixAcc 0.954476, mIoU: 0.938435
+Pd: 0.979894, Fa: 0.00000336, fscore: 0.968105
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:51:22 Epoch---233, total_loss---0.016577,,*********
+pixAcc 0.958149, mIoU: 0.938430
+Pd: 0.983069, Fa: 0.00000512, fscore: 0.968084
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:51:41 Epoch---234, total_loss---0.017185,,*********
+pixAcc 0.953911, mIoU: 0.937424
+Pd: 0.976720, Fa: 0.00000368, fscore: 0.967497
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000257,when Epoch=215
+*********Feb  4 01:52:00 Epoch---235, total_loss---0.017766,,*********
+pixAcc 0.949885, mIoU: 0.934083
+Pd: 0.974603, Fa: 0.00000248, fscore: 0.965610
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000248,when Epoch=235
+*********Feb  4 01:52:21 Epoch---236, total_loss---0.017268,,*********
+pixAcc 0.955465, mIoU: 0.937162
+Pd: 0.980952, Fa: 0.00000372, fscore: 0.967305
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000248,when Epoch=235
+*********Feb  4 01:52:38 Epoch---237, total_loss---0.016706,,*********
+pixAcc 0.957231, mIoU: 0.938472
+Pd: 0.980952, Fa: 0.00000331, fscore: 0.968088
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000248,when Epoch=235
+*********Feb  4 01:52:57 Epoch---238, total_loss---0.016526,,*********
+pixAcc 0.954265, mIoU: 0.936893
+Pd: 0.979894, Fa: 0.00000308, fscore: 0.967230
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000248,when Epoch=235
+*********Feb  4 01:53:15 Epoch---239, total_loss---0.017359,,*********
+pixAcc 0.953452, mIoU: 0.936420
+Pd: 0.978836, Fa: 0.00000234, fscore: 0.967101
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:53:34 Epoch---240, total_loss---0.015329,,*********
+pixAcc 0.954370, mIoU: 0.936640
+Pd: 0.976720, Fa: 0.00000319, fscore: 0.967219
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:53:52 Epoch---241, total_loss---0.016456,,*********
+pixAcc 0.955359, mIoU: 0.937773
+Pd: 0.977778, Fa: 0.00000319, fscore: 0.967750
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:54:11 Epoch---242, total_loss---0.016880,,*********
+pixAcc 0.953735, mIoU: 0.936243
+Pd: 0.976720, Fa: 0.00000301, fscore: 0.966916
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:54:31 Epoch---243, total_loss---0.016789,,*********
+pixAcc 0.954053, mIoU: 0.935647
+Pd: 0.977778, Fa: 0.00000290, fscore: 0.966634
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:54:48 Epoch---244, total_loss---0.015836,,*********
+pixAcc 0.959915, mIoU: 0.939347
+Pd: 0.982011, Fa: 0.00000260, fscore: 0.968658
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:55:08 Epoch---245, total_loss---0.015181,,*********
+pixAcc 0.957408, mIoU: 0.937541
+Pd: 0.979894, Fa: 0.00000347, fscore: 0.967611
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:55:26 Epoch---246, total_loss---0.015350,,*********
+pixAcc 0.953629, mIoU: 0.936366
+Pd: 0.978836, Fa: 0.00000358, fscore: 0.966844
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:55:45 Epoch---247, total_loss---0.015357,,*********
+pixAcc 0.958750, mIoU: 0.939050
+Pd: 0.980952, Fa: 0.00000407, fscore: 0.968448
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:56:03 Epoch---248, total_loss---0.016049,,*********
+pixAcc 0.959774, mIoU: 0.939891
+Pd: 0.982011, Fa: 0.00000358, fscore: 0.968859
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:56:22 Epoch---249, total_loss---0.016029,,*********
+pixAcc 0.957408, mIoU: 0.939816
+Pd: 0.980952, Fa: 0.00000303, fscore: 0.968836
+Best mIoU: 0.940444,when Epoch=228, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:56:39 Epoch---250, total_loss---0.014892,,*********
+pixAcc 0.959809, mIoU: 0.940543
+Pd: 0.982011, Fa: 0.00000494, fscore: 0.969119
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:56:59 Epoch---251, total_loss---0.017261,,*********
+pixAcc 0.958432, mIoU: 0.939649
+Pd: 0.983069, Fa: 0.00000313, fscore: 0.968713
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:57:18 Epoch---252, total_loss---0.014060,,*********
+pixAcc 0.959739, mIoU: 0.938655
+Pd: 0.980952, Fa: 0.00000427, fscore: 0.968184
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:57:37 Epoch---253, total_loss---0.014662,,*********
+pixAcc 0.959633, mIoU: 0.940208
+Pd: 0.982011, Fa: 0.00000354, fscore: 0.969011
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:57:55 Epoch---254, total_loss---0.014824,,*********
+pixAcc 0.958962, mIoU: 0.938868
+Pd: 0.980952, Fa: 0.00000386, fscore: 0.968335
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:58:15 Epoch---255, total_loss---0.014201,,*********
+pixAcc 0.959280, mIoU: 0.940252
+Pd: 0.983069, Fa: 0.00000368, fscore: 0.968929
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:58:34 Epoch---256, total_loss---0.015918,,*********
+pixAcc 0.957867, mIoU: 0.939160
+Pd: 0.982011, Fa: 0.00000423, fscore: 0.968366
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:58:52 Epoch---257, total_loss---0.015207,,*********
+pixAcc 0.958997, mIoU: 0.938708
+Pd: 0.980952, Fa: 0.00000315, fscore: 0.968179
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:59:10 Epoch---258, total_loss---0.013184,,*********
+pixAcc 0.955712, mIoU: 0.937957
+Pd: 0.979894, Fa: 0.00000388, fscore: 0.967691
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:59:30 Epoch---259, total_loss---0.015209,,*********
+pixAcc 0.952004, mIoU: 0.936655
+Pd: 0.978836, Fa: 0.00000301, fscore: 0.967034
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 01:59:48 Epoch---260, total_loss---0.016175,,*********
+pixAcc 0.955712, mIoU: 0.937860
+Pd: 0.982011, Fa: 0.00000333, fscore: 0.967708
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:00:07 Epoch---261, total_loss---0.015155,,*********
+pixAcc 0.960162, mIoU: 0.939816
+Pd: 0.982011, Fa: 0.00000388, fscore: 0.968683
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:00:25 Epoch---262, total_loss---0.014402,,*********
+pixAcc 0.958114, mIoU: 0.937422
+Pd: 0.979894, Fa: 0.00000388, fscore: 0.967355
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:00:43 Epoch---263, total_loss---0.014231,,*********
+pixAcc 0.956737, mIoU: 0.939646
+Pd: 0.980952, Fa: 0.00000370, fscore: 0.968486
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:01:03 Epoch---264, total_loss---0.015985,,*********
+pixAcc 0.959845, mIoU: 0.939537
+Pd: 0.982011, Fa: 0.00000372, fscore: 0.968654
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:01:23 Epoch---265, total_loss---0.015113,,*********
+pixAcc 0.961187, mIoU: 0.940396
+Pd: 0.984127, Fa: 0.00000347, fscore: 0.969024
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:01:42 Epoch---266, total_loss---0.015231,,*********
+pixAcc 0.962105, mIoU: 0.939833
+Pd: 0.983069, Fa: 0.00000469, fscore: 0.968849
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:02:00 Epoch---267, total_loss---0.014691,,*********
+pixAcc 0.960445, mIoU: 0.940353
+Pd: 0.983069, Fa: 0.00000434, fscore: 0.968983
+Best mIoU: 0.940543,when Epoch=250, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:02:20 Epoch---268, total_loss---0.013313,,*********
+pixAcc 0.961858, mIoU: 0.940630
+Pd: 0.982011, Fa: 0.00000391, fscore: 0.969131
+Best mIoU: 0.940630,when Epoch=268, Best fscore: 0.969205,when Epoch=228
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:02:40 Epoch---269, total_loss---0.013584,,*********
+pixAcc 0.959421, mIoU: 0.942086
+Pd: 0.980952, Fa: 0.00000239, fscore: 0.969922
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:02:59 Epoch---270, total_loss---0.014213,,*********
+pixAcc 0.959032, mIoU: 0.941672
+Pd: 0.983069, Fa: 0.00000260, fscore: 0.969807
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:03:18 Epoch---271, total_loss---0.014210,,*********
+pixAcc 0.961787, mIoU: 0.941113
+Pd: 0.983069, Fa: 0.00000499, fscore: 0.969318
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:03:35 Epoch---272, total_loss---0.014501,,*********
+pixAcc 0.962140, mIoU: 0.941687
+Pd: 0.983069, Fa: 0.00000356, fscore: 0.969623
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:03:53 Epoch---273, total_loss---0.013876,,*********
+pixAcc 0.958467, mIoU: 0.941248
+Pd: 0.982011, Fa: 0.00000326, fscore: 0.969535
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:04:11 Epoch---274, total_loss---0.014160,,*********
+pixAcc 0.963235, mIoU: 0.940807
+Pd: 0.983069, Fa: 0.00000512, fscore: 0.969455
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:04:30 Epoch---275, total_loss---0.013390,,*********
+pixAcc 0.961469, mIoU: 0.941030
+Pd: 0.983069, Fa: 0.00000460, fscore: 0.969206
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:04:49 Epoch---276, total_loss---0.014583,,*********
+pixAcc 0.962847, mIoU: 0.940363
+Pd: 0.984127, Fa: 0.00000492, fscore: 0.968886
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:05:08 Epoch---277, total_loss---0.012560,,*********
+pixAcc 0.961116, mIoU: 0.941140
+Pd: 0.984127, Fa: 0.00000439, fscore: 0.969453
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:05:28 Epoch---278, total_loss---0.014099,,*********
+pixAcc 0.961045, mIoU: 0.940778
+Pd: 0.983069, Fa: 0.00000487, fscore: 0.969314
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:05:46 Epoch---279, total_loss---0.012939,,*********
+pixAcc 0.957196, mIoU: 0.939315
+Pd: 0.982011, Fa: 0.00000294, fscore: 0.968450
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:06:05 Epoch---280, total_loss---0.012948,,*********
+pixAcc 0.961469, mIoU: 0.941649
+Pd: 0.982011, Fa: 0.00000294, fscore: 0.969741
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:06:24 Epoch---281, total_loss---0.013686,,*********
+pixAcc 0.958114, mIoU: 0.940868
+Pd: 0.980952, Fa: 0.00000310, fscore: 0.969291
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:06:43 Epoch---282, total_loss---0.013612,,*********
+pixAcc 0.955289, mIoU: 0.936081
+Pd: 0.977778, Fa: 0.00000292, fscore: 0.966761
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:07:02 Epoch---283, total_loss---0.012775,,*********
+pixAcc 0.953558, mIoU: 0.937370
+Pd: 0.977778, Fa: 0.00000317, fscore: 0.967326
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:07:19 Epoch---284, total_loss---0.013184,,*********
+pixAcc 0.956066, mIoU: 0.939215
+Pd: 0.978836, Fa: 0.00000246, fscore: 0.968343
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:07:39 Epoch---285, total_loss---0.012930,,*********
+pixAcc 0.956595, mIoU: 0.939507
+Pd: 0.980952, Fa: 0.00000319, fscore: 0.968395
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:07:59 Epoch---286, total_loss---0.013661,,*********
+pixAcc 0.954441, mIoU: 0.936807
+Pd: 0.978836, Fa: 0.00000303, fscore: 0.967044
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:08:19 Epoch---287, total_loss---0.013321,,*********
+pixAcc 0.954688, mIoU: 0.938123
+Pd: 0.980952, Fa: 0.00000358, fscore: 0.967814
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:08:38 Epoch---288, total_loss---0.013458,,*********
+pixAcc 0.958609, mIoU: 0.939302
+Pd: 0.982011, Fa: 0.00000317, fscore: 0.968424
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:08:58 Epoch---289, total_loss---0.012689,,*********
+pixAcc 0.955077, mIoU: 0.937561
+Pd: 0.979894, Fa: 0.00000345, fscore: 0.967601
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:09:16 Epoch---290, total_loss---0.013053,,*********
+pixAcc 0.959421, mIoU: 0.939902
+Pd: 0.982011, Fa: 0.00000340, fscore: 0.968762
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:09:36 Epoch---291, total_loss---0.012623,,*********
+pixAcc 0.964365, mIoU: 0.939966
+Pd: 0.984127, Fa: 0.00000620, fscore: 0.968744
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:09:56 Epoch---292, total_loss---0.012463,,*********
+pixAcc 0.957372, mIoU: 0.938740
+Pd: 0.982011, Fa: 0.00000388, fscore: 0.968144
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:10:14 Epoch---293, total_loss---0.012494,,*********
+pixAcc 0.959527, mIoU: 0.939941
+Pd: 0.982011, Fa: 0.00000512, fscore: 0.968799
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:10:32 Epoch---294, total_loss---0.013053,,*********
+pixAcc 0.961716, mIoU: 0.940784
+Pd: 0.982011, Fa: 0.00000501, fscore: 0.969126
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:10:51 Epoch---295, total_loss---0.012632,,*********
+pixAcc 0.960622, mIoU: 0.939129
+Pd: 0.982011, Fa: 0.00000533, fscore: 0.968406
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:11:09 Epoch---296, total_loss---0.011561,,*********
+pixAcc 0.961575, mIoU: 0.941362
+Pd: 0.983069, Fa: 0.00000480, fscore: 0.969571
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:11:27 Epoch---297, total_loss---0.012258,,*********
+pixAcc 0.961646, mIoU: 0.939774
+Pd: 0.980952, Fa: 0.00000358, fscore: 0.968661
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:11:46 Epoch---298, total_loss---0.012261,,*********
+pixAcc 0.960162, mIoU: 0.940824
+Pd: 0.980952, Fa: 0.00000460, fscore: 0.969234
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:12:05 Epoch---299, total_loss---0.012324,,*********
+pixAcc 0.957090, mIoU: 0.940058
+Pd: 0.978836, Fa: 0.00000421, fscore: 0.968618
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:12:24 Epoch---300, total_loss---0.013322,,*********
+pixAcc 0.957832, mIoU: 0.939776
+Pd: 0.979894, Fa: 0.00000354, fscore: 0.968694
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:12:42 Epoch---301, total_loss---0.012155,,*********
+pixAcc 0.958043, mIoU: 0.940082
+Pd: 0.982011, Fa: 0.00000402, fscore: 0.968977
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:13:02 Epoch---302, total_loss---0.012167,,*********
+pixAcc 0.959032, mIoU: 0.939880
+Pd: 0.982011, Fa: 0.00000331, fscore: 0.968714
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:13:22 Epoch---303, total_loss---0.012437,,*********
+pixAcc 0.958891, mIoU: 0.939709
+Pd: 0.979894, Fa: 0.00000365, fscore: 0.968710
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:13:40 Epoch---304, total_loss---0.012030,,*********
+pixAcc 0.960092, mIoU: 0.940332
+Pd: 0.982011, Fa: 0.00000448, fscore: 0.968920
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:13:59 Epoch---305, total_loss---0.011336,,*********
+pixAcc 0.960445, mIoU: 0.940353
+Pd: 0.979894, Fa: 0.00000455, fscore: 0.968983
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:14:17 Epoch---306, total_loss---0.012147,,*********
+pixAcc 0.960586, mIoU: 0.941565
+Pd: 0.982011, Fa: 0.00000313, fscore: 0.969661
+Best mIoU: 0.942086,when Epoch=269, Best fscore: 0.969922,when Epoch=269
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:14:37 Epoch---307, total_loss---0.011853,,*********
+pixAcc 0.963306, mIoU: 0.942274
+Pd: 0.983069, Fa: 0.00000411, fscore: 0.970072
+Best mIoU: 0.942274,when Epoch=307, Best fscore: 0.970072,when Epoch=307
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:14:55 Epoch---308, total_loss---0.012031,,*********
+pixAcc 0.960127, mIoU: 0.940855
+Pd: 0.979894, Fa: 0.00000388, fscore: 0.969129
+Best mIoU: 0.942274,when Epoch=307, Best fscore: 0.970072,when Epoch=307
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:15:13 Epoch---309, total_loss---0.011332,,*********
+pixAcc 0.960622, mIoU: 0.940135
+Pd: 0.980952, Fa: 0.00000448, fscore: 0.968816
+Best mIoU: 0.942274,when Epoch=307, Best fscore: 0.970072,when Epoch=307
+Best Pd: 0.986243,when Epoch=218, Best Fa: 0.00000234,when Epoch=239
+*********Feb  4 02:15:31 Epoch---310, total_loss---0.012277,,*********
