@@ -30,29 +30,6 @@ def _make_nConv(in_channels, out_channels, nb_Conv, activation='ReLU'):
     for _ in range(nb_Conv - 1):
         layers.append(CBN(out_channels, out_channels, activation))
     return nn.Sequential(*layers)
-class ChannelAttention(nn.Module):
-    def __init__(self, channels, reduction=2):
-        super().__init__()
-
-        self.mlp = nn.Sequential(
-            nn.Linear(channels, channels // reduction, bias=False),
-            nn.ReLU(inplace=True),
-            nn.Linear(channels // reduction, channels, bias=False)
-        )
-
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        # x: [B, C, H, W]
-        b, c, _, _ = x.size()
-
-        avg_pool = F.adaptive_avg_pool2d(x, 1).view(b, c)
-        max_pool = F.adaptive_max_pool2d(x, 1).view(b, c)
-
-        attn = self.mlp(avg_pool) + self.mlp(max_pool)
-        attn = self.sigmoid(attn).view(b, c, 1, 1)
-
-        return x * attn
 class UpBlock_attention(nn.Module):
     def __init__(self, in_channels, out_channels, nb_Conv, activation='ReLU'):
         super().__init__()
@@ -61,10 +38,9 @@ class UpBlock_attention(nn.Module):
         self.sattn = nn.Sequential(
             nn.Conv2d(in_channels//2,in_channels//2,kernel_size=1),
             nn.Sigmoid())
-        self.channel_attention = ChannelAttention(channels=in_channels//2)
     def forward(self,d,c,xin):
         d = self.up(d)+xin
-        d = self.sattn(c)*self.channel_attention(d)+d
+        d = self.sattn(c)*d
         x = torch.cat([c, d], dim=1)
         x = self.nConvs(x)
         return x
@@ -97,30 +73,14 @@ class Res_block(nn.Module):
         out += residual
         out = self.relu(out)
         return out
-class InceptionDWConv2d(nn.Module):
-    """ Inception depthweise convolution
-    """
-    def __init__(self, in_channels, square_kernel_size=3, band_kernel_size=11, branch_ratio=0.125):
-        super().__init__()
-        
-        gc = int(in_channels * branch_ratio) # channel numbers of a convolution branch
-        self.dwconv_hw = nn.Conv2d(gc, gc, square_kernel_size, padding=square_kernel_size//2, groups=gc)
-        self.dwconv_w = nn.Conv2d(gc, gc, kernel_size=(1, band_kernel_size), padding=(0, band_kernel_size//2), groups=gc)
-        self.dwconv_h = nn.Conv2d(gc, gc, kernel_size=(band_kernel_size, 1), padding=(band_kernel_size//2, 0), groups=gc)
-        self.split_indexes = (in_channels - 3 * gc, gc, gc, gc)
-        
-    def forward(self, x):
-        x_id, x_hw, x_w, x_h = torch.split(x, self.split_indexes, dim=1)
-        return torch.cat(
-            (x_id, self.dwconv_hw(x_hw), self.dwconv_w(x_w), self.dwconv_h(x_h)), 
-            dim=1,
-        )
 class Head(nn.Module):
     def __init__(self, inpChannel, oupChannel):
         super(Head, self).__init__()
-        interChannel = inpChannel
-        self.head = InceptionDWConv2d(in_channels=interChannel)
-        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=interChannel+inpChannel,out_channels=oupChannel,kernel_size=1,stride=1))
+        interChannel = inpChannel//4
+        self.head = nn.Sequential(
+            nn.Conv2d(inpChannel, interChannel,kernel_size=7, padding=3,groups=interChannel,bias=False),
+        )
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=interChannel+inpChannel,out_channels=oupChannel,kernel_size=1,stride=1,bias=False))
     def forward(self, x):
         return self.out_conv(torch.concat([self.head(x),x],dim=1))
 class SDecNet(nn.Module):
@@ -143,17 +103,17 @@ class SDecNet(nn.Module):
         self.down4 = SD2D(dim=in_channels*8)
         self.encoder4 = self._make_layer(block, in_channels * 8,  in_channels * 8, 1)  
 
-        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3])
-        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3])
-        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1,3])
-        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1,3])
+        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,2,3])
+        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,2,3])
+        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1,2,3])
+        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1,2,3])
         
         self.decoder4 = UpBlock_attention(in_channels * 16, in_channels * 4, nb_Conv=2)
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)
         self.decoder2 = UpBlock_attention(in_channels * 4, in_channels*2, nb_Conv=2)
         self.decoder1 = UpBlock_attention(in_channels * 4, in_channels*2, nb_Conv=2)
-        self.out_UNet = RSU7(in_channels*2,in_channels,in_channels,dilation_ratio=1)
-        self.outc = Head(inpChannel=in_channels,oupChannel=n_classes)
+        self.outc = nn.Sequential(RSU7(in_channels*2,in_channels,in_channels,dilation_ratio=1),
+                                  Head(inpChannel=in_channels,oupChannel=n_classes))
     def _make_layer(self, block, input_channels, output_channels, num_blocks=1):
         layers = []
         layers.append(block(input_channels, output_channels))
@@ -177,6 +137,5 @@ class SDecNet(nn.Module):
         d4 = self.decoder4(d5, c4, x4)
         d3 = self.decoder3(d4, c3, x3)
         d2 = self.decoder2(d3, c2, x2)
-        d1 = self.decoder1(d2, c1, x1)
-        out = self.outc(self.out_UNet(d1))
+        out = self.outc(self.decoder1(d2, c1, x1))
         return out.sigmoid()
