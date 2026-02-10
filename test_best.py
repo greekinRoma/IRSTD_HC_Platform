@@ -19,12 +19,11 @@ parser = argparse.ArgumentParser(description="PyTorch ISTD")
 parser.add_argument("--model_names", default=['SDecNet'], type=str, nargs='+',
                     help="model_name: 'ALCNet', 'ACM', "
                          "'DNANet', 'AGPCNet'")
-parser.add_argument("--dataset_names", default=['NUDT-SIRST'], type=str, nargs='+',
+parser.add_argument("--dataset_names", default=['NUDT-SIRST','IRSTD-1K'], type=str, nargs='+',
                     help="dataset_name: 'NUDT-SIRST', 'IRSTD-1K', 'SIRST-aug','SIRST','NUAA-SIRST'")
 parser.add_argument("--dataset_dir", default='./data', type=str, help="train_dataset_dir")
 parser.add_argument("--save", default='./log5', type=str, help="Save path of checkpoints")
 parser.add_argument("--seed", type=int, default=42, help="Threshold for test")
-parser.add_argument("--test_epos", type=str, default=['217','392', '345','250', '382', '301'], help="Number of epoch for test")
 
 global opt
 opt = parser.parse_args()
@@ -47,7 +46,7 @@ def test():
     else:
         raise NotImplementedError
 
-    param_path = "log5/" + opt.dataset_name + "/" + opt.model_name + '/' + opt.test_epo + '.pth.tar'
+    param_path = "best_ckpt/" + opt.dataset_name + "/" + opt.model_name + '.pth.tar'
 
     test_loader = DataLoader(dataset=test_set, num_workers=1, batch_size=1, shuffle=False)
 
@@ -60,7 +59,7 @@ def test():
     
     # print(opt.model_name)
     # print(opt.dataset_name)
-    print('testing data=' + opt.dataset_name + ', model=' + opt.model_name + ', epoch=' + opt.test_epo)
+    print('testing data=' + opt.dataset_name + ', model=' + opt.model_name + ', epoch=best' )
 
     # 输出图片及图片对应mat文件的保存地址
     imgDir = "./result/" + opt.dataset_name + "/img/" + opt.model_name + "/"
@@ -94,7 +93,6 @@ if __name__ == '__main__':
         opt.dataset_name = dataset_name
         for model_name in opt.model_names:
             opt.model_name = model_name
-            opt.test_epo = opt.test_epos[index]
             index = index + 1
             if not os.path.exists(opt.save):
                 os.makedirs(opt.save)
