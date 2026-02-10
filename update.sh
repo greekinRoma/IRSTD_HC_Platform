@@ -1,3 +1,4 @@
+#!/bin/bash
 unset all_proxy
 unset http_proxy
 unset ftp_proxy

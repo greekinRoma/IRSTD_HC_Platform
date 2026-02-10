@@ -38,3 +38,4 @@ else
         echo "提取码: mxhe"
     fi
 fi
+python best_ckpt/test_best.py
