@@ -140,7 +140,7 @@ def train():
                   % (idx_epoch + 1, total_loss_list[-1]))
             opt.f.write('*********' + time.ctime()[4:-5] + ' Epoch---%d, total_loss---%f,,*********\n'
                         % (idx_epoch + 1, total_loss_list[-1]))
-            if idx_epoch > 100:
+            if idx_epoch > 200:
                 total_loss_epoch = []
 
                 save_pth = opt.save + '/' + opt.dataset_name + '/' + opt.model_name + '/' + str(idx_epoch + 1) + '.pth.tar'
