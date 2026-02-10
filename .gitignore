@@ -1,0 +1,10 @@
+data
+log5
+data/*
+logs
+logs/*
+!logs/.gitignore
+log5/*
+!log5/.gitignore
+result
+./result
