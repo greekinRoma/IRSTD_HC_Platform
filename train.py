@@ -140,11 +140,12 @@ def train():
                   % (idx_epoch + 1, total_loss_list[-1]))
             opt.f.write('*********' + time.ctime()[4:-5] + ' Epoch---%d, total_loss---%f,,*********\n'
                         % (idx_epoch + 1, total_loss_list[-1]))
-            total_loss_epoch = []
+            if idx_epoch > 100:
+                total_loss_epoch = []
 
-            save_pth = opt.save + '/' + opt.dataset_name + '/' + opt.model_name + '/' + str(idx_epoch + 1) + '.pth.tar'
+                save_pth = opt.save + '/' + opt.dataset_name + '/' + opt.model_name + '/' + str(idx_epoch + 1) + '.pth.tar'
 
-            test_with_save(save_pth, idx_epoch, total_loss_list, net.state_dict())
+                test_with_save(save_pth, idx_epoch, total_loss_list, net.state_dict())
 
 
 def test_with_save(save_pth, idx_epoch, total_loss_list, net_state_dict):

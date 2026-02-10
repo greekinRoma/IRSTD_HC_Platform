@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "IRSTD_HC_Platform",
+			"path": "."
+		},
+		{
+			"name": "model",
+			"path": "../../model"
+		}
+	],
+	"settings": {}
+}
