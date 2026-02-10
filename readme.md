@@ -23,7 +23,17 @@ For the infrared targets' spatial features, we utilize the Spatial Difference De
 For the infrared targets' temporal features, we utilize the Temporal Difference Decomposition Module (TD2M).
 
 ![TD2M](TDecM.svg)
-## 3. Reference
+## 3.GetStart
+### 3.1 Checking our best model
+```
+sh give_the_best_result.sh
+```
+You input above code into the terminal, and you could get the result of our model by [the weights for IRSTD-1K](best_ckpt/IRSTD-1K/SDecNet.pth.tar) and [the weight for NUDT-SIRST](best_ckpt/NUDT-SIRST).
+### 3.2 Dataset
+Our dataset would be accessible in [Baidu Cloud](https://pan.baidu.com/s/19DOSJZTHC0KO-wKyGRSldQ?pwd=mxhe) with code of "mxhe".
+### 3.3 Environment
+The environment could be avalible in [yaml](Environment/environment.yml).
+## 4. Reference
 ```
 @misc{hu2026differencedecompositionnetworksinfrared,
       title={Difference Decomposition Networks for Infrared Small Target Detection}, 
