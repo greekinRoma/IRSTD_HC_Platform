@@ -25,19 +25,20 @@ class SD2D(nn.Module):
                          [[1, -1,], [-1, 1]],
                          ])
         self.num_layer = 3
-        self.max_pool = nn.MaxPool2d((2,2))
-        self.avg_pool = nn.AvgPool2d((2,2))
+        self.max_pool = nn.MaxPool2d(kernel_size=4,stride=2,padding=1)
+        self.avg_pool = nn.AvgPool2d(kernel_size=4,stride=2,padding=1)
         self.kernel = torch.from_numpy(kernel).float().cuda().view(-1,1,2,2)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.bn = nn.Sequential(
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1),
             nn.BatchNorm2d(dim))
         self.origin_conv = nn.Sequential(
-            nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=2,stride=2,groups=dim),
+            nn.AvgPool2d((2,2)),
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1),
             nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1),
         )
         self.trans_conv = nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1)
+        self.out_conv = nn.Sequential(nn.Conv2d(in_channels=dim,out_channels=dim,kernel_size=1,stride=1))
     def Extract_layer(self,cen,b,w,h):
         edge = torch.nn.functional.conv2d(weight=self.kernels.to(cen.device),stride=2,input=cen,groups=self.hidden_channels).view(b,self.hidden_channels,self.num_layer,-1)
         avg_cen = self.avg_pool(cen)
@@ -47,7 +48,7 @@ class SD2D(nn.Module):
         Basis1 = torch.nn.functional.normalize(basis,dim=-1)
         Basis2 = Basis1.transpose(-2,-1)
         origins = self.origin_conv(cen)
-        origins = self.trans_conv(origins)
+        # origins = self.trans_conv(origins)
         origins = origins.view(b,self.hidden_channels,1,-1)
         weight_score = torch.matmul(origins,Basis2)
         out = torch.matmul(weight_score,Basis1).view(b,self.hidden_channels,w//2,h//2)
@@ -56,4 +57,5 @@ class SD2D(nn.Module):
         b,_,w,h= cen.shape
         cen = self.bn(cen)
         out = self.Extract_layer(cen,b,w,h)
+        out = self.out_conv(out)
         return out
