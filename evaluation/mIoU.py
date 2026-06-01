@@ -35,7 +35,7 @@ def batch_pix_accuracy(output, target):
         target = target.float()
     else:
         raise ValueError("Unknown target dimension")
-
+    
     assert output.shape == target.shape, "Predict and Label Shape Don't Match"
     predict = (output > 0).float()
     pixel_labeled = (target > 0).float().sum()

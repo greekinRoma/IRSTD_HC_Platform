@@ -82,6 +82,8 @@ class Net(nn.Module):
             self.model = build_sam_IRSAM(image_size=size)
         elif model_name == "SDecNet_orho":
             self.model = SDecNet_orho()
+        elif model_name == "SFBD_Net":
+            self.model = SFBD_Net()
     def forward(self, imgs, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(imgs, mode=mode)
