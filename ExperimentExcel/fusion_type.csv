@@ -1,0 +1,4 @@
+Fusion_type,activation,iou1,iou2
+y=a*M*X + X,RRelu,0.946650,
+y= M*x + a*x,RRelu,0.936566
+y= (M*total+I)*x + a*x,RRelu,"0.945137"

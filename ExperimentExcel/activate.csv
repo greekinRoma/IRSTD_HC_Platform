@@ -1,0 +1,18 @@
+activate_function,weight_num,init_weight,alpha,init,upper,lower,iou1,iou2
+"softplus ",channels,0.43,,,,,0.942962,
+Leakyrelu,channels,0.43,0.01,,,,0.945550,
+Prelu,channels,0.43,,0.25,,,0.933202,
+Gelu,channels,0.43,,,,,0.945188," 0.941425"
+SoftMax,channels,0.43,,,,,0.936928,
+silu,channels,0.43,,,,,0.938030,
+RRelu,channels,0.43,,,1/3,0.125,0.946650," 0.944452"
+Leakyrelu,channels,0.43,0.001,,,,0.941303,
+Leakyrelu,channels,0.43,0.1,,,,0.941197,
+Leakyrelu,channels,0.43,0.05,,,,0.942699,
+Leakyrelu,channels,0.43,0.02,,,,0.937060,
+Prelu,channels,0.43,,0.01,,,0.935959,
+Elu,channels,0.43,,,,,0.935964,
+RRelu,channels,rand,,,,,0.937474,
+RRelu,channels,randn,,,,,0.936358,
+Leakyrelu,1,0.43,0.01,,,,0.946379,0.948161
+softmax,2,0

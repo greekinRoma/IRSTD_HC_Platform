@@ -43,7 +43,7 @@ class SD2M(nn.Module):
         basis1 = basis2.transpose(-2,-1)
         weight_score = torch.matmul(origin,basis1)
         out = torch.matmul(weight_score,basis2).view(b,self.hidden_channels,w,h)
-        return out
+        return out   
     def forward(self,cen):
         b,_,w,h= cen.shape
         cen = self.down_layer(cen)

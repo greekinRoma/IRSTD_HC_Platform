@@ -101,10 +101,10 @@ class SFBD_Net(nn.Module):
         self.down4 = nn.MaxPool2d(kernel_size=2,stride=2)
         self.encoder4 = self._make_layer(block, in_channels * 8,  in_channels * 8, 1)  
 
-        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1],width=img_size//1,height=img_size//1)
-        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1],width=img_size//2,height=img_size//2)
-        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1],width=img_size//4,height=img_size//4)
-        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1],width=img_size//8,height=img_size//8)
+        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3],width=img_size//1,height=img_size//1)
+        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3],width=img_size//2,height=img_size//2)
+        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1,3],width=img_size//4,height=img_size//4)
+        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1,3],width=img_size//8,height=img_size//8)
         
         self.decoder4 = UpBlock_attention(in_channels * 16, in_channels * 4, nb_Conv=2)
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)

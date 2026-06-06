@@ -2,7 +2,7 @@ import torch
 from torch import nn
 import math
 class OrthLayer(nn.Module):
-    def __init__(self, width, height, channels, N, L=14, *args, **kwargs):
+    def __init__(self, width, height, channels, N, L=2, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.width = width
         self.height = height
@@ -10,20 +10,23 @@ class OrthLayer(nn.Module):
         self.N = N+self.num_polar
         self.L = L
         self.constant_polars = nn.Parameter(torch.randn([1,channels,self.num_polar,width*height]))
+        self.weight = nn.Parameter(torch.ones([1,1,1,1])*math.exp(0.5)*(1-1/math.sqrt(2)))
         self.eye = torch.eye(self.N).unsqueeze(0).unsqueeze(0)
         self.total = math.exp(0.5)*(1-1/math.sqrt(2))
+        self.act = torch.nn.GELU()
 
     def ortho(self, X):
-        I = self.eye.to(X.device)
-        conf = math.sqrt(2)
-        T = X @ X.transpose(-1, -2)/self.N
-        X_curr = I - T
-        Y = X_curr
-        for i in range(self.L):
-            X_curr = X_curr @ X_curr
-            Y = Y + X_curr * conf
-            conf = conf * math.sqrt(2)
-        return Y @ X * self.total + X
+        with torch.no_grad():
+            I = self.eye.to(X.device)
+            conf = math.sqrt(2)
+            T = X @ X.transpose(-1, -2)
+            X_curr = I - T / self.N
+            Y = X_curr
+            for i in range(self.L):
+                X_curr = X_curr @ X_curr
+                Y = Y + X_curr * conf
+                conf = conf * math.sqrt(2)
+        return Y @ X*torch.nn.functional.leaky_relu(self.weight) + X
     
     def forward(self, inputs):
         batch_size = inputs.size(0)
