@@ -15,7 +15,7 @@ from model.SDiffFormer.segmentation import SDiffFormer
 from model.Algorithm import Algorithms
 from model.L2SKNet.L2SKNet import L2SKNet_UNet
 from model.MSHNet.MSHNet import MSHNet
-from model.SDecNet.segmentation import SDecNet
+from model.SGBD_Net.segmentation import SGBD_Net
 from model.SCtransNet.SCTransNet import SCTransNet
 from model.STBDNet.segmentation import STBDNet
 from model.HDNet.HDNet import HDNet

@@ -6,12 +6,11 @@ class OrthLayer(nn.Module):
         super().__init__(*args, **kwargs)
         self.width = width
         self.height = height
-        self.channels = channels
         self.num_polar = 1
         self.N = N+self.num_polar
         self.L = L
-        self.constant_polars = nn.Parameter(torch.rand([1,1,self.num_polar,width*height]),requires_grad=True)
-        self.weight = nn.Parameter(torch.rand([1,1,1,1]))
+        self.constant_polars = nn.Parameter(self.get_positional_encoding_half(seq_len=channels,num_elements=width*height).unsqueeze(0).unsqueeze(2).expand(-1,-1,self.num_polar,-1),requires_grad=False)
+        self.weight = nn.Parameter(torch.ones([1,1,1,1])*math.exp(0.5)*(math.sqrt(2)-1.))
         self.eye = torch.eye(self.N).unsqueeze(0).unsqueeze(0)
         self.total = math.exp(0.5)*(math.sqrt(2)-1.)
         self.act = torch.nn.GELU()
@@ -40,7 +39,7 @@ class OrthLayer(nn.Module):
 
             # ---- Scale + regularise → eigenvalues in (ε, 1] ⊂ (0, 2) ----
             # print(torch.diagonal(G, dim1=-2, dim2=-1).sum(-1).shape)
-            A = G/self.N                # ridge for numerical safety
+            A = G/torch.diagonal(G, dim1=-2, dim2=-1).sum(-1).unsqueeze(-1).unsqueeze(-1)                   # ridge for numerical safety
 
             # ---- Denman-Beavers iteration ----
             Y = A
@@ -56,12 +55,12 @@ class OrthLayer(nn.Module):
                     break
                 Y, Z = Y_new, Z_new
             result = Z @ X
-            return result  + X* self.weight
+            return result  + X * self.weight
     
     def forward(self, inputs):
         batch_size = inputs.size(0)
-        inputs= torch.concat([inputs,self.constant_polars.expand(batch_size,self.channels,-1,-1)],dim=2)
-        inputs = torch.nn.functional.normalize(inputs,dim=-1,p=2)
+        inputs= torch.concat([inputs,self.constant_polars.expand(batch_size,-1,-1,-1)],dim=2)
+        # inputs = torch.nn.functional.normalize(inputs,dim=-1,p=2)
         outputs = self.ortho(inputs)
         outputs = torch.nn.functional.normalize(outputs,dim=-1,p=2)
         # print(outputs@outputs.transpose(-1,-2))

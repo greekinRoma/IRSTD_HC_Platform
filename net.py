@@ -55,7 +55,7 @@ class Net(nn.Module):
         elif model_name == 'MSHNet':
             self.model = MSHNet(input_channels=1)
         elif model_name == 'SDecNet':
-            self.model = SDecNet()
+            self.model = SGBD_Net()
         elif model_name == 'SCTransNet':
             self.model = SCTransNet()
         elif model_name == "HDNet":
