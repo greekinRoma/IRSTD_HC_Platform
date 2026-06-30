@@ -1,45 +1,35 @@
-import torch 
+import torch
 from torch import nn
 import math
 class OrthLayer(nn.Module):
-    def __init__(self, width, height, channels, N, L=10, *args, **kwargs):
+    def __init__(self, width, height, channels, N, L=10, num_polar=8, num_groups=2, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.width = width
         self.height = height
-        self.num_polar = 1
-        self.N = N+self.num_polar
+        self.num_polar = num_polar
+        self.num_groups = num_groups
+        self.group_size = N // num_groups
+        assert N % num_groups == 0, f"N ({N}) must be divisible by num_groups ({num_groups})"
+        self.N = N + self.num_polar                     # total N (kept for reference)
+        self.N_group = self.group_size + self.num_polar # per-group N after adding polars
         self.L = L
-        self.constant_polars = nn.Parameter(self.get_positional_encoding_half(seq_len=channels,num_elements=width*height).unsqueeze(0).unsqueeze(2).expand(-1,-1,self.num_polar,-1),requires_grad=False)
-        self.weight = nn.Parameter(torch.ones([1,1,1,1])*math.exp(0.5)*(math.sqrt(2)-1.))
-        self.eye = torch.eye(self.N).unsqueeze(0).unsqueeze(0)
-        self.total = math.exp(0.5)*(math.sqrt(2)-1.)
+        self.constant_polars = nn.Parameter(torch.randn([1, self.num_groups, channels, self.num_polar, width*height]))
+        self.weight = nn.Parameter(torch.ones([1, 1, 1, 1]) * math.exp(0.5) * (1 - 1/math.sqrt(2)))
+        self.total = math.exp(0.5) * (1 - 1/math.sqrt(2))
         self.act = torch.nn.GELU()
-    
-    def get_positional_encoding_half(self, seq_len, num_elements):
-        d_pos = num_elements   # 位置编码维度
-        pe = torch.zeros(seq_len, d_pos)
-        position = torch.arange(0, d_pos).float().unsqueeze(0)
-        position = position // self.width + position % self.width
-        div_term = 2*math.pi*torch.exp(torch.arange(0, seq_len).float() *
-                            -(math.log(10000.0)*2 / seq_len)).unsqueeze(1)
-        # div_term = (1/10000.**(torch.arange(seq_len)*2/seq_len)).unsqueeze(1)
-        # print(div_term)
-        # pe[:, 0::2] = torch.sin(position * div_term)
-        pe = torch.cos(position * div_term)
-        return pe
 
     def ortho(self, X):
-         with torch.no_grad():
-            B, C, N, D = X.shape
-            I_mat = self.eye.to(X.device)                     # [1, 1, N, N]
+        B, C, N, D = X.shape
+        with torch.no_grad():
+            
+            I_mat =  torch.eye(N, device=X.device).unsqueeze(0).unsqueeze(0).to(X.device)                     # [1, 1, N, N]
             I_exp = I_mat.expand(B, C, N, N)                  # [B, C, N, N]
 
             # ---- Gram matrix ----
             G = X @ X.transpose(-1, -2)                     # [B, C, N, N]
 
             # ---- Scale + regularise → eigenvalues in (ε, 1] ⊂ (0, 2) ----
-            # print(torch.diagonal(G, dim1=-2, dim2=-1).sum(-1).shape)
-            A = G/torch.diagonal(G, dim1=-2, dim2=-1).sum(-1).unsqueeze(-1).unsqueeze(-1)                   # ridge for numerical safety
+            A = G/self.group_size                    # ridge for numerical safety
 
             # ---- Denman-Beavers iteration ----
             Y = A
@@ -54,14 +44,33 @@ class OrthLayer(nn.Module):
                 if torch.isnan(Y_new).any() or torch.isinf(Y_new).any():
                     break
                 Y, Z = Y_new, Z_new
-            result = Z @ X
-            return result  + X * self.weight
-    
+        result = Z @ X
+        return result
+
     def forward(self, inputs):
-        batch_size = inputs.size(0)
-        inputs= torch.concat([inputs,self.constant_polars.expand(batch_size,-1,-1,-1)],dim=2)
-        # inputs = torch.nn.functional.normalize(inputs,dim=-1,p=2)
-        outputs = self.ortho(inputs)
-        outputs = torch.nn.functional.normalize(outputs,dim=-1,p=2)
-        # print(outputs@outputs.transpose(-1,-2))
-        return outputs
+        """Forward pass — orthogonalizes each dilation group independently via reshape.
+
+        Args:
+            inputs: (B, C, N_total, D) where N_total = num_groups * group_size
+        Returns:
+            (B, C, N_total, D)
+        """
+        B, C, _, D = inputs.shape
+        # (B, C, num_groups * group_size, D) -> (B * num_groups, C, group_size, D)
+        x = inputs.view(B, C, self.num_groups, self.group_size, D) \
+                  .permute(0, 2, 1, 3, 4) \
+                  .reshape(B * self.num_groups, C, self.group_size, D)
+        # Add per-group polar vectors (different polars for each group)
+        polars = self.constant_polars.expand(B, -1, -1, -1, -1).reshape(B * self.num_groups, C, self.num_polar, D)
+        x = torch.concat([x, polars], dim=2)
+        x = torch.nn.functional.normalize(x, dim=-1, p=2)
+        x = self.ortho(x)
+        # Strip polar, normalize
+        x = x[:, :, :-self.num_polar]
+        x = torch.nn.functional.normalize(x, dim=-1, p=2)
+        # (B * num_groups, C, group_size, D) -> (B, C, num_groups * group_size, D)
+        x = x.view(B, self.num_groups, C, self.group_size, D) \
+             .permute(0, 2, 1, 3, 4) \
+             .reshape(B, C, -1, D)
+        # print(x@x.transpose(-1, -2))
+        return x

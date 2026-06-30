@@ -25,7 +25,7 @@ class SD2M(nn.Module):
         self.basis_convs = nn.ModuleList()
         self.origin_convs = nn.ModuleList()
         self.num_layer = 8
-        self.orth_layer = OrthLayer(width,height,N=self.num_layer*len(shifts),channels=self.hidden_channels)
+        self.orth_layer = OrthLayer(width, height, N=self.num_layer*len(shifts), channels=self.hidden_channels, num_groups=len(shifts))
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.down_layer = nn.Sequential(nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
                                         nn.BatchNorm2d(self.hidden_channels))

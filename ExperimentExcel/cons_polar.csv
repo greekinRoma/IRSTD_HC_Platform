@@ -1,0 +1,9 @@
+orth_layer_type,L,Polar_type,Ploar_init,Scale,use_weight,result
+v1,2,cos,randn,None,1,0.939926
+v1,2,learnable,randn,None,1,0.946646
+v3,2,learnable,randn,None,0,0.940948
+v3,10,learnable,randn,None,0,0.938363
+v1,2,learnable,cos|sin,/q_pos,1,0.939
+v1,4,learnable,cos,1,1,0.940
+v1,4,learnable,cos,/q_pos,1,0.938050
+v1,4,learnable,cos,1,1,0.941711

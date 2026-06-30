@@ -16,21 +16,22 @@ class OrthLayer(nn.Module):
         self.act = torch.nn.GELU()
     
     def get_positional_encoding_half(self, seq_len, num_elements):
-        d_pos = num_elements   # 位置编码维度
-        pe = torch.zeros(seq_len, d_pos)
+        d_pos = num_elements//2   # 位置编码维度
+        pe = torch.zeros(seq_len, d_pos*2)
         position = torch.arange(0, d_pos).float().unsqueeze(0)
         position = position // self.width + position % self.width
         div_term = 2*math.pi*torch.exp(torch.arange(0, seq_len).float() *
                             -(math.log(10000.0)*2 / seq_len)).unsqueeze(1)
         # div_term = (1/10000.**(torch.arange(seq_len)*2/seq_len)).unsqueeze(1)
         # print(div_term)
-        # pe[:, 0::2] = torch.sin(position * div_term)
-        pe = torch.cos(position * div_term)
+        pe[:, 0::2] = torch.sin(position * div_term)
+        pe[:, 1::2] = torch.cos(position * div_term)
         return pe
 
     def ortho(self, X):
-         with torch.no_grad():
-            B, C, N, D = X.shape
+        B, C, N, D = X.shape
+        with torch.no_grad():
+            
             I_mat = self.eye.to(X.device)                     # [1, 1, N, N]
             I_exp = I_mat.expand(B, C, N, N)                  # [B, C, N, N]
 
@@ -54,14 +55,13 @@ class OrthLayer(nn.Module):
                     break
                 Y, Z = Y_new, Z_new
             result = Z @ X
-            return result
+        return result
     
     def forward(self, inputs):
         batch_size = inputs.size(0)
         inputs= torch.concat([inputs,self.constant_polars.expand(batch_size,-1,-1,-1)],dim=2)
         inputs = torch.nn.functional.normalize(inputs,dim=-1,p=2)
-        outputs = self.ortho(inputs)[:,:,:self.N-self.num_polar,:]
+        outputs = self.ortho(inputs)
         # print(outputs.shape)
         outputs = torch.nn.functional.normalize(outputs,dim=-1,p=2)
-        # print(outputs@outputs.transpose(-1,-2))
         return outputs
