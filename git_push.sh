@@ -13,12 +13,6 @@ echo ""
 echo ">>> 添加所有修改 <<<"
 git add -A
 
-# 排除不需要上传的文件夹
-echo ">>> 排除 __pycache__ 和 .vscode <<<"
-git reset -- __pycache__/
-git reset -- .vscode/
-git reset -- 'model/**/__pycache__/'
-
 echo ""
 echo ">>> 即将提交的文件 <<<"
 git status --short
@@ -31,7 +25,7 @@ git commit -m "$MSG" -m "Co-Authored-By: Claude <noreply@anthropic.com>"
 
 echo ""
 echo ">>> 拉取远程最新代码 <<<"
-git pull origin master --rebase || { echo "!! 有冲突，请手动解决后重新运行"; exit 1; }
+git pull origin master --rebase --autostash || { echo "!! 有冲突，请手动解决后重新运行"; exit 1; }
 
 echo ""
 echo ">>> 推送到 origin/master <<<"

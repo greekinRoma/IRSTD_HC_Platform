@@ -8,6 +8,14 @@ log5/*
 !log5/.gitignore
 result
 ./result
-.vscode
-__pycache__/*
-./__pycache__
+
+# IDE
+.vscode/
+
+# Python cache (recursive)
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Experiment outputs
+experiment_logs/
