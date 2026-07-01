@@ -5,7 +5,7 @@ from torch import nn
 import math
 from model.SFBD_Net.OrthogonalizationLayer.OrthLayer import OrthLayer
 class SD2M(nn.Module):
-    def __init__(self,in_channels,out_channels,width,height,shifts,kernel_size,use_norm=True):
+    def __init__(self,in_channels,out_channels,width,height,shifts,kernel_size,use_norm=True,L=None,num_polar=None):
         super().__init__()
         #The hyper parameters settting
         self.hidden_channels = in_channels//kernel_size
@@ -25,7 +25,13 @@ class SD2M(nn.Module):
         self.basis_convs = nn.ModuleList()
         self.origin_convs = nn.ModuleList()
         self.num_layer = 8
-        self.orth_layer = OrthLayer(width, height, N=self.num_layer*len(shifts), channels=self.hidden_channels, num_groups=len(shifts))
+        orth_kwargs = dict(width=width, height=height, N=self.num_layer*len(shifts),
+                          channels=self.hidden_channels, num_groups=len(shifts))
+        if L is not None:
+            orth_kwargs['L'] = L
+        if num_polar is not None:
+            orth_kwargs['num_polar'] = num_polar
+        self.orth_layer = OrthLayer(**orth_kwargs)
         self.kernels = self.kernel.repeat(self.hidden_channels,1,1,1)
         self.down_layer = nn.Sequential(nn.Conv2d(in_channels=self.in_channels,out_channels=self.hidden_channels,kernel_size=1,stride=1),
                                         nn.BatchNorm2d(self.hidden_channels))

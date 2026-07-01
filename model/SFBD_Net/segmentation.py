@@ -82,7 +82,8 @@ class Head(nn.Module):
         return self.out_conv(x)
 
 class SFBD_Net(nn.Module):
-    def __init__(self,  n_channels=1, n_classes=1, img_size=256, vis=False, mode='train', deepsuper=True):
+    def __init__(self,  n_channels=1, n_classes=1, img_size=256, vis=False, mode='train',
+                 deepsuper=True, L=None, num_polar=None):
         super().__init__()
         self.vis = vis
         self.deepsuper = deepsuper
@@ -93,18 +94,18 @@ class SFBD_Net(nn.Module):
         block = Res_block
         self.inc = RSU7(n_channels,in_channels,in_channels*2,dilation_ratio=1)
         self.down1 = nn.MaxPool2d(kernel_size=2,stride=2)
-        self.encoder1 = self._make_layer(block, in_channels * 2, in_channels * 2, 1) 
+        self.encoder1 = self._make_layer(block, in_channels * 2, in_channels * 2, 1)
         self.down2 = nn.MaxPool2d(kernel_size=2,stride=2)
-        self.encoder2 = self._make_layer(block, in_channels * 2, in_channels * 4, 1) 
+        self.encoder2 = self._make_layer(block, in_channels * 2, in_channels * 4, 1)
         self.down3 = nn.MaxPool2d(kernel_size=2,stride=2)
-        self.encoder3 = self._make_layer(block, in_channels * 4, in_channels * 8, 1)  
+        self.encoder3 = self._make_layer(block, in_channels * 4, in_channels * 8, 1)
         self.down4 = nn.MaxPool2d(kernel_size=2,stride=2)
-        self.encoder4 = self._make_layer(block, in_channels * 8,  in_channels * 8, 1)  
+        self.encoder4 = self._make_layer(block, in_channels * 8,  in_channels * 8, 1)
 
-        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3],width=img_size//1,height=img_size//1)
-        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3],width=img_size//2,height=img_size//2)
-        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1,3],width=img_size//4,height=img_size//4)
-        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1,3],width=img_size//8,height=img_size//8)
+        self.contras1 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3],width=img_size//1,height=img_size//1, L=L, num_polar=num_polar)
+        self.contras2 = SD2M(in_channels=in_channels*2,out_channels=in_channels*2,kernel_size=2,shifts=[1,3],width=img_size//2,height=img_size//2, L=L, num_polar=num_polar)
+        self.contras3 = SD2M(in_channels=in_channels*4,out_channels=in_channels*4,kernel_size=4,shifts=[1,3],width=img_size//4,height=img_size//4, L=L, num_polar=num_polar)
+        self.contras4 = SD2M(in_channels=in_channels*8,out_channels=in_channels*8,kernel_size=8,shifts=[1,3],width=img_size//8,height=img_size//8, L=L, num_polar=num_polar)
         
         self.decoder4 = UpBlock_attention(in_channels * 16, in_channels * 4, nb_Conv=2)
         self.decoder3 = UpBlock_attention(in_channels * 8, in_channels * 2, nb_Conv=2)

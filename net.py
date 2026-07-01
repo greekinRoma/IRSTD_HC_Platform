@@ -8,7 +8,7 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 
 class Net(nn.Module):
-    def __init__(self, model_name, mode='test',size=256):
+    def __init__(self, model_name, mode='test',size=256, **kwargs):
         super(Net, self).__init__()
 
         self.model_name = model_name
@@ -19,6 +19,7 @@ class Net(nn.Module):
         self.model = Algorithms()
         self.is_alg =False
         self.model_name = model_name
+        self._extra_kwargs = kwargs
         if self.model.detect(model_name):
             self.model.set_algorithm(model_name)
             self.is_alg = True
@@ -83,7 +84,7 @@ class Net(nn.Module):
         elif model_name == "SDecNet_orho":
             self.model = SDecNet_orho()
         elif model_name == "SFBD_Net":
-            self.model = SFBD_Net()
+            self.model = SFBD_Net(**self._extra_kwargs)
     def forward(self, imgs, mode='train'):
         if self.model_name in ["RPCANet", "DRPCANet", "RPCANet_plus", "LRPCANet"]:
             return self.model(imgs, mode=mode)
