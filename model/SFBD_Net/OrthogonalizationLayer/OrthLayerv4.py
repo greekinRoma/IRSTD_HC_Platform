@@ -19,34 +19,25 @@ class OrthLayer(nn.Module):
         self.act = torch.nn.GELU()
 
     def ortho(self, X):
-        B, C, N, D = X.shape
+        """Orthogonalize a single group of vectors.
+
+        Args:
+            X: (B, C, N_group, D) where N_group = group_size + num_polar
+        Returns:
+            (B, C, N_group, D) with orthogonalized rows
+        """
         with torch.no_grad():
-            
-            I_mat =  torch.eye(N, device=X.device).unsqueeze(0).unsqueeze(0).to(X.device)                     # [1, 1, N, N]
-            I_exp = I_mat.expand(B, C, N, N)                  # [B, C, N, N]
-
-            # ---- Gram matrix ----
-            G = X @ X.transpose(-1, -2)                     # [B, C, N, N]
-
-            # ---- Scale + regularise → eigenvalues in (ε, 1] ⊂ (0, 2) ----
-            A = G/self.group_size                    # ridge for numerical safety
-
-            # ---- Denman-Beavers iteration ----
-            Y = A
-            Z = I_exp.clone()
-
-            for _ in range(self.L):
-                T_mat = (3.0 * I_mat - Z @ Y) / 2.0
-                Y_new = Y @ T_mat
-                Z_new = T_mat @ Z
-
-                # Numerical guard: break early if diverging
-                if torch.isnan(Y_new).any() or torch.isinf(Y_new).any():
-                    break
-                Y, Z = Y_new, Z_new
-        result = Z @ X
-        return result
-
+            N = X.shape[2]
+            I = torch.eye(N, device=X.device).unsqueeze(0).unsqueeze(0)  # [1, 1, N, N]
+            conf = math.sqrt(2)
+            T = X @ X.transpose(-1, -2)                                   # [B, C, N, N]
+            X_curr = I - T / N *2
+            Y = X_curr
+            for i in range(self.L):
+                X_curr = X_curr @ X_curr
+                Y = Y + X_curr * conf
+                conf = conf * math.sqrt(2)
+        return Y @ X 
     def forward(self, inputs):
         """Forward pass — orthogonalizes each dilation group independently via reshape.
 
@@ -61,16 +52,16 @@ class OrthLayer(nn.Module):
                   .permute(0, 2, 1, 3, 4) \
                   .reshape(B * self.num_groups, C, self.group_size, D)
         # Add per-group polar vectors (different polars for each group)
-        polars = self.constant_polars.expand(B, -1, -1, -1, -1).reshape(B * self.num_groups, C, self.num_polar, D)
+        polars = self.constant_polars.repeat(B, 1, 1, 1, 1).reshape(B * self.num_groups, C, self.num_polar, D)
         x = torch.concat([x, polars], dim=2)
         x = torch.nn.functional.normalize(x, dim=-1, p=2)
         x = self.ortho(x)
         # Strip polar, normalize
-        # x = x[:, :, :-self.num_polar]
+        x = x[:, :, :-self.num_polar]
         x = torch.nn.functional.normalize(x, dim=-1, p=2)
         # (B * num_groups, C, group_size, D) -> (B, C, num_groups * group_size, D)
-        x = x.view(B, self.num_groups, C, -1, D) \
+        x = x.view(B, self.num_groups, C, self.group_size, D) \
              .permute(0, 2, 1, 3, 4) \
              .reshape(B, C, -1, D)
-        # print(x@x.transpose(-1, -2))
+        print(x@x.transpose(-1, -2))
         return x

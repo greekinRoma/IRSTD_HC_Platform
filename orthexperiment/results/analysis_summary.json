@@ -1,0 +1,26 @@
+{
+  "random_init": {
+    "err_pre_mean": 0.08100961893796921,
+    "err_post_mean": 0.006364292465150356,
+    "err_reduction": 0.07464532554149628,
+    "cond_pre_mean": 3.1098618507385254,
+    "cond_post_mean": 1.1252177953720093,
+    "effective_rank_pre": 16.267215728759766,
+    "effective_rank_post": 16.992618560791016,
+    "corr_pre_mean": 0.07575629651546478,
+    "corr_post_mean": 0.005846977233886719,
+    "final_conv_error": 1.3530625437851995e-06
+  },
+  "L=4": {
+    "err_pre_mean": 0.08100961893796921,
+    "err_post_mean": 0.03024453856050968,
+    "err_reduction": 0.050765082240104675,
+    "cond_pre_mean": 3.1098618507385254,
+    "cond_post_mean": 1.673343539237976,
+    "effective_rank_pre": 16.267215728759766,
+    "effective_rank_post": 16.87750816345215,
+    "corr_pre_mean": 0.07575629651546478,
+    "corr_post_mean": 0.026708433404564857,
+    "final_conv_error": 2.1103224754333496
+  }
+}
