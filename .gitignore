@@ -19,3 +19,5 @@ __pycache__/
 
 # Experiment outputs
 experiment_logs/
+model/SFBD_Net/*
+model/SFBD_Net

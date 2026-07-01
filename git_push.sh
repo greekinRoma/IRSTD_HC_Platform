@@ -21,7 +21,7 @@ git status --short
 MSG="${1:-update $(date '+%Y-%m-%d %H:%M')}"
 echo ""
 echo ">>> 提交: $MSG <<<"
-git commit -m "$MSG" -m "Co-Authored-By: Claude <noreply@anthropic.com>"
+git commit -m "$MSG"
 
 echo ""
 echo ">>> 拉取远程最新代码 <<<"
